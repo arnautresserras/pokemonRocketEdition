@@ -1,0 +1,69 @@
+SECUNDARIA EX CAMPEON VENENO
+----------------------------------------------------------------
+VS EX CAMPEÓN JOHTO VENENO
+
+- Nihilego (Nv. 100) | Banda Focus | Nat: Miedosa
+
+  Mov: Onda tóxica, trampa rocas, joya de luz, tóxico
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Vel (60 en el resto)
+
+- Purakkusu (Nv. 101) | Chal.Asalto | Nat: Firme
+
+  Mov: Chupavidas, roca afilada, terremoto, lanza mugre
+  IVs: 31/31 | EVs: 252 At, 252 Vel (60 en el resto)
+
+- Naganadel (Nv. 101) | Hierb.Blanca | Nat: Modesta
+
+  Mov: Onda tóxica, cometa draco, llamarada, rayo
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Vel (60 en el resto)
+
+- Zarude (Nv. 101) | Botas Gruesas | Nat: Firme
+
+  Mov: Latigazo, lariat oscuro, cura selvática, corpulencia
+  IVs: 31/31 | EVs: 252 At, 252 Vel (60 en el resto)
+
+- Venusaur (Nv. 102) | Venusaurita | Nat: Modesta
+
+  Mov: Bomba lodo, somnífero, gigadrenado, drenadoras
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Def (90 en el resto)
+
+- Goodra-& (Nv. 103) | Chal.Asalto | Nat: Osada
+
+  Mov: Onda tóxica, fragor escamas, lanzallamas, rayo
+  IVs: 31/31 | EVs: 252 Ps, 252 At.Esp (120 en el resto)
+
+
+
+SECUNDARIA EX CAMPEONA FANTASMA
+------------------------------------------------------------------
+VS EX CAMPEONA JOHTO FRIDA
+
+- Dragapult (Nv. 103) | Hierb.Única | Nat: Firme
+
+  Mov: Dracoflechas, golpe umbrío, psicocolmillos, danza dragón
+  IVs: 31/31 | EVs: 252 At, 252 Vel (65 en el resto)
+
+- Taaban (Nv. 102) | Restos | Nat: Modesta
+
+  Mov: Escaldar, bola sombra, relajo, paz mental
+  IVs: 31/31 | EVs: 252 At, 252 Vel (65 en el resto)
+
+- Spectrier (Nv. 103) | Gema Normal | Nat: Miedosa
+
+  Mov: Bola sombra, fuego fatuo, hiperrayo, esfera aural
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Vel (65 en el resto)
+
+- Gengar (Nv. 104) | Gengarita | Nat: Miedosa
+
+  Mov: Bola sombra, onda tóxica, rayo, esfera aural
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Vel (100 en el resto)
+
+- Calyrex Espectral (Nv. 105) | Vidasfera | Nat: Miedosa
+
+  Mov: Orbes espectro, fogonazo, esfera aural, psicocarga
+  IVs: 31/31 | EVs: 252 At.Esp, 252 Vel (65 en el resto)
+
+- Ninetales-& (Nv. 106) | Chal.Asalto | Nat: Miedosa
+
+  Mov: Fuego Azul, arenas ardientes, orbes espectro, psíquico
+  IVs: 31/31 | EVs: 252 Vel, 252 At.Esp (130 en el resto)

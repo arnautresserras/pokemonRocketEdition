@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dex-black text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dex-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dex-red rounded;
+  }
+}
+
+@layer components {
+  .dex-card {
+    @apply bg-dex-gray rounded-lg border border-white/10 hover:border-dex-red/50 transition-colors cursor-pointer;
+  }
+
+  .dex-btn {
+    @apply px-3 py-1.5 rounded bg-dex-red hover:bg-dex-darkred text-white text-xs font-bold transition-colors;
+  }
+
+  .stat-bar-track {
+    @apply h-2 rounded-full bg-white/10 overflow-hidden;
+  }
+}

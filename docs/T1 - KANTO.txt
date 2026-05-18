@@ -1,0 +1,1127 @@
+ISLA INTA
+---------------------------------------------------
+VS RIVAL ANDRA (1er encuentro)
+
+- Zubat (Nv. 7) | No item | Nat: -
+
+
+VS CONSUL
+
+- Meowth (Nv. 11) | No item | Nat: Seria
+
+  Mov: Sorpresa, arañazo, gruñido
+  IVs: 3/31 | EVs: 8 por cada stat
+
+- Wooper (Nv. 11) | No item | Nat: Seria
+
+  Mov: Pistola agua, destructor, bofetón lodo
+  IVs: 3/31 | EVs: 8 por cada stat
+
+- Mareep (Nv. 11) | No item | Nat: Modesta
+
+  Mov: Impactrueno, esporagodón, placaje
+  IVs: 14/31 | EVs: 8 por cada stat
+
+
+
+VÍA SUBTERRÁNEA - CIUDAD CARMÍN
+-----------------------------------------------------
+VS RIVAL ANDRA (2do encuentro)
+
+- Tentacool (Nv. 14) | B.Aranja | Nat: Seria
+
+  Mov: Pistola agua, supersónico, repetición, picotazo venenoso
+  IVs: 4/31 | EVs: 12 por cada stat
+
+- Teddiursa (Nv. 13) | No item | Nat: Seria
+
+  Mov: Placaje, látigo
+  IVs: 4/31 | EVs: 12 por cada stat
+
+- Zubat (Nv. 15) | B.Zidra | Nat: Firme
+
+  Mov: Absorber, mordisco, supersónico, at.rápido
+  IVs: 4/31 | EVs: 12 por cada stat
+
+
+
+MT.MOON - MISION FÓSILES
+-----------------------------------------------------------------
+VS ALTO RANGO FRANK (1er encuentro)
+
+- Rattata (Nv. 15) | No item | Nat: Seria
+
+  Mov: Placaje, látigo, at.rápido
+  IVs: 5/31 | EVs: 16 por cada stat
+
+- Ekans (Nv. 16) | B.Aranja | Nat: Seria
+
+  Mov: Repetición, p.veneno, deslumbrar, mordisco
+  IVs: 5/31 | EVs: 16 por cada stat
+
+- Raticate (Nv. 17) | B.Aranja | Nat: Alegre
+
+  Mov: Placaje, látigo, at.rápido, persecución
+  IVs: 16/31 | EVs: 16 por cada stat
+
+
+
+JARDÍN DE BILL - MISIÓN PATENTE TELETRANSPORTE
+-------------------------------------------------------------
+VS COLECCIONISTA BILL (1er encuentro)
+
+- Kabuto (Nv. 17) | No item | Nat: Seria
+
+  Mov: Placaje, megaagotar, lanzarrocas
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Clefairy (Nv. 18) | No item | Nat: Seria
+
+  Mov: Metrónomo, luz lunar, golpe cabeza
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Dratini (Nv. 18) | No item | Nat: Seria
+
+  Mov: Portazo, onda trueno, ciclón
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Porygon (Nv. 19) | No item | Nat: Modesta
+
+  Mov: Psicorrayo, onda voltio, doble rayo, viento hielo
+  IVs: 18/31 | EVs: 20 por cada stat
+
+
+
+SS.ANNE - MISIÓN FRASCO CAPITÁN BARCO
+----------------------------------------------------------------
+VS AZUL (1er encuentro)
+
+- Pidgeotto (Nv. 19) | P.Seda | Nat: Seria
+
+  Mov: Placaje, ataque ala, at.rápido, at.arena
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Raticate (Nv. 16) | P.Seda | Nat: Seria
+
+  Mov: Hypercolmillo, látigo, persecución, at.rápido
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Kadabra (Nv. 18) | Cuch.Torcida | Nat: Seria
+
+  Mov: Reflejo, confusión, kinésico, recoger
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Wartortle (Nv. 20) | B.Zidra | Nat: Osada
+
+  Mov: Hidropulso, mordisco, viento hielo, cabezazo
+  IVs: 18/31 | EVs: 20 por cada stat
+
+
+VS CAPITÁN EDWARD (1er encuentro)
+
+- Seadra (Nv. 20) | B.Ziuela | Nat: Seria
+
+  Mov: Dragoaliento, ciclón, rayo burbuja, niebla clara
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Pupitar (Nv. 21) | B.Ziuela | Nat: Seria
+
+  Mov: Magnitud, lanzarrocas, torm.arena, mordisco
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Shelgon (Nv. 21) | Restos | Nat: Seria
+
+  Mov: Dragoaliento, protección, tóxico, golpe cabeza
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Crawdaunt (Nv. 22) | B.Zidra | Nat: Osada
+
+  Mov: Corte, rayo burbuja, aqua yen, poder pasado
+  IVs: 19/31 | EVs: 24 por cada stat
+
+
+
+RUTA 10
+----------------------------------------------------------------
+VS ANDRA (3er encuentro)
+
+- Tentacool (Nv. 24) | Flecha Veneno | Nat: Seria
+
+  Mov: Rayo burbuja, repetición, ácido
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Teddiursa (Nv. 24) | P.Seda | Nat: Seria
+
+  Mov: Cuchillada, lengüetazo, vendetta
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Electabuzz (Nv. 23) | Imán | Nat: Seria
+
+  Mov: Carga, at.rápido, onda voltio, patada baja
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Golbat (Nv. 26) | B.Zidra | Nat: Firme
+
+  Mov: Ataque ala, rayo confuso, megaagotar, com.veneno
+  IVs: 21/31 | EVs: 24 por cada stat
+
+
+
+TÚNEL ROCA - MISIÓN KANGASKHAN PERDIDO
+-----------------------------------------------------------------
+VS ENTRENADORA GUAY VERO
+  - Ponyta (Nv. 23)
+  - Nidorina (Nv. 24)
+  - Clefable (Nv. 25)
+
+
+VS CIENTÍFICO MIGUEL (2do encuentro)
+
+- Kabuto (Nv. 28) | Agua Mística | Nat: Seria
+
+  Mov: Chupavidas, avalancha, aqua jet
+  IVs: 7/31 | EVs: 20 por cada stat
+
+- Electrode (Nv. 30) | Imán | Nat: Seria
+
+  Mov: Reflejo, mov.sísmico, onda voltio, pantalla luz
+  IVs: 7/31 | EVs: 20 por cada stat
+
+- Kangaskhan (Nv. 29) | P.Seda | Nat: Seria
+
+  Mov: Puño mareo, demolición, sorpresa, puño sombra
+  IVs: 7/31 | EVs: 20 por cada stat
+
+- Muk (Nv. 31) | Lodo Negro | Nat: Agitada
+
+  Mov: Residuos, bofetón lodo, demolición, arma.ácida
+  IVs: 7/31 | EVs: 24 por cada stat
+
+
+
+TORRE POKÉMON - MISIÓN FUJI Y PROTÓN
+----------------------------------------------------------------
+VS CRIAPOKÉMON FUJI
+
+- Haunter (Nv. 30) | Amuleto | Nat: Seria
+
+  Mov: Bola sombra, psíquico, onda voltio, hipnosis
+  IVs: 9/31 | EVs: 28 por cada stat
+
+- Kadabra (Nv. 31) | C.Xperto | Nat: Seria
+
+  Mov: Psicorrayo, onda voltio, reflejo, sumisión
+  IVs: 9/31 | EVs: 28 por cada stat
+
+- Raichu (Nv. 32) | Refleluz | Nat: Seria
+
+  Mov: Onda voltio, demolición, golpe cuerpo, pantalla luz
+  IVs: 9/31 | EVs: 28 por cada stat
+
+- Marowak (Nv. 33) | Hueso Grueso | Nat: Cauta
+
+  Mov: Huesomerang, avalancha, puño sombra, golpe
+  IVs: 21/31 | EVs: 28 por cada stat
+
+
+VS CULTISTA 'M'
+
+- Misdreavus (Nv. 32) | No item | Nat: Modesta
+
+  Mov: Psicorrayo, bola sombra, rayo confuso, hipnosis
+  IVs: 22/31 | EVs: 32 por cada stat
+
+- Xatu (Nv. 33) | No item | Nat: Modesta
+
+  Mov: Psicorrayo, tajo aéreo, respiro, reflejo
+  IVs: 22/31 | EVs: 32 por cada stat
+
+- Dusclops (Nv. 34) | No item | Nat: Firme
+
+  Mov: Poltergeist, divide dolor, hipnosis, puño drenaje
+  IVs: 21/31 | EVs: 6 Ps, 252 Def, 252 Def.esp
+
+
+VS MAROGHOST
+
+- Maroghost (Nv. 35) | No item | Nat: Cauta
+
+  Mov: Sombra vil, puño hielo, terratemblor, puño trueno
+  IVs: 31/31 | EVs: 32 por cada stat
+
+
+
+BASE ROCKET PROFUNDA 
+--------------------------------------------------------------
+VS EJECUTIVO ROCKET FRANK
+
+- Nidorino (Nv. 32) | Chal.Asalto | Nat: Seria
+
+  Mov: Púas tóxicas, residuos, hidropulso, rayo
+  IVs: 10/31 | EVs: 24 por cada stat
+
+- Raticate (Nv. 33) | B.Zidra | Nat: Seria
+
+  Mov: Hipercolmillo, golpe bajo, triturar, at.rápido
+  IVs: 10/31 | EVs: 24 por cada stat
+
+- Arbok (Nv. 33) | Lodo Negro | Nat: Seria
+
+  Mov: Colm.Veneno, triturar, deslumbrar, gigadrenado
+  IVs: 10/31 | EVs: 24 por cada stat
+
+- Kabutops (Nv. 34) | Banda focus | Nat: Firme
+
+  Mov: Avalancha, aqua jet, desarme, hidroariete
+  IVs: 22/31 | EVs: 24 por cada stat
+
+VS ANDRA (4to encuentro)
+
+- Electabuzz (Nv. 33) | Imán | Nat: Seria
+
+  Mov: Puño trueno, puño hielo, puño fuego, at.rápido
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Tentacruel (Nv. 34) | Lodo Negro | Nat: Seria
+
+  Mov: Rayo burbuja, ácido, derribo, viento hielo
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Ursaring (Nv. 34) | P.Seda | Nat: Seria
+
+  Mov: Imagen, puño hielo, demolición, vendetta
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Golbat (Nv. 35) | B.Zidra | Nat: Firme
+
+  Mov: Golpe aéreo, mordisco, colm.veneno, chupavidas
+  IVs: 21/31 | EVs: 32 por cada stat
+
+MUSEO PLATEADA - CAMINO A MISIÓN PUEBLO PALETA
+----------------------------------------------------------
+VS CIENTÍFICO MIGUEL (3er encuentro)
+
+- Weezing (Nv. 34) | B.Zidra | Nat: Seria
+
+  Mov: Residuos, lanzallamas, bola sombra, gas venenoso
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Ditto (Nv. 34) | Banda Focus | Nat: Seria
+
+  Mov: Transformación
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Magneton (Nv. 35) | Refleluz | Nat: Seria
+
+  Mov: Onda voltio, disp.espejo, onda trueno, pantalla luz
+  IVs: 10/31 | EVs: 32 por cada stat
+
+- Omastar (Nv. 36) | Chal.Asalto | Nat: Modesta
+
+  Mov: Dragoaliento, hidropulso, poder pasado, disp.lodo
+  IVs: 10/31 | EVs: 32 por cada stat
+
+
+
+LABORATORIO OAK 
+--------------------------------------------------------------
+VS DALIA (1er encuentro)
+
+- Mr.Mime (Nv. 35) | C.Xperto | Nat: Seria
+
+  Mov: Psicorrayo, recuperación, reflejo, onda certera
+  IVs: 11/31 | EVs: 36 por cada stat
+
+- Flareon (Nv. 36) | Gafas de sol | Nat: Seria
+
+  Mov: Lanzallamas, golpe cuerpo, cola férrea, mordisco
+  IVs: 11/31 | EVs: 36 por cada stat
+
+- Chansey (Nv. 36) | Min.Evol | Nat: Seria
+
+  Mov: Mov.sísmico, bola sombra, amortiguador, rizo defensa
+  IVs: 11/31 | EVs: 28 por cada stat
+
+- Raicho (Nv. 37) | B.Zidra | Nat: Miedosa
+
+  Mov: Rayo, surf, golpe cuerpo, cola férrea
+  IVs: 23/31 | EVs: 36 por cada stat
+
+
+
+RUTA 13 - MISIÓN ARTICUNO
+------------------------------------------------------------------
+VS AZUL (2do encuentro)
+
+- Pidgeot (Nv. 36) | B.Zidra | Nat: Seria
+
+  Mov: Golpe aéreo, onda ígnea, ala de acero, at.rápido
+  IVs: 12/31 | EVs: 44 por cada stat
+
+- Exeggcute (Nv. 35) | Min.Evol | Nat: Seria
+
+  Mov: Gigadrenado, drenadoras, psíquico, reflejo
+  IVs: 12/31 | EVs: 44 por cada stat
+
+- Alakazam (Nv. 35) | Cuch.Torcida | Nat: Seria
+
+  Mov: Psicorrayo, onda voltio, bola sombra, recuperación
+  IVs: 12/31 | EVs: 44 por cada stat
+
+- Growlithe (Nv. 37) | Min.Evol | Nat: Seria
+
+  Mov: Triturar, enfado, rueda fuego, represalia
+  IVs: 12/31 | EVs: 44 por cada stat
+
+- Blastoise (Nv. 38) | Chal.Asalto | Nat: Osada
+
+  Mov: Surf, rayo hielo, cabezazo, giro rápido
+  IVs: 25/31 | EVs: 44 por cada stat
+
+RUTA 16 - MISIÓN ARTICUNO
+-----------------------------------------------------------------
+VS BRUNO (1er encuentro)
+
+- Steelix (Nv. 42) | Chal.Asalto | Nat: Firme
+
+  Mov: Cabezahierro, terratemblor, tumba rocas, testarazo
+  IVs: 31/31 | EVs: 80 por cada stat
+
+- Hitmonlee (Nv. 41) | Vidasfera | Nat: Firme
+
+  Mov: Patada S.Alta, avalancha, desarme, patada ígnea
+  IVs: 31/31 | EVs: 80 por cada stat
+
+- Poliwrath (Nv. 43) | Chal.Asalto | Nat: Firme
+
+  Mov: Puño drenaje, surf, rayo hielo, puñodinámico
+  IVs: 31/31 | EVs: 80 por cada stat
+
+
+
+ISLAS ESPUMA - MISIÓN ARTICUNO
+------------------------------------------------------------------
+VS ARTICUNO
+
+  - Articuno (Nv. 50) | B.Ziuela | Nat: Alocada
+
+  Mov: Vendaval, poder pasado, ventisca, descanso
+  IVs: 31/31 | EVs: 84 por cada stat
+
+CENTRAL ENERGÍA - MISIÓN ZAPDOS
+------------------------------------------------------------------
+VS ZAPDOS
+
+  - Zapdos (Nv. 50) | B.Zidra | Nat: Modesta
+
+  Mov: Pico taladro, onda voltio, onda trueno, poder pasado
+  IVs: 31/31 | EVs: 84 por cada stat
+
+VS SURGE (1er encuentro)
+
+- Pikachu (Nv. 38) | No item | Nat: Seria
+
+  Mov: Fake out, onda voltio, vel,extrema
+  IVs: 12/31 | EVs: 40 por cada stat
+
+- Electrode (Nv. 39) | Imán | Nat: Seria
+
+  Mov: Onda voltio, mov.sísmico, levitón, onda anómala
+  IVs: 12/31 | EVs: 40 por cada stat
+
+- Electabuzz (Nv. 40) | Imán | Nat: Seria
+
+  Mov: Onda voltio, puño hielo, puño fuego, tajo cruzado
+  IVs: 12/31 | EVs: 40 por cada stat
+
+- Raichu (Nv. 40) | Imán | Nat: Seria
+
+  Mov: Onda voltio, golpe cuerpo, demolición, agilidad
+  IVs: 12/31 | EVs: 40 por cada stat
+
+- Jolteon (Nv. 41) | B.Zidra | Nat: Miedosa
+
+  Mov: Onda voltio, bola sombra, deseo, rapidez
+  IVs: 25/31 | EVs: 40 por cada stat
+
+CIUDAD AZAFRÁN - MISIÓN SILPH SA
+-----------------------------------------------------------------
+VS ANDRA (5to encuentro)
+
+- Electabuzz (Nv. 40) | B.Zidra | Nat: Seria
+
+  Mov: Voltio cruel, puño fuego, puño hielo, tajo cruzado
+  IVs: 13/31 | EVs: 48 por cada stat
+
+- Tentacruel (Nv. 41) | Lodo negro | Nat: Seria
+
+  Mov: Escaldar, barrera, gigadrenado, desarme
+  IVs: 13/31 | EVs: 48 por cada stat
+
+- Sneasel (Nv. 41) | Banda Focus | Nat: Seria
+
+  Mov: Puño hielo, persecución, sorpresa, canto helado
+  IVs: 13/31 | EVs: 48 por cada stat
+
+- Ursaring (Nv. 42) | Llamasfera | Nat: Seria
+
+  Mov: Imagen, terremoto, vendetta, puño fuego
+  IVs: 13/31 | EVs: 48 por cada stat
+
+- Golbat (Nv. 43) | Min.Evol | Nat: Firme
+
+  Mov: Vuelo, mordisco, chupavidas, veneno x
+  IVs: 26/31 | EVs: 48 por cada stat
+
+
+VS TRABAJADOR SILPH
+
+  - Graveler (Nv. 35) - Min.Evol
+  - Magneton (Nv. 36) - Min.Evol
+  - Slowbro (Nv. 37) - Chal.Asalto
+
+
+VS PRESIDENTE SILPH (1er encuentro)
+
+- Dodrio (Nv. 44) | Refleluz | Nat: Seria
+
+  Mov: Pico taladro, desarme, pataleta, reflejo
+  IVs: 15/31 | EVs: 56 por cada stat
+
+- Rapidash (Nv. 45) | B.Zidra | Nat: Seria
+
+  Mov: Taladradora, voltio cruel, lanzallamas, megacuerno
+  IVs: 15/31 | EVs: 56 por cada stat
+
+- Rhydon (Nv. 46) | Banda focus | Nat: Seria
+
+  Mov: Terremoto, pedrada, megacuerno, romperrocas
+  IVs: 15/31 | EVs: 56 por cada stat
+
+- Venusaur (Nv. 47) | Lodo Negro | Nat: Modesta
+
+  Mov: Gigadrenado, terremoto, bomba lodo, planta feroz
+  IVs: 28/31 | EVs: 56 por cada stat
+
+
+VS COLECCIONISTA BILL (2do encuentro)
+
+- Dragonair (Nv. 42) | Min.Evol | Nat: Seria
+
+  Mov: Carga dragón, reflejo, pantalla luz, llamarada
+  IVs: 14/31 | EVs: 52 por cada stat
+
+- Clefable (Nv. 43) | Vidasfera | Nat: Seria
+
+  Mov: Vozarrón, lanzallamas, rayo hielo, rayo
+  IVs: 14/31 | EVs: 52 por cada stat
+
+- Kangaskhan (Nv. 43) | Chal.Asalto | Nat: Seria
+
+  Mov: Sorpresa, golpe cuerpo, puño drenaje, cabezazo zen
+  IVs: 14/31 | EVs: 52 por cada stat
+
+- Vaporeon (Nv. 44) | Restos | Nat: Seria
+
+  Mov: Escaldar, rayo hielo, arm.ácida, descanso
+  IVs: 14/31 | EVs: 52 por cada stat
+
+- Aerodactyl (Nv. 44) | Banda focus | Nat: Seria
+
+  Mov: Avalancha, triturar, golpe aéreo, colm.fuego
+  IVs: 14/31 | EVs: 52 por cada stat
+
+- Porygon2 (Nv. 45) | Min.Evol | Nat: Osada
+
+  Mov: Tri ataque, chispazo, psíquico, recuperación
+  IVs: 27/31 | EVs: 52 por cada stat
+
+
+
+LÍDERES DE GIMNASIO - MISIÓN: ASALTO A LA LIGA POKÉMON
+-----------------------------------------------------------
+VS BROCK
+
+- Onix (Nv. 45) | C.Elegida | Nat: Seria
+
+  Mov: Tumba rocas
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Kabutops (Nv. 46) | Banda focus | Nat: Seria
+
+  Mov: Tumba rocas, cascada, gigadrenado, aqua jet
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Omastar (Nv. 46) | Vidasfera | Nat: Seria
+
+  Mov: Surf, poder pasado, rayo hielo, tumba rocas
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Golem (Nv. 47) | Chal.Asalto | Nat: Firme
+
+  Mov: Avalancha, terremoto, tumba rocas, giro bola
+  IVs: 28/31 | EVs: 52 por cada stat
+
+
+VS MISTY
+
+- Seaking (Nv. 45) | Agua mística | Nat: Seria
+
+  Mov: Megacuerno, desarme, cascada, puya nociva
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Golduck (Nv. 46) | C.Xperto | Nat: Seria
+
+  Mov: Surf, psíquico, rayo hielo, onda certera
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Kingler (Nv. 46) | Chal.Asalto | Nat: Seria
+
+  Mov: Avalancha, martillazo, machada, guillotina
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Gyarados (Nv. 46) | Restos | Nat: Seria
+
+  Mov: Onda trueno, terremoto, cascada, bote
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Starmie (Nv. 47) | Vidasfera | Nat: Miedosa
+
+  Mov: Psíquico, hydrobomba, rayo, recuperación
+  IVs: 28/31 | EVs: 60 por cada stat
+
+
+VS SURGE
+
+- Electrode (Nv. 45) | Imán | Nat: Seria
+
+  Mov: Voltiocambio, pantalla luz, reflejo, tóxico
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Magneton (Nv. 46) | Min.Evol | Nat: Seria
+
+  Mov: Electroweb, foco resplandor, voltiocambio, onda voltio
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Lanturn (Nv. 46) | Restos | Nat: Seria
+
+  Mov: Surf, rayo hielo, voltiocambio, onda voltio
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Electabuzz (Nv. 46) | C.Xperto | Nat: Seria
+
+  Mov: Onda voltio, tajo cruzado, psíquico, puño fuego
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Raichu (Nv. 46) | Gema Normal | Nat: Seria
+
+  Mov: Sorpresa, onda voltio, vel.extrema, surf
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Jolteon (Nv. 47) | Vidasfera | Nat: Miedosa
+
+  Mov: Onda voltio, bola sombra, vozarrón, doble rayo
+  IVs: 27/31 | EVs: 60 por cada stat
+
+
+VS ERIKA
+
+- Tangela (Nv. 45) | Min.Evol | Nat: Seria
+
+  Mov: Bomba lodo, ácido, gigadrenado, polvo veneno
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Parasect (Nv. 46) | C.Elegida | Nat: Seria
+
+  Mov: Chupavidas
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Jumpluff (Nv. 46) | Restos | Nat: Seria
+
+  Mov: Gigadrenado, vendaval, bote, drenados
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Exeggutor (Nv. 47) | Vidasfera | Nat: Seria
+
+  Mov: Psíquico, gigadrenado, poder pasado, paralizador
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Victreebel (Nv. 47) | Banda focus | Nat: Seria
+
+  Mov: Puya nociva, hoja aguda, desarme, somnífero
+  IVs: 15/31 | EVs: 60 por cada stat
+
+- Vileplume (Nv. 48) | Chal.Asalto | Nat: Osada
+
+  Mov: Gigadrenado, bomba lodo, fuerza lunar
+  IVs: 27/31 | EVs: 60 por cada stat
+
+
+VS KOGA
+
+- Golbat (Nv. 46) | Min.Evol | Nat: Seria
+
+  Mov: Vuelo, tóxico, bomba lodo, gigadrenado
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Venomoth (Nv. 47) | B.Zidra | Nat: Seria
+
+  Mov: Zumbido, somnífero, tóxico, danza aleteo
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Beedrill (Nv. 47) | Banda focus | Nat: Seria
+
+  Mov: Ida y vuelta, taladradora, puya nociva, desarme
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Muk (Nv. 48) | Lodo negro | Nat: Seria
+
+  Mov: Lanza mugre, puño sombra, tóxico, arm.ácida
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Tentacruel (Nv. 48) | Vidasfera | Nat: Seria
+
+  Mov: Hidrobomba, rayo hielo, gigadrenado, bomba lodo
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Weezing (Nv. 49) | Chal.Asalto | Nat: Osada
+
+  Mov: Llamarada, bomba lodo, rayo, bola sombra
+  IVs: 28/31 | EVs: 64 por cada stat
+
+VS SABRINA
+
+- Alakazam (Nv. 48) | Banda focus | Nat: Seria
+
+  Mov: Psíquico, onda voltio, bola sombra, reflejo
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Mr.Mime (Nv. 47) | Cuchara.Tor | Nat: Seria
+
+  Mov: Psíquico, bola sombra, brillo mágico, pantalla luz
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Hypno (Nv. 48) | Restos | Nat: Seria
+
+  Mov: Psíquico, puño hielo, puño fuego, puño drenaje
+  IVs: 16/31 | EVs: 60 por cada stat
+
+- Slowbro (Nv. 49) | Chal.Asalto | Nat: Seria
+
+  Mov: Psíquico, escaldar, rayo hielo, premonición
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Exeggutor (Nv. 49) | Hierb.Blanca | Nat: Seria
+
+  Mov: Lluevehojas, gigadrenado, poder pasado, psíquico
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Alakazam (Nv. 50) | Vidasfera | Nat: Miedosa
+
+  Mov: Psíquico, brillo mágico, bola sombra, hierba lazo
+  IVs: 28/31 | EVs: 60 por cada stat
+
+VS Blaine
+
+- Ninetales (Nv. 48) | Restos | Nat: Seria
+
+  Mov: Fuego fatuo, paranormal, energibola, llamarada
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Magcargo (Nv. 48) | Hierb.Blanca | Nat: Seria
+
+  Mov: Sofoco, llamarada, poder pasado, rompecoraza
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Rapidash (Nv. 49) | Vidasfera | Nat: Seria
+
+  Mov: Envite ígneo, megacuerno, llamarada, fuerza equina
+  IVs: 16/31 | EVs: 60 por cada stat
+
+- Flareon (Nv. 50) | Toxisfera | Nat: Seria
+
+  Mov: Envite ígneo, imagen, fuerza bruta, at.rápido
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Magmar (Nv. 50) | Min.Evol | Nat: Seria
+
+  Mov: Llamarada, psíquico, rayo, onda certera
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Arcanine (Nv. 51) | Camp.Concha | Nat: Firme
+
+  Mov: E	envite ígneo, vel.extrema, a bocajarro, voltio cruel
+  IVs: 28/31 | EVs: 60 por cada stat
+
+
+GIMNASIO CIUDAD VERDE - ÚLTIMA MEDALLA
+--------------------------------------------------------------------
+VS EJECUTIVO ROCKET PROTÓN
+
+- Qwilfish (Nv. 49) | Banda focus | Nat: Seria
+
+  Mov: Púas, púas tóxicas, aqua jet, puya nociva
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Golbat (Nv. 50) | Min.Evol | Nat: Seria
+
+  Mov: Golpe aéreo, onda ígnea, bomba lodo, gigadrenado
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Slowbro (Nv. 50) | B.Zidra | Nat: Seria
+
+  Mov: Psíquico, surf, lanzallamas, amnesia
+  IVs: 16/31 | EVs: 60 por cada stat
+
+- Muk (Nv. 51) | Lodo negro | Nat: Seria
+
+  Mov: Lanza mugre, puño drenaje, puño sombra, arm.ácida
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Noctowl (Nv. 51) | Telescopio | Nat: Seria
+
+  Mov: Vendaval, onda ígnea, reflejo, respiro
+  IVs: 16/31 | EVs: 64 por cada stat
+
+- Umbreon (Nv. 52) | Restos | Nat: Cauta
+
+  Mov: Triturar, bostezo, maldición, descanso
+  IVs: 28/31 | EVs: 64 por cada stat
+
+
+VS ADMINISTRADOR ROCKET PETREL
+
+- Granbull (Nv. 50) | Chal.Asalto | Nat: Seria
+
+  Mov: Golpe cuerpo, carantoña, puño drenaje, terremoto
+  IVs: 17/31 | EVs: 68 por cada stat
+
+- Cloyster (Nv. 51) | Chal.Asalto | Nat: Seria
+
+  Mov: Surf, pedrada, rayo hielo, canto helado
+  IVs: 17/31 | EVs: 68 por cada stat
+
+- Pinsir (Nv. 52) | Chal.Asalto | Nat: Seria
+
+  Mov: Terremoto, avalancha, a bocajarro, chupavidas
+  IVs: 17/31 | EVs: 68 por cada stat
+
+- Primeape (Nv. 51) | Chal.Asalto | Nat: Seria
+
+  Mov: A bocajarro, avalancha, desarme, golpe
+  IVs: 17/31 | EVs: 68 por cada stat
+
+- Octillery (Nv. 51) | Chal.Asalto | Nat: Seria
+
+  Mov: Recurrente, lanzallamas, octocañón, pedrada
+  IVs: 17/31 | EVs: 68 por cada stat
+
+- Weezing (Nv. 53) | Chal.Asalto | Nat: Cauta
+
+  Mov: Bomba lodo, rayo, llamarada, pulso umbrío
+  IVs: 29/31 | EVs: 68 por cada stat
+
+
+VS ADMINISTRADOR JEFE ROCKET ATLAS
+
+- Skarmory (Nv. 52) | Casc.Dentado | Nat: Seria
+
+  Mov: Ala de acero, pico taladro, trampa rocas, púas
+  IVs: 19/31 | EVs: 72 por cada stat
+
+- Scyther (Nv. 53) | Min.Evol | Nat: Seria
+
+  Mov: Ida y vuelta, demolición, ataque ala, picadura
+  IVs: 19/31 | EVs: 72 por cada stat
+
+- Tauros (Nv. 53) | Pañ.Elegido | Nat: Seria
+
+  Mov: Golpe cuerpo, cabezazo ten, cabezahierro, avalancha
+  IVs: 19/31 | EVs: 72 por cada stat
+
+- Donphan (Nv. 52) | Restos | Nat: Seria
+
+  Mov: Terremoto, terratemblor, avalancha, canto helado
+  IVs: 19/31 | EVs: 72 por cada stat
+
+- Houndoom (Nv. 54) | G.Elegidas | Nat: Seria
+
+  Mov: Pulso umbrío
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Feraligatr (Nv. 55) | Vidasfera | Nat: Alegre
+
+  Mov: Cabezazo zen, triturar, puño hielo, cascada
+  IVs: 31/31 | EVs: 6 Ps, 252 At, 252 Vel
+
+
+
+CALLE VICTORIA
+-----------------------------------------------------------
+
+VS AZUL 
+
+- Pidgeot (Nv. 53) | Hierb.Única | Nat: Seria
+
+  Mov: Ataque aéreo, a bocajarro, ida y vuelta, giga impacto
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Alakazam (Nv. 54) | Refleluz | Nat: Seria
+
+  Mov: Psíquico, brillo mágico, reflejo, pantalla luz
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Rhydon (Nv. 54) | Banda focus | Nat: Seria
+
+  Mov: Avalancha, demolición, terremoto, triturar
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Exeggutor (Nv. 54) | Restos | Nat: Seria
+
+  Mov: Gigadrenado, bomba lodo, psíquico, terratemblor
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Arcanine (Nv. 54) | Vidasfera | Nat: Seria
+
+  Mov: Vel.extrema, envite ígneo, voltio cruel, a bocajarro
+  IVs: 18/31 | EVs: 72 por cada stat
+
+- Blastoise (Nv. 55) | Chal.Asalto | Nat: Osada
+
+  Mov: Hydrobomba, terremoto, rayo hielo, cabezazo
+  IVs: 31/31 | EVs: 128 Ps, 252 Def, 128 At.esp
+
+
+VS RIVAL ANDRA
+
+- Electivire (Nv. 55) | Refleluz | Nat: Seria
+
+  Mov: Voltio cruel, tajo cruzado, puño hielo, reflejo
+  IVs: 18/31 | EVs: 76 por cada stat
+
+- Ursaring (Nv. 55) | Llamasfera | Nat: Seria
+
+  Mov: Imagen, terremoto, cabezazo zen, a bocajarro
+  IVs: 18/31 | EVs: 76 por cada stat
+
+- Sneasel (Nv. 54) | Vidasfera | Nat: Seria
+
+  Mov: Desarme, triple Axel, patada baja, sorpresa
+  IVs: 18/31 | EVs: 76 por cada stat
+
+- Tentacruel (Nv. 55) | Lodo negro | Nat: Seria
+
+  Mov: Escaldar, púas tóxicas, bomba lodo, gigadrenado
+  IVs: 18/31 | EVs: 76 por cada stat
+
+- Heracross (Nv. 56) | Banda focus | Nat: Seria
+
+  Mov: Megacuerno, avalancha, terremoto, demolición
+  IVs: 18/31 | EVs: 76 por cada stat
+
+- Crobat (Nv. 57) | Chal.Asalto | Nat: Firme
+
+  Mov: Vuelo, chupavidas, veneno x, gigadrenado
+  IVs: 31/31 | EVs: 6 Ps, 252 At, 252 Def, 6 Def.Esp
+
+
+
+LIGA POKÉMON DE KANTO
+---------------------------------------------------------
+VS ALTO MANDO LORELEI
+
+- Dewgong (Nv. 54) | Roca helada | Nat: Osada
+
+  Mov: Rayo hielo, megacuerno, surf, granizo
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Cloyster (Nv. 53) | Banda focus | Nat: Alegre
+
+  Mov: Explosión, púas, pedrada, carámbano
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Slowbro (Nv. 54) | Casco Dentado | Nat: Osada
+
+  Mov: Rayo hielo, surf, psíquico, relajo
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Jynx (Nv. 56) | Vidasfera | Nat: Miedosa
+
+  Mov: Rayo hielo, psíquico, beso amoroso, bola sombra
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Piloswine (Nv. 55) | Min.Evol | Nat: Firme
+
+  Mov: Terremoto, chuzos, terratemblor, canto helado
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Lapras (Nv. 56) | Restos | Nat: Osada
+
+  Mov: Buceo, rayo, rayo hielo, psíquico
+  IVs: 31/31 | EVs: 252 Ps, 128 Def, 128 Sp.Def
+
+VS ALTO MANDO BRUNO
+
+- Steelix (Nv. 56) | Banda focus | Nat: Osada
+
+  Mov: Terremoto, terratemblor, tumba rocas, trampa rocas
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Hitmonchan (Nv. 55) | Vidasfera | Nat: Agitada
+
+  Mov: Puño drenaje, ultrapuño, tumba rocas, puño trueno
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Hitmonlee (Nv. 55) | Gema normal | Nat: Agitada
+
+  Mov: Sorpresa, a bocajarro, desarme, avalancha
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Hitmontop (Nv. 55) | Restos | Nat: Firme
+
+  Mov: Puño drenaje, giro rápido, ultrapuño, roca afilada
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Poliwrath (Nv. 57) | Baya aslac | Nat: Firme
+
+  Mov: Puño drenaje, hidroariete, avalancha, sustituto
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Machamp (Nv. 58) | Chal.Asalto | Nat: Firme
+
+  Mov: Puñodinámico, puño fuego, roca afilada, puño bala
+  IVs: 31/31 | EVs: 252 Ps, 252 At, 6 Vel
+
+
+VS ALTO MANDO AGATHA
+
+- Gengar (Nv. 57) | Lupa | Nat: Miedosa
+
+  Mov: Bola sombra, rayo, bomba lodo, hipnosis
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Crobat (Nv. 59) | Gema volador | Nat: Ingenua
+
+  Mov: Acróbata, onda ígnea, bomba lodo, gigadrenado
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Misdreavus (Nv. 56) | Min.Evol | Nat: Modesta
+
+  Mov: Bola sombra, psíquico, rayo, juego sucio
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Arbok (Nv. 58) | Baya cardo | Nat: Agitada
+
+  Mov: Terremoto, deslumbrar, triturar, lanza mugre
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Marowak (Nv. 59) | Hueso grueso | Nat: Firme
+
+  Mov: Huesomerang, doble filo, roca afilada, hueso sombrío
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Gengar (Nv. 59) | Vidasfera | Nat: Modesta
+
+  Mov: Bola sombra, rayo, bomba lodo, psíquico
+  IVs: 31/31 | EVs: 6 Ps, 252 At.esp, 252 Vel
+
+
+VS ALTO MANDO LANCE (1er encuentro)
+
+- Gyarados (Nv. 58) | Escama Roja | Nat: Alegre
+
+  Mov: Aqua cola, terremoto, onda trueno, furia dragón
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Dragonair (Nv. 58) | Min.Evol | Nat: Audaz
+
+  Mov: Lanzallamas, rayo, vel.extrema, enfado
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Kingdra (Nv. 59) | Escamadragón | Nat: Audaz
+
+  Mov: Cometa draco, furia dragón, cabezahierro, cascada
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Aerodactyl (Nv. 60) | Chal.Asalto | Nat: Firme
+
+  Mov: Golpe aéreo, terremoto, avalancha, colm.fuego
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Charizard (Nv. 61) | Hierb.Blanca | Nat: Audaz
+
+  Mov: Sofoco, garra dragón, avalancha, puño trueno
+  IVs: 19/31 | EVs: 80 por cada stat
+
+- Dragonite (Nv. 62) | B.Zidra | Nat: Audaz
+
+  Mov: Enfado, llamarada, rayo, terremoto
+  IVs: 31/31 | EVs: 84 por cada stat (94 en At)
+
+
+VS CAMPEÓN ROJO
+
+- Pikachu (Nv. 67) | Bolaluminosa | Nat: Seria
+
+  Mov: Plac.Eléc, sorpresa, surf, vel.extrema
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Espeon (Nv. 65) | Refleluz | Nat: Osada
+
+  Mov: Psíquico, sol matinal, reflejo, brillo mágico
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Machamp (Nv. 65) | Vidasfera | Nat: Firme
+
+  Mov: Puñodinámico, roca afilada, terremoto, puño bala
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Lapras (Nv. 66) | Chal.Asalto | Nat: Serena
+
+  Mov: Hidrobomba, psíquico, rayo hielo, trueno
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Snorlax (Nv. 64) | Restos | Nat: Agitada
+
+  Mov: Golpe cuerpo, terremoto, descanso, sonámbulo
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Charizard (Nv. 67) | G.Elegidas | Nat: Modesta
+
+  Mov: Anillo ígneo
+  IVs: 31/31 | EVs: 6 Ps, 252 At.esp, 252 Vel
+
+
+VS EMPERADOR LANCE
+
+- Dragonite (Nv. 67) | C.Elegida | Nat: Seria
+
+  Mov: Enfado
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Dragonite (Nv. 68) | Vidasfera | Nat: Seria
+
+  Mov: Cometa draco, garra dragón, puño fuego, vel.extrema
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Entei (Nv. 69) | Restos | Nat: Seria
+
+  Mov: Envite ígneo, vel.extrema, cabezahierro, fuerza equina
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Raikou (Nv. 69) | Globo helio | Nat: Seria
+
+  Mov: Rayo, reflejo, paranormal, bola sombra
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Suicune (Nv. 69) | Hierb.Blanca | Nat: Seria
+
+  Mov: Escaldar, frío polar, paranormal, bola sombra
+  IVs: 21/31 | EVs: 84 por cada stat
+
+- Dragonite (Nv. 70) | Chal.Asalto | Nat: Firme
+
+  Mov: Vuelo, garra dragón, vel.extrema, terremoto
+  IVs: 31/31 | EVs: 252 At, 128 Def, 128 Vel
+
+---------------------------------------------------------------------

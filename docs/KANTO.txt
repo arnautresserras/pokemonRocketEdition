@@ -1,0 +1,285 @@
+CIUDAD CARMÍN - ANCIANO Y SU MACHOP
+---------------------------------------------------------
+VS PRESIDENTE CLUB FANS
+
+- Dewgong (Nv. 25) | No item | Nat: Seria
+
+  Mov: Acua aro, agua jet, golpe cabeza, canto helado
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Fearow (Nv. 25) | No item | Nat: Seria
+
+  Mov: Ataque furia, ataque ala, ala de acero, danza pluma
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Rapidash (Nv. 25) | No item | Nat: Seria
+
+  Mov: Pisotón, doble patada, nitrocarga, fuego fatuo
+  IVs: 6/31 | EVs: 20 por cada stat
+
+
+VS DOMADOR TIENDA BICIS
+
+- Arbok (Nv. 24) | No item | Nat: Seria
+
+  Mov: Deslumbrar, colm.rayo, colm.veneno, excavar
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Persian (Nv. 25) | No item | Nat: Seria
+
+  Mov: Sorpresa, día de pago, finta, rayo burbuja
+  IVs: 6/31 | EVs: 20 por cada stat
+
+- Hitmonchan (Nv. 26) | No item | Nat: Seria
+
+  Mov: Ultrapuño, puño hielo, puño fuego, ultrapuño
+  IVs: 6/31 | EVs: 20 por cada stat
+
+
+
+GURÚ PESCADOR CARMÍN - MANSIÓN AZULONA
+--------------------------------------------------------
+VS DOMADOR MACUTO
+
+- Raticate (Nv. 26) | B.Aranja | Nat: Seria
+
+  Mov: Placaje, hipercolmillo, at.rápido, persecución
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Sandslash (Nv. 27) | Pañ.Seda | Nat: Seria
+
+  Mov: Cuchillada, puya nociva, giro rápido, bucle arena
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Arbok (Nv. 27) | Flech.Veneno | Nat: Seria
+
+  Mov: Colm.Veneno, deslumbrar, gigadrenado, colm.rayo
+  IVs: 7/31 | EVs: 24 por cada stat
+
+- Kingler (Nv. 28) | B.Zidra | Nat: Seria
+
+  Mov: Pisotón, rayo burbuja, viento hielo, def.férrea
+  IVs: 7/31 | EVs: 24 por cada stat
+
+
+
+CAZABICHOS PLATEADA - JARDÍN CARMÍN
+---------------------------------------------------------
+VS MOTORISTA FLORÍN
+
+- Ariados (Nv. 33) | Banda focus | Nat: Seria
+
+  Mov: Telaraña, veneno x, tijera x, púas tóxicas
+  IVs: 11/31 | EVs: 36 por cada stat
+
+- Croconaw (Nv. 33) | Min.Evol | Nat: Seria
+
+  Mov: Mordisco, acua jet, colm.hielo, garra brutal
+  IVs: 11/31 | EVs: 36 por cada stat
+
+- Sudowoodo (Nv. 34) | Chal.Asalto | Nat: Seria
+
+  Mov: Tumba rocas, patada baja, golpe bajo, plancha corporal
+  IVs: 11/31 | EVs: 36 por cada stat
+
+- Houndoom (Nv. 35) | B.Zidra | Nat: Firme
+
+  Mov: Mordisco, colm.fuego, fuego fatuo, colm.rayo
+  IVs: 11/31 | EVs: 36 por cada stat
+
+
+
+GURÚ PESCADOR RUTA 12 - CIUDAD FUCSIA
+---------------------------------------------------------
+VS GURÚ PESCADOR FUCSIA
+
+- Poliwhirl (Nv. 35) | Lupa | Nat: Seria
+
+  Mov: Hidropulso, viento hielo, disp.lodo, hipnosis
+  IVs: 10/31 | EVs: 40 por cada stat
+
+- Seaking (Nv. 36) | Agua Mística | Nat: Seria
+
+  Mov: Cascada, megacuerno, taladradora, bote
+  IVs: 10/31 | EVs: 40 por cada stat
+
+- Seadra (Nv. 36) | Min.Evol | Nat: Seria
+
+  Mov: Hidropulso, dracoaliento, danza lluvia, rayo aurora
+  IVs: 10/31 | EVs: 40 por cada stat
+
+- Gyarados (Nv. 36) | B.Ziuela | Nat: Seria
+
+  Mov: Furia dragón, golpe, descanso, sonámbulo
+  IVs: 10/31 | EVs: 40 por cada stat
+
+- Gyarados (Nv. 37) | Restos | Nat: Seria
+
+  Mov: Onda trueno, bote, buceo, colm.hielo
+  IVs: 10/31 | EVs: 40 por cada stat
+
+- Gyarados (Nv. 38) | Chal.Asalto | Nat: Alegre
+
+  Mov: Cascada, terremoto, golpe, furia dragón
+  IVs: 10/31 | EVs: 40 por cada stat
+
+
+VS GUARDA SAFARI SLOWPOKE
+
+- Shellder (Nv. 37) | Min.Evol | Nat: Seria
+
+  Mov: Carámbano, hidropulso, pedrada, púas
+  IVs: 12/31 | EVs: 52 por cada stat
+
+- Slowpoke (Nv. 37) | Min.Evol | Nat: Seria
+
+  Mov: Psíquico, surf, rayo hielo, bostezo
+  IVs: 12/31 | EVs: 52 por cada stat
+
+- Gastly (Nv. 37) | Min.Evol | Nat: Seria
+
+  Mov: Bola sombra, bomba lodo, rayo, hipnosis
+  IVs: 12/31 | EVs: 52 por cada stat
+
+- Cloyster (Nv. 38) | Banda focus | Nat: Seria
+
+  Mov: Surf, rayo hielo, pedrada, púas
+  IVs: 12/31 | EVs: 52 por cada stat
+
+- Slowbro (Nv. 38) | Casco Dentado | Nat: Seria
+
+  Mov: Surf, relajo, psíquico, amnesia
+  IVs: 12/31 | EVs: 52 por cada stat
+
+- Slowking (Nv. 39) | Chal.Asalto | Nat: Serena
+
+  Mov: Psíquico, rayo hielo, surf, lanzallamas
+  IVs: 12/31 | EVs: 52 por cada stat
+
+
+
+LABORATORIO CANELA - SUBTERRÁNEO RUTA 5
+---------------------------------------------------
+VS POKEMANÍACO MATÍAS
+
+- Lickitung (Nv. 41) | Min.Evol | Nat: Seria
+
+  Mov: Golpe cuerpo, desarme, lanzallamas, deseo
+  IVs: 14/31 | EVs: 48 por cada stat
+
+- Marowak (Nv. 42) | Hueso Grueso | Nat: Seria
+
+  Mov: Huesomerang, desarme, puño fuego, puño sombra
+  IVs: 14/31 | EVs: 48 por cada stat
+
+- Kangaskhan (Nv. 43) | Gema Normal | Nat: Seria
+
+  Mov: Sorpresa, puño drenaje, triturar, golpe cuerpo
+  IVs: 14/31 | EVs: 48 por cada stat
+
+- Flareon (Nv. 44) | Hierb.Blanca | Nat: Seria
+
+  Mov: Sofoco, cola férrea, golpe cuerpo, fuerza bruta
+  IVs: 14/31 | EVs: 48 por cada stat
+
+- Vaporeon (Nv. 44) | Restos | Nat: Seria
+
+  Mov: Escaldar, rayo hielo, bola sombra, arm.ácida
+  IVs: 14/31 | EVs: 48 por cada stat
+
+- Jolteon (Nv. 44) | C.Xperto | Nat: Seria
+
+  Mov: Rayo, bola sombra, vozarrón, doble rayo
+  IVs: 14/31 | EVs: 48 por cada stat
+
+
+
+CIENTÍFICO FUCSIA - MANSIÓN CANELA - COMBATE TRIPLE
+---------------------------------------------------------
+VS PRIMER ESTAFADOR
+
+- Charmeleon (Nv. 39) | Min.Evol | Nat: Seria
+
+  Mov: Lanzallamas, at.rápido, puño trueno, garra dragón
+  IVs: 11/31 | EVs: 32 por cada stat
+
+- Raticate (Nv. 40) | Pañ.Seda | Nat: Seria
+
+  Mov: Hipercolmillo, triturar, cola férrea, ida y vuelta
+  IVs: 11/31 | EVs: 32 por cada stat
+
+- Hitmonlee (Nv. 41) | Cint.Negro | Nat: Seria
+
+  Mov: Sorpresa, patada salto, desarme, avalancha
+  IVs: 11/31 | EVs: 32 por cada stat
+
+- Magmar (Nv. 41) | Carbón | Nat: Seria
+
+  Mov: Hiperrayo, bomba lodo, puño trueno, lanzallamas
+  IVs: 11/31 | EVs: 32 por cada stat
+
+- Scyther (Nv. 42) | Pico Afilado | Nat: Seria
+
+  Mov: Ataque ala, picadura, ala de acero, respiro
+  IVs: 11/31 | EVs: 32 por cada stat
+
+
+VS SEGUNDO ESTAFADOR
+
+- Ninetales (Nv. 40) | Banda focus | Nat: Seria
+
+  Mov: Lanzallamas, paranormal, energibola, fuego fatuo
+  IVs: 13/31 | EVs: 42 por cada stat
+
+- Raticate (Nv. 40) | Pañ.Seda | Nat: Seria
+
+  Mov: Hipercolmillo, triturar, cola férrea, ida y vuelta
+  IVs: 13/31 | EVs: 42 por cada stat
+
+- Electabuzz (Nv. 42) | Imán | Nat: Seria
+
+  Mov: Puño trueno, puño hielo, puño fuego, psíquico
+  IVs: 13/31 | EVs: 42 por cada stat
+
+- Hitmonchan (Nv. 42) | Restos | Nat: Seria
+
+  Mov: Puño drenaje, ultrapuño, puño trueno, puño hielo
+  IVs: 13/31 | EVs: 42 por cada stat
+
+- Tauros (Nv. 43) | Chal.Asalto | Nat: Seria
+
+  Mov: Avalancha, golpe cuerpo, cabezazo zen, vendetta
+  IVs: 13/31 | EVs: 42 por cada stat
+
+
+VS TERCER ESTAFADOR
+
+- Arbok (Nv. 41) | Chal.Asalto | Nat: Seria
+
+  Mov: Triturar, colm.veneno, colm.rayo, colm.fuego
+  IVs: 15/31 | EVs: 52 por cada stat
+
+- Raichu (Nv. 42) | Imán | Nat: Seria
+
+  Mov: Rayo, golpe cuerpo, surf, sorpresa
+  IVs: 15/31 | EVs: 52 por cada stat
+
+- Dodrio (Nv. 42) | Vidasfera | Nat: Seria
+
+  Mov: Pico taladro, pataleta, desarme, patada salto
+  IVs: 15/31 | EVs: 52 por cada stat
+
+- Rapidash (Nv. 43) | Camp.Concha | Nat: Seria
+
+  Mov: Envite ígneo, fuerza equina, megacuerno, voltio cruel
+  IVs: 15/31 | EVs: 52 por cada stat
+
+- Jynx (Nv. 43) | Lupa | Nat: Seria
+
+  Mov: Psíquico, beso amoroso, viento hielo, beso drenaje
+  IVs: 15/31 | EVs: 52 por cada stat
+
+- Gyarados (Nv. 44) | Restos | Nat: Seria
+
+  Mov: Enfado, cascada, terremoto, bote
+  IVs: 15/31 | EVs: 52 por cada stat

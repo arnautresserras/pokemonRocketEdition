@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Arnau\\\\source\\\\repos\\\\PKMN_Rocket\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(file \"c:\\\\Users\\\\Arnau\\\\source\\\\repos\\\\PKMN_Rocket\"/*)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\Arnau\\\\source\\\\repos\\\\PKMN_Rocket\\\\docs\")",
+      "Bash(Select-Object Name)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\Arnau\\\\source\\\\repos\\\\PKMN_Rocket\\\\docs\" | ForEach-Object { $_.Name })",
+      "PowerShell(cd \"c:\\\\Users\\\\Arnau\\\\source\\\\repos\\\\PKMN_Rocket\"; Get-ChildItem src/data | ForEach-Object { \"$\\($_.Name\\) - $\\([math]::Round\\($_.Length/1KB, 1\\)\\)KB\" })"
+    ]
+  }
+}
