@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 const LINKS = [
   { to: '/', label: 'Pokédex', icon: '◉' },
-  { to: '/moves', label: 'Movimientos', icon: '⚡' },
+  { to: '/moves', label: 'MT/MO', icon: '⚡' },
   { to: '/guide', label: 'Guía', icon: '📖' },
   { to: '/types', label: 'Tipos', icon: '🔥' },
 ]
