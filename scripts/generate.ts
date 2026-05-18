@@ -127,7 +127,6 @@ function parseExperiments(): object[] {
   const result: object[] = []
 
   const parseBlock = (content: string, category: string, level?: number) => {
-    const statsLineRe = /(?:(.+?) Oficial|(.+?)):? Ps (\d+), At (\d+), Def (\d+), At\.esp (\d+), Def\.esp (\d+), Velocid (\d+)\. Total:? (\d+)/
     const formNameRe = /^([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜa-záéíóúñü\s\-'\.0-9]+):?$/
 
     const lines = content.split('\n')
