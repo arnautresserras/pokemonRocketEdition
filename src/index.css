@@ -18,6 +18,12 @@
   }
 }
 
+@layer utilities {
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
 @layer components {
   .dex-card {
     @apply bg-dex-gray rounded-lg border border-white/10 hover:border-dex-red/50 transition-colors cursor-pointer;

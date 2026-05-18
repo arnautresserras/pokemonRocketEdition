@@ -1,21 +1,50 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import PokedexPage from './pages/PokedexPage'
 import MovesPage from './pages/MovesPage'
 import GuidePage from './pages/GuidePage'
 
+const NAV_LINKS = [
+  { to: '/', label: 'Pokédex', icon: '◉' },
+  { to: '/moves', label: 'Movimientos', icon: '⚡' },
+  { to: '/guide', label: 'Guía', icon: '📖' },
+]
+
+function MobileNav() {
+  return (
+    <nav className="md:hidden flex shrink-0 border-t border-white/10 bg-dex-black">
+      {NAV_LINKS.map(({ to, label, icon }) => (
+        <NavLink
+          key={to}
+          to={to}
+          end={to === '/'}
+          className={({ isActive }) =>
+            `flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors ${
+              isActive ? 'text-dex-red' : 'text-gray-500'
+            }`
+          }
+        >
+          <span className="text-xl">{icon}</span>
+          <span className="font-mono text-[9px] font-bold">{label}</span>
+        </NavLink>
+      ))}
+    </nav>
+  )
+}
+
 export default function App() {
   return (
     <HashRouter>
-      <div className="flex h-screen overflow-hidden">
+      <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         <Sidebar />
-        <main className="flex-1 overflow-auto bg-dex-black">
+        <main className="flex-1 overflow-auto bg-dex-black min-h-0">
           <Routes>
             <Route path="/" element={<PokedexPage />} />
             <Route path="/moves" element={<MovesPage />} />
             <Route path="/guide" element={<GuidePage />} />
           </Routes>
         </main>
+        <MobileNav />
       </div>
     </HashRouter>
   )

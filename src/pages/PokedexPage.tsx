@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Pokemon, Stats } from '../types'
 import pokemonData from '../data/pokemon.json'
 import experimentsData from '../data/experiments.json'
@@ -22,6 +23,14 @@ const CAT_LABELS: Record<Category, string> = {
   primal: 'Primigenio',
 }
 
+function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber'>): string {
+  if (pokemon.dexNumber) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.dexNumber}.png`
+  }
+  const slug = pokemon.name.toLowerCase().replace(/_/g, '-').replace(/\s+/g, '-')
+  return `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${slug}.png`
+}
+
 export default function PokedexPage() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<Category>('todos')
@@ -38,10 +47,22 @@ export default function PokedexPage() {
     })
   }, [search, category])
 
+  const listRef = useRef<HTMLDivElement>(null)
+  const virtualizer = useVirtualizer({
+    count: filtered.length,
+    getScrollElement: () => listRef.current,
+    estimateSize: () => 56,
+    overscan: 5,
+  })
+
   return (
-    <div className="flex h-full">
+    <div className="flex flex-col md:flex-row h-full">
       {/* List panel */}
-      <div className="w-80 shrink-0 border-r border-white/10 flex flex-col">
+      <div
+        className={`flex-col border-white/10 md:w-80 md:shrink-0 md:flex md:border-r ${
+          selected ? 'hidden' : 'flex flex-1 border-r md:flex-none'
+        }`}
+      >
         <div className="p-4 border-b border-white/10 space-y-3">
           <h2 className="font-mono text-xs text-dex-red font-bold">POKÉDEX</h2>
           <SearchBar value={search} onChange={setSearch} placeholder="Nombre o número..." />
@@ -63,22 +84,36 @@ export default function PokedexPage() {
           <p className="text-[10px] text-gray-500">{filtered.length} resultados</p>
         </div>
 
-        <div className="flex-1 overflow-y-auto">
-          {filtered.map((pkmn, i) => (
-            <PokemonRow
-              key={`${pkmn.name}-${i}`}
-              pokemon={pkmn}
-              isSelected={selected?.name === pkmn.name}
-              onClick={() => setSelected(pkmn)}
-            />
-          ))}
+        <div ref={listRef} className="flex-1 overflow-y-auto">
+          <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
+            {virtualizer.getVirtualItems().map(row => (
+              <div
+                key={row.index}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+              >
+                <PokemonRow
+                  pokemon={filtered[row.index]}
+                  isSelected={selected?.name === filtered[row.index].name}
+                  onClick={() => setSelected(filtered[row.index])}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Detail panel */}
-      <div className="flex-1 overflow-y-auto">
+      <div className={`flex-1 overflow-y-auto ${selected ? '' : 'hidden md:block'}`}>
         {selected ? (
-          <PokemonDetail pokemon={selected} />
+          <>
+            <button
+              onClick={() => setSelected(null)}
+              className="md:hidden flex items-center gap-2 px-4 py-3 border-b border-white/10 text-dex-red font-bold text-sm w-full"
+            >
+              ← Volver
+            </button>
+            <PokemonDetail pokemon={selected} />
+          </>
         ) : (
           <div className="flex items-center justify-center h-full text-gray-600">
             <div className="text-center space-y-2">
@@ -119,6 +154,14 @@ function PokemonRow({
           #{String(pokemon.dexNumber).padStart(3, '0')}
         </span>
       )}
+      <img
+        src={getSpriteUrl(pokemon)}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="w-10 h-10 object-contain shrink-0 pixelated"
+        onError={e => { e.currentTarget.style.visibility = 'hidden' }}
+      />
       <div className="flex-1 min-w-0">
         <p className="text-sm font-bold text-white truncate">{pokemon.name}</p>
         <div className="flex gap-1 mt-0.5 flex-wrap">
@@ -161,10 +204,20 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
 
   return (
     <div className="p-6 max-w-2xl">
-      {/* Header */}
-      <div className="flex items-start justify-between mb-6">
-        <div>
-          <div className="flex items-center gap-3">
+      {/* Header card */}
+      <div className="bg-dex-gray rounded-lg mb-6 overflow-hidden border border-white/10">
+        {/* Sprite screen */}
+        <div className="bg-dex-screen-dark flex items-center justify-center py-6">
+          <img
+            src={getSpriteUrl(pokemon)}
+            alt={pokemon.name}
+            className="w-32 h-32 object-contain pixelated drop-shadow-lg"
+            onError={e => { e.currentTarget.style.visibility = 'hidden' }}
+          />
+        </div>
+        {/* Info */}
+        <div className="p-4">
+          <div className="flex items-baseline gap-3 flex-wrap">
             {pokemon.dexNumber && (
               <span className="text-gray-500 font-mono text-sm">
                 #{String(pokemon.dexNumber).padStart(3, '0')}

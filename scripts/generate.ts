@@ -170,14 +170,14 @@ function parseExperiments(): object[] {
 
       const nameM = line.match(formNameRe)
       if (nameM && line.endsWith(':')) {
-        if (currentEntry.name) {
+        if (currentEntry.name && (currentEntry.officialStats || currentEntry.hackromStats)) {
           result.push({ ...currentEntry, category, prototypeLevel: level })
         }
         currentEntry = { name: line.replace(/:$/, '').trim() }
       }
     }
 
-    if (currentEntry.name) {
+    if (currentEntry.name && (currentEntry.officialStats || currentEntry.hackromStats)) {
       result.push({ ...currentEntry, category, prototypeLevel: level })
     }
   }

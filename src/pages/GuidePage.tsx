@@ -38,9 +38,13 @@ export default function GuidePage() {
   const activeSectionData = currentGuide?.sections.find(s => s.location === selectedSection)
 
   return (
-    <div className="flex h-full">
+    <div className="flex flex-col md:flex-row h-full">
       {/* List */}
-      <div className="w-80 shrink-0 border-r border-white/10 flex flex-col">
+      <div
+        className={`flex-col border-white/10 md:w-80 md:shrink-0 md:flex md:border-r ${
+          selectedSection ? 'hidden' : 'flex flex-1 border-r md:flex-none'
+        }`}
+      >
         <div className="p-4 border-b border-white/10 space-y-3">
           <h2 className="font-mono text-xs text-dex-red font-bold">GUÍA</h2>
 
@@ -92,9 +96,17 @@ export default function GuidePage() {
       </div>
 
       {/* Detail */}
-      <div className="flex-1 overflow-y-auto">
+      <div className={`flex-1 overflow-y-auto ${selectedSection ? '' : 'hidden md:block'}`}>
         {activeSectionData ? (
-          <SectionDetail section={activeSectionData} region={activeRegion} />
+          <>
+            <button
+              onClick={() => setSelectedSection(null)}
+              className="md:hidden flex items-center gap-2 px-4 py-3 border-b border-white/10 text-dex-red font-bold text-sm w-full"
+            >
+              ← Volver
+            </button>
+            <SectionDetail section={activeSectionData} region={activeRegion} />
+          </>
         ) : (
           <div className="flex items-center justify-center h-full text-gray-600">
             <div className="text-center space-y-2">

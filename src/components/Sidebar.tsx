@@ -8,7 +8,7 @@ const LINKS = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-52 shrink-0 bg-dex-red flex flex-col">
+    <aside className="hidden md:flex w-52 shrink-0 bg-dex-red flex-col">
       {/* Header */}
       <div className="px-4 py-5 border-b border-dex-darkred">
         <div className="flex items-center gap-2 mb-1">

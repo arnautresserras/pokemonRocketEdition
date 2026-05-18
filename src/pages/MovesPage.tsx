@@ -23,9 +23,13 @@ export default function MovesPage() {
   )
 
   return (
-    <div className="flex h-full">
+    <div className="flex flex-col md:flex-row h-full">
       {/* List */}
-      <div className="w-80 shrink-0 border-r border-white/10 flex flex-col">
+      <div
+        className={`flex-col border-white/10 md:w-80 md:shrink-0 md:flex md:border-r ${
+          selected ? 'hidden' : 'flex flex-1 border-r md:flex-none'
+        }`}
+      >
         <div className="p-4 border-b border-white/10 space-y-3">
           <h2 className="font-mono text-xs text-dex-red font-bold">MOVIMIENTOS</h2>
           <SearchBar value={search} onChange={setSearch} placeholder="Nombre o tipo..." />
@@ -45,9 +49,17 @@ export default function MovesPage() {
       </div>
 
       {/* Detail */}
-      <div className="flex-1 overflow-y-auto">
+      <div className={`flex-1 overflow-y-auto ${selected ? '' : 'hidden md:block'}`}>
         {selected ? (
-          <MoveDetail move={selected} />
+          <>
+            <button
+              onClick={() => setSelected(null)}
+              className="md:hidden flex items-center gap-2 px-4 py-3 border-b border-white/10 text-dex-red font-bold text-sm w-full"
+            >
+              ← Volver
+            </button>
+            <MoveDetail move={selected} />
+          </>
         ) : (
           <div className="flex items-center justify-center h-full text-gray-600">
             <div className="text-center space-y-2">
@@ -107,7 +119,7 @@ function MoveDetail({ move }: { move: Move }) {
       <h2 className="text-2xl font-bold text-white mb-2">{move.name}</h2>
       <p className="font-mono text-[10px] text-gray-500 mb-6">Movimiento modificado en Hackrom</p>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <VersionCard label="Oficial" version={move.official} />
         <VersionCard label="Hackrom" version={move.hackrom} highlight />
       </div>
