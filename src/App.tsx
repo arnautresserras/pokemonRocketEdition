@@ -3,11 +3,13 @@ import Sidebar from './components/Sidebar'
 import PokedexPage from './pages/PokedexPage'
 import MovesPage from './pages/MovesPage'
 import GuidePage from './pages/GuidePage'
+import TypesPage from './pages/TypesPage'
 
 const NAV_LINKS = [
   { to: '/', label: 'Pokédex', icon: '◉' },
   { to: '/moves', label: 'Movimientos', icon: '⚡' },
   { to: '/guide', label: 'Guía', icon: '📖' },
+  { to: '/types', label: 'Tipos', icon: '🔥' },
 ]
 
 function MobileNav() {
@@ -42,6 +44,7 @@ export default function App() {
             <Route path="/" element={<PokedexPage />} />
             <Route path="/moves" element={<MovesPage />} />
             <Route path="/guide" element={<GuidePage />} />
+            <Route path="/types" element={<TypesPage />} />
           </Routes>
         </main>
         <MobileNav />
