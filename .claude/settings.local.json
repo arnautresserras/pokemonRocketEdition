@@ -17,7 +17,8 @@
       "Bash(node -e \"const d = require\\('./src/data/experiments.json'\\); console.log\\(JSON.stringify\\(d.filter\\(p => p.name === 'Notas'\\), null, 2\\)\\)\")",
       "Bash(node -e \"const d = require\\('./src/data/experiments.json'\\); console.log\\(d.filter\\(p => p.name === 'Notas'\\).length, 'Notas entries; total:', d.length\\)\")",
       "WebFetch(domain:commons.wikimedia.org)",
-      "WebFetch(domain:upload.wikimedia.org)"
+      "WebFetch(domain:upload.wikimedia.org)",
+      "Bash(npx tsx *)"
     ]
   }
 }
