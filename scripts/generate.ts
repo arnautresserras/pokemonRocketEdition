@@ -65,20 +65,21 @@ function parseStats(content: string): object[] {
 
   const result: object[] = []
 
-  // Split on blank lines followed by a line that looks like a Pokémon name
   const lines = content.split('\n')
   let currentName = ''
   let officialStats: object | undefined
   let hackromStats: object | undefined
   let abilities: string[] = []
+  let hackromTypes: string[] | undefined
 
   const flush = () => {
     if (currentName) {
-      result.push({ name: currentName, officialStats, hackromStats, abilities })
+      result.push({ name: currentName, officialStats, hackromStats, abilities, hackromTypes })
     }
     officialStats = undefined
     hackromStats = undefined
     abilities = []
+    hackromTypes = undefined
   }
 
   for (const raw of lines) {
@@ -104,6 +105,12 @@ function parseStats(content: string): object[] {
     const abilityMatch = line.match(/Habilidades?: (.+)/)
     if (abilityMatch) {
       abilities = abilityMatch[1].split('/').map(a => a.trim())
+      continue
+    }
+
+    const hackromTypeMatch = line.match(/^Tipo Hackrom: (.+)/)
+    if (hackromTypeMatch) {
+      hackromTypes = hackromTypeMatch[1].split('/').map(t => t.trim())
       continue
     }
 
@@ -526,6 +533,7 @@ function assemblePokemon() {
     officialStats?: object
     hackromStats?: object
     abilities?: string[]
+    hackromTypes?: string[]
   }>) {
     const key = entry.name.toLowerCase()
     const loc = locationMap.get(key)
@@ -544,6 +552,8 @@ function assemblePokemon() {
       officialStats: entry.officialStats,
       hackromStats: entry.hackromStats,
       abilities: entry.abilities,
+      // doc-defined hackrom types take precedence; API fills in the rest
+      types: entry.hackromTypes,
       location: loc?.location,
       evolutionMethod: evolMethod,
       category,
