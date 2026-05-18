@@ -11,6 +11,7 @@ export interface Stats {
 export interface Pokemon {
   name: string
   dexNumber?: number
+  spriteId?: number
   officialStats?: Stats
   hackromStats?: Stats
   abilities?: string[]

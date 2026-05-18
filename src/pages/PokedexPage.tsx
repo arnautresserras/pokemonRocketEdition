@@ -6,6 +6,7 @@ import experimentsData from '../data/experiments.json'
 import SearchBar from '../components/SearchBar'
 import TypeBadge from '../components/TypeBadge'
 import StatBar from '../components/StatBar'
+import { getTypeColor } from '../utils/types'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
@@ -23,13 +24,15 @@ const CAT_LABELS: Record<Category, string> = {
   primal: 'Primigenio',
 }
 
-function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber'>): string {
-  if (pokemon.dexNumber) {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.dexNumber}.png`
-  }
+const POKEAPI_SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
+
+function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>): string {
+  const id = pokemon.spriteId ?? pokemon.dexNumber
+  if (id) return `${POKEAPI_SPRITES}/${id}.png`
   const slug = pokemon.name.toLowerCase().replace(/_/g, '-').replace(/\s+/g, '-')
   return `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${slug}.png`
 }
+
 
 export default function PokedexPage() {
   const [search, setSearch] = useState('')
@@ -154,14 +157,19 @@ function PokemonRow({
           #{String(pokemon.dexNumber).padStart(3, '0')}
         </span>
       )}
-      <img
-        src={getSpriteUrl(pokemon)}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="w-10 h-10 object-contain shrink-0 pixelated"
-        onError={e => { e.currentTarget.style.visibility = 'hidden' }}
-      />
+      <div
+        className="w-10 h-10 rounded shrink-0 flex items-center justify-center"
+        style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}33` : 'transparent' }}
+      >
+        <img
+          src={getSpriteUrl(pokemon)}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="w-10 h-10 object-contain pixelated"
+          onError={e => { e.currentTarget.style.visibility = 'hidden' }}
+        />
+      </div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-bold text-white truncate">{pokemon.name}</p>
         <div className="flex gap-1 mt-0.5 flex-wrap">
@@ -207,7 +215,10 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
       {/* Header card */}
       <div className="bg-dex-gray rounded-lg mb-6 overflow-hidden border border-white/10">
         {/* Sprite screen */}
-        <div className="bg-dex-screen-dark flex items-center justify-center py-6">
+        <div
+          className="flex items-center justify-center py-6 transition-colors"
+          style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}30` : '#0f1117' }}
+        >
           <img
             src={getSpriteUrl(pokemon)}
             alt={pokemon.name}

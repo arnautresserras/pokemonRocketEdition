@@ -18,7 +18,11 @@
       "Bash(node -e \"const d = require\\('./src/data/experiments.json'\\); console.log\\(d.filter\\(p => p.name === 'Notas'\\).length, 'Notas entries; total:', d.length\\)\")",
       "WebFetch(domain:commons.wikimedia.org)",
       "WebFetch(domain:upload.wikimedia.org)",
-      "Bash(npx tsx *)"
+      "Bash(npx tsx *)",
+      "WebFetch(domain:pokeapi.co)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(node -e \"const p=require\\('./src/data/pokemon.json'\\); const withTypes=p.filter\\(x=>x.types\\); const withOfficial=p.filter\\(x=>x.officialStats\\); const withoutOfficial=p.filter\\(x=>!x.officialStats&&x.dexNumber\\); console.log\\('total:',p.length,'have types:',withTypes.length,'have officialStats:',withOfficial.length,'dexNum but no officialStats:',withoutOfficial.length\\)\")",
+      "Bash(node -e \"const p=require\\('./src/data/pokemon.json'\\); const withTypes=p.filter\\(x=>x.types\\); const missing=p.filter\\(x=>!x.types\\); console.log\\('have types:',withTypes.length,'missing:',missing.length\\); console.log\\('sample Bulbasaur:',JSON.stringify\\(p.find\\(x=>x.dexNumber===1\\)?.types\\)\\); console.log\\('sample Mega Gengar:',JSON.stringify\\(p.find\\(x=>x.name==='MEGA GENGAR'\\)?.types\\)\\)\")"
     ]
   }
 }

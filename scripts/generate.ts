@@ -400,6 +400,103 @@ function parseGuide(filename: string, region: string): object {
   return { region, sections }
 }
 
+// ── Canonical mega → PokéAPI sprite ID ───────────────────────────────────────
+
+const CANONICAL_MEGA_SPRITE_IDS: Record<string, number> = {
+  'MEGA VENUSAUR':    10033,
+  'MEGA CHARIZARD X': 10034,
+  'MEGA CHARIZARD Y': 10035,
+  'MEGA BLASTOISE':   10036,
+  'MEGA GENGAR':      10038,
+  'MEGA SCIZOR':      10046,
+  'MEGA HOUNDOOM':    10048,
+  'MEGA GARDEVOIR':   10051,
+  'MEGA SHARPEDO':    10070,
+  'MEGA CAMERUPT':    10087,
+  'MEGA ALTARIA':     10067,
+  'MEGA ABSOL':       10057,
+  'MEGA GLALIE':      10074,
+  'MEGA LATIOS':      10063,
+  'MEGA LOPUNNY':     10088,
+}
+
+const CANONICAL_MEGA_API_SLUGS: Record<string, string> = {
+  'MEGA VENUSAUR':    'venusaur-mega',
+  'MEGA CHARIZARD X': 'charizard-mega-x',
+  'MEGA CHARIZARD Y': 'charizard-mega-y',
+  'MEGA BLASTOISE':   'blastoise-mega',
+  'MEGA GENGAR':      'gengar-mega',
+  'MEGA SCIZOR':      'scizor-mega',
+  'MEGA HOUNDOOM':    'houndoom-mega',
+  'MEGA GARDEVOIR':   'gardevoir-mega',
+  'MEGA SHARPEDO':    'sharpedo-mega',
+  'MEGA CAMERUPT':    'camerupt-mega',
+  'MEGA ALTARIA':     'altaria-mega',
+  'MEGA ABSOL':       'absol-mega',
+  'MEGA GLALIE':      'glalie-mega',
+  'MEGA LATIOS':      'latios-mega',
+  'MEGA LOPUNNY':     'lopunny-mega',
+}
+
+const EN_TO_ES_TYPE: Record<string, string> = {
+  normal: 'Normal', fire: 'Fuego', water: 'Agua', electric: 'Eléctrico',
+  grass: 'Planta', ice: 'Hielo', fighting: 'Lucha', poison: 'Veneno',
+  ground: 'Tierra', flying: 'Volador', psychic: 'Psíquico', bug: 'Bicho',
+  rock: 'Roca', ghost: 'Fantasma', dragon: 'Dragón', dark: 'Siniestro',
+  steel: 'Acero', fairy: 'Hada',
+}
+
+interface ApiStats {
+  hp: number; attack: number; defense: number
+  spAttack: number; spDefense: number; speed: number; total: number
+}
+
+async function fetchApiPokemon(identifier: string | number): Promise<{ types: string[]; stats: ApiStats } | null> {
+  try {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${identifier}`)
+    if (!res.ok) return null
+    const data = await res.json() as {
+      types: { type: { name: string } }[]
+      stats: { base_stat: number; stat: { name: string } }[]
+    }
+    const types = data.types.map(t => EN_TO_ES_TYPE[t.type.name] ?? t.type.name)
+    const sm: Record<string, number> = {}
+    for (const s of data.stats) sm[s.stat.name] = s.base_stat
+    const stats: ApiStats = {
+      hp: sm['hp'] ?? 0, attack: sm['attack'] ?? 0, defense: sm['defense'] ?? 0,
+      spAttack: sm['special-attack'] ?? 0, spDefense: sm['special-defense'] ?? 0,
+      speed: sm['speed'] ?? 0, total: 0,
+    }
+    stats.total = stats.hp + stats.attack + stats.defense + stats.spAttack + stats.spDefense + stats.speed
+    return { types, stats }
+  } catch {
+    return null
+  }
+}
+
+async function enrichWithApiData(pokemon: Record<string, unknown>[]): Promise<void> {
+  const CONCURRENCY = 20
+  let enriched = 0
+
+  for (let i = 0; i < pokemon.length; i += CONCURRENCY) {
+    const batch = pokemon.slice(i, i + CONCURRENCY)
+    await Promise.all(batch.map(async p => {
+      const identifier = (p.dexNumber as number | undefined) ?? CANONICAL_MEGA_API_SLUGS[p.name as string]
+      if (!identifier) return
+      const needsTypes = !p.types
+      const needsStats = !p.officialStats
+      if (!needsTypes && !needsStats) return
+      const data = await fetchApiPokemon(identifier)
+      if (!data) return
+      if (needsTypes) p.types = data.types
+      if (needsStats) p.officialStats = data.stats
+      enriched++
+    }))
+    process.stdout.write(`\r  fetching from PokéAPI… ${Math.min(i + CONCURRENCY, pokemon.length)}/${pokemon.length}`)
+  }
+  console.log(`\r  → enriched ${enriched} entries from PokéAPI          `)
+}
+
 // ── Assemble Pokemon master list ──────────────────────────────────────────────
 
 function assemblePokemon() {
@@ -443,6 +540,7 @@ function assemblePokemon() {
     pokemon.push({
       name: entry.name,
       dexNumber: loc?.dexNumber,
+      spriteId: CANONICAL_MEGA_SPRITE_IDS[entry.name],
       officialStats: entry.officialStats,
       hackromStats: entry.hackromStats,
       abilities: entry.abilities,
@@ -491,6 +589,8 @@ console.log(`  → ${moves.length} moves`)
 
 console.log('Parsing Pokémon...')
 const { pokemon, experiments } = assemblePokemon()
+console.log('Enriching with PokéAPI data...')
+await enrichWithApiData(pokemon as Record<string, unknown>[])
 fs.writeFileSync(path.join(DATA_DIR, 'pokemon.json'), JSON.stringify(pokemon, null, 2))
 fs.writeFileSync(path.join(DATA_DIR, 'experiments.json'), JSON.stringify(experiments, null, 2))
 console.log(`  → ${pokemon.length} Pokémon, ${experiments.length} experiments/megas`)
