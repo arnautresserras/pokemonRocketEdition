@@ -180,9 +180,6 @@ function ChartView() {
           </tbody>
         </table>
 
-        <p className="mt-3 text-[9px] text-gray-600 font-mono">
-          * Reglas Gen 3 — Acero resiste Fantasma y Siniestro · Sin tipo Hada
-        </p>
       </div>
     </div>
   )
