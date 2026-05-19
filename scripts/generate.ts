@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import type { Move, Item, MT, ItemChange, RegionGuide, GuideSection, Battle, PokemonEncounter, Pokemon, Stats } from '../src/types'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -21,7 +22,7 @@ function readDoc(predicate: (name: string) => boolean): string {
 function parseMoves() {
   const content = readDoc(f => f.includes('MOVIMIENTOS'))
 
-  const moves: object[] = []
+  const moves: Move[] = []
   const blocks = content.split(/\n-{3,}\n/)
 
   for (let i = 0; i < blocks.length - 1; i += 2) {
@@ -59,16 +60,16 @@ function parseMoves() {
 
 // ── Pokemon stats ─────────────────────────────────────────────────────────────
 
-function parseStats(content: string): object[] {
+function parseStats(content: string): ParsedPokemonStats[] {
   const statsRegex =
     /(Oficial|Hackrom): Ps (\d+), At (\d+), Def (\d+), At\.esp (\d+), Def\.esp (\d+), Velocid (\d+)\. Total (\d+)/
 
-  const result: object[] = []
+  const result: ParsedPokemonStats[] = []
 
   const lines = content.split('\n')
   let currentName = ''
-  let officialStats: object | undefined
-  let hackromStats: object | undefined
+  let officialStats: Stats | undefined
+  let hackromStats: Stats | undefined
   let abilities: string[] = []
   let hackromTypes: string[] | undefined
 
@@ -127,11 +128,11 @@ function parseStats(content: string): object[] {
 
 // ── Experiments (Prototypes & Megas) ─────────────────────────────────────────
 
-function parseExperiments(): object[] {
+function parseExperiments(): Pokemon[] {
   const experimentContent = readDoc(f => f.includes('Experimentos'))
   const megaContent = readDoc(f => f.includes('Megaevoluciones'))
 
-  const result: object[] = []
+  const result: Pokemon[] = []
 
   const parseBlock = (content: string, category: string, level?: number) => {
     const formNameRe = /^([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜa-záéíóúñü\s\-'\.0-9]+):?$/
@@ -178,14 +179,14 @@ function parseExperiments(): object[] {
       const nameM = line.match(formNameRe)
       if (nameM && line.endsWith(':')) {
         if (currentEntry.name && (currentEntry.officialStats || currentEntry.hackromStats)) {
-          result.push({ ...currentEntry, category, prototypeLevel: level })
+          result.push({ ...currentEntry, category, prototypeLevel: level } as Pokemon)
         }
         currentEntry = { name: line.replace(/:$/, '').trim() }
       }
     }
 
     if (currentEntry.name && (currentEntry.officialStats || currentEntry.hackromStats)) {
-      result.push({ ...currentEntry, category, prototypeLevel: level })
+      result.push({ ...currentEntry, category, prototypeLevel: level } as Pokemon)
     }
   }
 
@@ -215,9 +216,9 @@ function parseExperiments(): object[] {
 
 // ── Pokemon locations ─────────────────────────────────────────────────────────
 
-function parseLocations(): object[] {
+function parseLocations(): ParsedLocation[] {
   const content = readDoc(f => f.includes('TODOS') && f.includes('PKMN') && !f.includes('EVOLUC'))
-  const result: object[] = []
+  const result: ParsedLocation[] = []
 
   for (const raw of content.split('\n')) {
     const line = raw.trim()
@@ -238,9 +239,9 @@ function parseLocations(): object[] {
 
 // ── Evolutions ────────────────────────────────────────────────────────────────
 
-function parseEvolutions(): object[] {
+function parseEvolutions(): ParsedEvolution[] {
   const content = readDoc(f => f.includes('EVOLUC'))
-  const result: object[] = []
+  const result: ParsedEvolution[] = []
 
   for (const raw of content.split('\n')) {
     const line = raw.trim()
@@ -263,12 +264,12 @@ function parseEvolutions(): object[] {
 
 // ── Items ─────────────────────────────────────────────────────────────────────
 
-function parseItems(): object[] {
+function parseItems(): Item[] {
   const content = readDoc(f => f.includes('OBJETOS') && !f.includes('CAMBIOS'))
-  const result: object[] = []
+  const result: Item[] = []
 
   let currentCategory = ''
-  let currentItem: Record<string, unknown> | null = null
+  let currentItem: Item | null = null
   let groupBullets: string[] = []
   let hasIndividualItems = false
 
@@ -324,7 +325,7 @@ function parseItems(): object[] {
     // Bullet/continuation (must precede item regex — bullets can contain colons)
     if (line.startsWith('-')) {
       if (currentItem) {
-        currentItem.description = (currentItem.description as string) + '\n' + line
+        currentItem.description += '\n' + line
       } else {
         groupBullets.push(line)
       }
@@ -346,7 +347,7 @@ function parseItems(): object[] {
 
     // Other text (continuation or region notes)
     if (currentItem) {
-      currentItem.description = (currentItem.description as string) + '\n' + line
+      currentItem.description += '\n' + line
     } else if (currentCategory) {
       groupBullets.push(line)
     }
@@ -359,14 +360,14 @@ function parseItems(): object[] {
 
 // ── MTs ───────────────────────────────────────────────────────────────────────
 
-function parseMTs(): object[] {
+function parseMTs(): MT[] {
   const content = readDoc(f => f.includes('OBJETOS') && !f.includes('CAMBIOS'))
 
   const mtSectionIdx = content.indexOf('OBTENCIÓN DE TODAS LAS MTS')
   if (mtSectionIdx === -1) return []
 
   const mtSection = content.slice(mtSectionIdx)
-  const result: object[] = []
+  const result: MT[] = []
 
   for (const raw of mtSection.split('\n')) {
     const line = raw.trim()
@@ -394,11 +395,11 @@ function parseMTs(): object[] {
 
 // ── Item changes ──────────────────────────────────────────────────────────────
 
-function parseItemChanges(): object[] {
+function parseItemChanges(): ItemChange[] {
   const content = readDoc(f => f.includes('CAMBIOS') && f.includes('OBJETOS'))
-  const result: object[] = []
+  const result: ItemChange[] = []
   let currentSection = ''
-  let currentEntry: Record<string, unknown> | null = null
+  let currentEntry: ItemChange | null = null
 
   const flush = () => {
     if (currentEntry) result.push(currentEntry)
@@ -428,7 +429,7 @@ function parseItemChanges(): object[] {
 
     // Continuation bullet
     if (currentEntry && line.startsWith('-')) {
-      currentEntry.effect = (currentEntry.effect as string) + '\n' + line
+      currentEntry.effect += '\n' + line
     }
   }
   flush()
@@ -438,17 +439,17 @@ function parseItemChanges(): object[] {
 
 // ── Guide (T1-T5) ─────────────────────────────────────────────────────────────
 
-function parseGuide(filename: string, region: string): object {
+function parseGuide(filename: string, region: string): RegionGuide {
   const files = fs.readdirSync(DOCS_DIR)
   const file = files.find(f => f.includes(filename))
   if (!file) return { region, sections: [] }
   const content = fs.readFileSync(path.join(DOCS_DIR, file), 'utf8')
 
-  const sections: object[] = []
+  const sections: GuideSection[] = []
   let currentLocation = ''
-  let currentBattles: object[] = []
-  let currentBattle: { trainerName: string; pokemon: object[] } | null = null
-  let currentPokemon: Record<string, unknown> | null = null
+  let currentBattles: Battle[] = []
+  let currentBattle: Battle | null = null
+  let currentPokemon: PokemonEncounter | null = null
 
   const flushPokemon = () => {
     if (currentPokemon && currentBattle) {
@@ -582,6 +583,29 @@ interface ApiStats {
   spAttack: number; spDefense: number; speed: number; total: number
 }
 
+type ApiCache = Record<string, { types: string[]; stats: ApiStats } | null>
+
+interface ParsedPokemonStats {
+  name: string
+  officialStats?: Stats
+  hackromStats?: Stats
+  abilities?: string[]
+  hackromTypes?: string[]
+}
+
+interface ParsedLocation {
+  name: string
+  dexNumber: number
+  location: string
+}
+
+interface ParsedEvolution {
+  from: string
+  to: string
+  method: string
+  bidirectional: boolean
+}
+
 async function fetchApiPokemon(identifier: string | number): Promise<{ types: string[]; stats: ApiStats } | null> {
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${identifier}`)
@@ -605,19 +629,42 @@ async function fetchApiPokemon(identifier: string | number): Promise<{ types: st
   }
 }
 
-async function enrichWithApiData(pokemon: Record<string, unknown>[]): Promise<void> {
+const API_CACHE_PATH = path.join(DATA_DIR, '.api-cache.json')
+
+function loadApiCache(): ApiCache {
+  if (!fs.existsSync(API_CACHE_PATH)) return {}
+  try {
+    return JSON.parse(fs.readFileSync(API_CACHE_PATH, 'utf8')) as ApiCache
+  } catch {
+    return {}
+  }
+}
+
+async function enrichWithApiData(pokemon: Pokemon[]): Promise<void> {
+  const cache = loadApiCache()
   const CONCURRENCY = 20
   let enriched = 0
+  let cacheHits = 0
 
   for (let i = 0; i < pokemon.length; i += CONCURRENCY) {
     const batch = pokemon.slice(i, i + CONCURRENCY)
     await Promise.all(batch.map(async p => {
-      const identifier = (p.dexNumber as number | undefined) ?? CANONICAL_MEGA_API_SLUGS[p.name as string]
+      const identifier = p.dexNumber ?? CANONICAL_MEGA_API_SLUGS[p.name]
       if (!identifier) return
       const needsTypes = !p.types
       const needsStats = !p.officialStats
       if (!needsTypes && !needsStats) return
-      const data = await fetchApiPokemon(identifier)
+
+      const cacheKey = String(identifier)
+      let data: { types: string[]; stats: ApiStats } | null
+      if (cacheKey in cache) {
+        data = cache[cacheKey]
+        cacheHits++
+      } else {
+        data = await fetchApiPokemon(identifier)
+        cache[cacheKey] = data
+      }
+
       if (!data) return
       if (needsTypes) p.types = data.types
       if (needsStats) p.officialStats = data.stats
@@ -625,7 +672,9 @@ async function enrichWithApiData(pokemon: Record<string, unknown>[]): Promise<vo
     }))
     process.stdout.write(`\r  fetching from PokéAPI… ${Math.min(i + CONCURRENCY, pokemon.length)}/${pokemon.length}`)
   }
-  console.log(`\r  → enriched ${enriched} entries from PokéAPI          `)
+
+  fs.writeFileSync(API_CACHE_PATH, JSON.stringify(cache, null, 2))
+  console.log(`\r  → enriched ${enriched} entries (${cacheHits} from cache)          `)
 }
 
 // ── Assemble Pokemon master list ──────────────────────────────────────────────
@@ -638,27 +687,16 @@ function assemblePokemon() {
   const experimentsRaw = parseExperiments()
 
   // Index locations and evolutions by name
-  const locationMap = new Map(
-    (locationsRaw as Array<{ name: string; dexNumber: number; location: string }>).map(l => [
-      l.name.toLowerCase(),
-      l,
-    ]),
-  )
+  const locationMap = new Map(locationsRaw.map(l => [l.name.toLowerCase(), l]))
 
   const evolutionMap = new Map<string, string>()
-  for (const e of evolutionsRaw as Array<{ from: string; to: string; method: string }>) {
+  for (const e of evolutionsRaw) {
     evolutionMap.set(e.to.toLowerCase(), e.method)
   }
 
-  const pokemon: object[] = []
+  const pokemon: Pokemon[] = []
 
-  for (const entry of statsRaw as Array<{
-    name: string
-    officialStats?: object
-    hackromStats?: object
-    abilities?: string[]
-    hackromTypes?: string[]
-  }>) {
+  for (const entry of statsRaw) {
     const key = entry.name.toLowerCase()
     const loc = locationMap.get(key)
     const evolMethod = evolutionMap.get(key)
@@ -685,10 +723,8 @@ function assemblePokemon() {
   }
 
   // Add Pokémon that only appear in locations (no stat changes documented)
-  for (const loc of locationsRaw as Array<{ name: string; dexNumber: number; location: string }>) {
-    const already = (pokemon as Array<{ name: string }>).some(
-      p => p.name.toLowerCase() === loc.name.toLowerCase(),
-    )
+  for (const loc of locationsRaw) {
+    const already = pokemon.some(p => p.name.toLowerCase() === loc.name.toLowerCase())
     if (!already) {
       pokemon.push({
         name: loc.name,
@@ -702,13 +738,11 @@ function assemblePokemon() {
 
   // Sort by dex number then name
   pokemon.sort((a, b) => {
-    const pa = a as { dexNumber?: number; name: string }
-    const pb = b as { dexNumber?: number; name: string }
-    if (pa.dexNumber !== undefined && pb.dexNumber !== undefined)
-      return pa.dexNumber - pb.dexNumber
-    if (pa.dexNumber !== undefined) return -1
-    if (pb.dexNumber !== undefined) return 1
-    return pa.name.localeCompare(pb.name)
+    if (a.dexNumber !== undefined && b.dexNumber !== undefined)
+      return a.dexNumber - b.dexNumber
+    if (a.dexNumber !== undefined) return -1
+    if (b.dexNumber !== undefined) return 1
+    return a.name.localeCompare(b.name)
   })
 
   return { pokemon, experiments: experimentsRaw }
@@ -724,7 +758,7 @@ console.log(`  → ${moves.length} moves`)
 console.log('Parsing Pokémon...')
 const { pokemon, experiments } = assemblePokemon()
 console.log('Enriching with PokéAPI data...')
-await enrichWithApiData(pokemon as Record<string, unknown>[])
+await enrichWithApiData(pokemon)
 fs.writeFileSync(path.join(DATA_DIR, 'pokemon.json'), JSON.stringify(pokemon, null, 2))
 fs.writeFileSync(path.join(DATA_DIR, 'experiments.json'), JSON.stringify(experiments, null, 2))
 console.log(`  → ${pokemon.length} Pokémon, ${experiments.length} experiments/megas`)
@@ -754,7 +788,7 @@ const regions = [
 ]
 const guide = regions.map(({ file, region }) => parseGuide(file, region))
 fs.writeFileSync(path.join(DATA_DIR, 'guide.json'), JSON.stringify(guide, null, 2))
-const totalSections = guide.reduce((acc, g) => acc + (g as { sections: unknown[] }).sections.length, 0)
+const totalSections = guide.reduce((acc, g) => acc + g.sections.length, 0)
 console.log(`  → ${totalSections} guide sections across ${regions.length} regions`)
 
 console.log('Done.')

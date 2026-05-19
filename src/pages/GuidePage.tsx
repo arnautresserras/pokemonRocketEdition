@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import type { RegionGuide, Battle, PokemonEncounter } from '../types'
+import type { RegionGuide, GuideSection, Battle, PokemonEncounter } from '../types'
 import guideData from '../data/guide.json'
 import SearchBar from '../components/SearchBar'
 
@@ -56,6 +56,7 @@ export default function GuidePage() {
                 onClick={() => {
                   setActiveRegion(g.region)
                   setSelectedSection(null)
+                  setSearch('')
                 }}
                 className="px-2 py-0.5 rounded text-[10px] font-bold transition-colors"
                 style={{
@@ -76,6 +77,11 @@ export default function GuidePage() {
         </div>
 
         <div className="flex-1 overflow-y-auto">
+          {filteredSections.length === 0 && (
+            <div className="flex items-center justify-center h-32 text-gray-600">
+              <p className="font-mono text-xs">Sin resultados</p>
+            </div>
+          )}
           {filteredSections.map(section => (
             <button
               key={section.location}
@@ -124,7 +130,7 @@ function SectionDetail({
   section,
   region,
 }: {
-  section: { location: string; battles: Battle[] }
+  section: GuideSection
   region: string
 }) {
   const color = REGION_COLORS[region] ?? '#CC0000'

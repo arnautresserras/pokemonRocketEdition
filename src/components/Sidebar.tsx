@@ -1,11 +1,5 @@
 import { NavLink } from 'react-router-dom'
-
-const LINKS = [
-  { to: '/', label: 'Pokédex', icon: '◉' },
-  { to: '/moves', label: 'Objetos', icon: '🎒' },
-  { to: '/guide', label: 'Guía', icon: '📖' },
-  { to: '/types', label: 'Tipos', icon: '🔥' },
-]
+import { NAV_LINKS } from '../constants/nav'
 
 export default function Sidebar() {
   return (
@@ -31,7 +25,7 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 px-2 space-y-1">
-        {LINKS.map(({ to, label, icon }) => (
+        {NAV_LINKS.map(({ to, label, icon }) => (
           <NavLink
             key={to}
             to={to}

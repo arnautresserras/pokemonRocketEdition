@@ -167,7 +167,7 @@ function PokemonRow({
           aria-hidden
           loading="lazy"
           className="w-10 h-10 object-contain pixelated"
-          onError={e => { e.currentTarget.style.visibility = 'hidden' }}
+          onError={e => { e.currentTarget.style.display = 'none' }}
         />
       </div>
       <div className="flex-1 min-w-0">
@@ -223,7 +223,7 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
             src={getSpriteUrl(pokemon)}
             alt={pokemon.name}
             className="w-32 h-32 object-contain pixelated drop-shadow-lg"
-            onError={e => { e.currentTarget.style.visibility = 'hidden' }}
+            onError={e => { e.currentTarget.style.display = 'none' }}
           />
         </div>
         {/* Info */}

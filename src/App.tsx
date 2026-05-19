@@ -4,13 +4,7 @@ import PokedexPage from './pages/PokedexPage'
 import MovesPage from './pages/MovesPage'
 import GuidePage from './pages/GuidePage'
 import TypesPage from './pages/TypesPage'
-
-const NAV_LINKS = [
-  { to: '/', label: 'Pokédex', icon: '◉' },
-  { to: '/moves', label: 'Objetos', icon: '🎒' },
-  { to: '/guide', label: 'Guía', icon: '📖' },
-  { to: '/types', label: 'Tipos', icon: '🔥' },
-]
+import { NAV_LINKS } from './constants/nav'
 
 function MobileNav() {
   return (
@@ -45,6 +39,14 @@ export default function App() {
             <Route path="/moves" element={<MovesPage />} />
             <Route path="/guide" element={<GuidePage />} />
             <Route path="/types" element={<TypesPage />} />
+            <Route path="*" element={
+              <div className="flex items-center justify-center h-full text-gray-600">
+                <div className="text-center space-y-2">
+                  <div className="text-6xl opacity-20">404</div>
+                  <p className="font-mono text-xs">Página no encontrada</p>
+                </div>
+              </div>
+            } />
           </Routes>
         </main>
         <MobileNav />

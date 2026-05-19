@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Move, MoveVersion, MT, Item, ItemChange } from '../types'
 import movesData from '../data/moves.json'
 import mtsData from '../data/mts.json'
@@ -74,6 +75,19 @@ export default function MovesPage() {
     setSelectedChange(null)
   }
 
+  const handleSetMoveFilter = useCallback(
+    (f: 'cambios' | 'mt') => { setMoveFilter(f); setSelectedMove(null); setSelectedMT(null); setSearch('') },
+    [],
+  )
+  const handleSetMtRegion = useCallback(
+    (r: MTRegion) => { setMtRegion(r); setSelectedMT(null) },
+    [],
+  )
+  const handleSetItemFilter = useCallback(
+    (f: string) => { setItemFilter(f); setSelectedItem(null); setSelectedChange(null); setSearch('') },
+    [],
+  )
+
   const hasSelection =
     tab === 'moves' ? !!(selectedMove || selectedMT) : !!(selectedItem || selectedChange)
 
@@ -148,9 +162,9 @@ export default function MovesPage() {
           {tab === 'moves' ? (
             <MovesListPanel
               moveFilter={moveFilter}
-              setMoveFilter={f => { setMoveFilter(f); setSelectedMove(null); setSelectedMT(null); setSearch('') }}
+              setMoveFilter={handleSetMoveFilter}
               mtRegion={mtRegion}
-              setMtRegion={r => { setMtRegion(r); setSelectedMT(null) }}
+              setMtRegion={handleSetMtRegion}
               search={search}
               setSearch={setSearch}
               filteredMoves={filteredMoves}
@@ -163,7 +177,7 @@ export default function MovesPage() {
           ) : (
             <ItemsListPanel
               itemFilter={itemFilter}
-              setItemFilter={f => { setItemFilter(f); setSelectedItem(null); setSelectedChange(null); setSearch('') }}
+              setItemFilter={handleSetItemFilter}
               search={search}
               setSearch={setSearch}
               filteredItems={filteredItems}
@@ -233,6 +247,14 @@ function MovesListPanel({
   const count = moveFilter === 'cambios' ? filteredMoves.length : filteredMTs.length
   const label = moveFilter === 'cambios' ? 'movimientos modificados' : 'MTs'
 
+  const mtListRef = useRef<HTMLDivElement>(null)
+  const mtVirtualizer = useVirtualizer({
+    count: filteredMTs.length,
+    getScrollElement: () => mtListRef.current,
+    estimateSize: () => 56,
+    overscan: 5,
+  })
+
   return (
     <div className="flex flex-col h-full">
       <div className="p-4 border-b border-white/10 space-y-3">
@@ -268,7 +290,7 @@ function MovesListPanel({
         )}
         <p className="text-[10px] text-gray-500">{count} {label}</p>
       </div>
-      <div className="flex-1 overflow-y-auto">
+      <div ref={mtListRef} className="flex-1 overflow-y-auto">
         {moveFilter === 'cambios'
           ? filteredMoves.map(m => (
               <MoveRow
@@ -278,14 +300,23 @@ function MovesListPanel({
                 onClick={() => onSelectMove(m)}
               />
             ))
-          : filteredMTs.map(mt => (
-              <MTRow
-                key={mt.number}
-                mt={mt}
-                isSelected={selectedMT?.number === mt.number}
-                onClick={() => onSelectMT(mt)}
-              />
-            ))}
+          : (
+            <div style={{ height: mtVirtualizer.getTotalSize(), position: 'relative' }}>
+              {mtVirtualizer.getVirtualItems().map(row => (
+                <div
+                  key={row.index}
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+                >
+                  <MTRow
+                    mt={filteredMTs[row.index]}
+                    isSelected={selectedMT?.number === filteredMTs[row.index].number}
+                    onClick={() => onSelectMT(filteredMTs[row.index])}
+                  />
+                </div>
+              ))}
+            </div>
+          )
+        }
       </div>
     </div>
   )
@@ -311,6 +342,18 @@ function ItemsListPanel({
   const count = filteredItems.length
   const label = isChangesView ? 'cambios' : 'objetos'
 
+  const listRef = useRef<HTMLDivElement>(null)
+  const virtualizer = useVirtualizer({
+    count: filteredItems.length,
+    getScrollElement: () => listRef.current,
+    estimateSize: () => 56,
+    overscan: 5,
+  })
+
+  useEffect(() => {
+    listRef.current?.scrollTo(0, 0)
+  }, [itemFilter])
+
   return (
     <div className="flex flex-col h-full">
       <div className="p-4 border-b border-white/10 space-y-3">
@@ -333,24 +376,31 @@ function ItemsListPanel({
         <SearchBar value={search} onChange={setSearch} placeholder="Buscar..." />
         <p className="text-[10px] text-gray-500">{count} {label}</p>
       </div>
-      <div key={itemFilter} className="flex-1 overflow-y-auto">
-        {isChangesView
-          ? (filteredItems as ItemChange[]).map(c => (
-              <ItemChangeRow
-                key={c.name}
-                change={c}
-                isSelected={selectedChange?.name === c.name}
-                onClick={() => onSelectChange(c)}
-              />
-            ))
-          : (filteredItems as Item[]).map(item => (
-              <ItemRow
-                key={item.name}
-                item={item}
-                isSelected={selectedItem?.name === item.name}
-                onClick={() => onSelectItem(item)}
-              />
-            ))}
+      <div ref={listRef} className="flex-1 overflow-y-auto">
+        <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
+          {virtualizer.getVirtualItems().map(row => {
+            const idx = row.index
+            return (
+              <div
+                key={idx}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+              >
+                {isChangesView
+                  ? <ItemChangeRow
+                      change={(filteredItems as ItemChange[])[idx]}
+                      isSelected={selectedChange?.name === (filteredItems as ItemChange[])[idx].name}
+                      onClick={() => onSelectChange((filteredItems as ItemChange[])[idx])}
+                    />
+                  : <ItemRow
+                      item={(filteredItems as Item[])[idx]}
+                      isSelected={selectedItem?.name === (filteredItems as Item[])[idx].name}
+                      onClick={() => onSelectItem((filteredItems as Item[])[idx])}
+                    />
+                }
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

@@ -1,3 +1,7 @@
+const COLOR_BUFF = '#4ade80'   // Tailwind green-400
+const COLOR_NERF = '#f87171'   // Tailwind red-400
+const COLOR_BASE = '#60a5fa'   // Tailwind blue-400
+
 interface Props {
   label: string
   official?: number
@@ -36,10 +40,10 @@ export default function StatBar({ label, official, hackrom, max = 255 }: Props) 
                   width: `${hackPct}%`,
                   backgroundColor:
                     changed && hackrom > (official ?? 0)
-                      ? '#4ade80'
+                      ? COLOR_BUFF
                       : changed
-                        ? '#f87171'
-                        : '#60a5fa',
+                        ? COLOR_NERF
+                        : COLOR_BASE,
                 }}
               />
             </div>
