@@ -310,7 +310,7 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
       {pokemon.location && (
         <section className="mb-6">
           <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Dónde obtenerlo</h3>
-          <div className="bg-dex-gray rounded-lg p-4 text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">
+          <div className="bg-dex-gray rounded-lg p-4 text-sm text-gray-300 leading-relaxed whitespace-pre-wrap break-words">
             {pokemon.location}
           </div>
         </section>

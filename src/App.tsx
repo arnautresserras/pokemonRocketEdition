@@ -14,7 +14,7 @@ const NAV_LINKS = [
 
 function MobileNav() {
   return (
-    <nav className="md:hidden flex shrink-0 border-t border-white/10 bg-dex-black">
+    <nav className="md:hidden flex shrink-0 border-t border-white/10 bg-dex-black pb-[env(safe-area-inset-bottom,0px)]">
       {NAV_LINKS.map(({ to, label, icon }) => (
         <NavLink
           key={to}
@@ -37,9 +37,9 @@ function MobileNav() {
 export default function App() {
   return (
     <HashRouter>
-      <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+      <div className="flex flex-col md:flex-row h-dvh overflow-hidden">
         <Sidebar />
-        <main className="flex-1 overflow-auto bg-dex-black min-h-0">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-dex-black min-h-0">
           <Routes>
             <Route path="/" element={<PokedexPage />} />
             <Route path="/moves" element={<MovesPage />} />
