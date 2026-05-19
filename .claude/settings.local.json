@@ -24,7 +24,32 @@
       "Bash(node -e \"const p=require\\('./src/data/pokemon.json'\\); const withTypes=p.filter\\(x=>x.types\\); const withOfficial=p.filter\\(x=>x.officialStats\\); const withoutOfficial=p.filter\\(x=>!x.officialStats&&x.dexNumber\\); console.log\\('total:',p.length,'have types:',withTypes.length,'have officialStats:',withOfficial.length,'dexNum but no officialStats:',withoutOfficial.length\\)\")",
       "Bash(node -e \"const p=require\\('./src/data/pokemon.json'\\); const withTypes=p.filter\\(x=>x.types\\); const missing=p.filter\\(x=>!x.types\\); console.log\\('have types:',withTypes.length,'missing:',missing.length\\); console.log\\('sample Bulbasaur:',JSON.stringify\\(p.find\\(x=>x.dexNumber===1\\)?.types\\)\\); console.log\\('sample Mega Gengar:',JSON.stringify\\(p.find\\(x=>x.name==='MEGA GENGAR'\\)?.types\\)\\)\")",
       "Bash(node -e \"const p = require\\('./src/data/pokemon.json'\\); const g = p.find\\(x => x.name === 'GYARADOS'\\); console.log\\(JSON.stringify\\(g, null, 2\\)\\)\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "mcp__codegraph__codegraph_search",
+      "mcp__codegraph__codegraph_context",
+      "mcp__codegraph__codegraph_callers",
+      "mcp__codegraph__codegraph_callees",
+      "mcp__codegraph__codegraph_impact",
+      "mcp__codegraph__codegraph_node",
+      "mcp__codegraph__codegraph_status",
+      "mcp__codegraph__codegraph_files",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(npm --version)",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(Get-Command cl.exe -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command msbuild.exe -ErrorAction SilentlyContinue)",
+      "PowerShell(codegraph status 2>&1)",
+      "PowerShell(npm prefix -g)",
+      "PowerShell(npm config get prefix)",
+      "PowerShell(npm list -g better-sqlite3 2>&1)",
+      "PowerShell(nvm version 2>&1)",
+      "PowerShell(nvm list 2>&1)",
+      "PowerShell(node -e \"console.log\\(process.versions.modules\\)\")",
+      "WebFetch(domain:github.com)",
+      "PowerShell($headers = @{\"Accept\"=\"application/vnd.github+json\"; \"X-GitHub-Api-Version\"=\"2022-11-28\"}; $resp = Invoke-RestMethod -Uri \"https://api.github.com/repos/WiseLibs/better-sqlite3/releases/tags/v11.10.0\" -Headers $headers; $resp.assets | Where-Object { $_.name -match \"win32\" -or $_.name -match \"v137\" } | Select-Object name, browser_download_url)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true
 }

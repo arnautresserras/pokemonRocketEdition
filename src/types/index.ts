@@ -65,4 +65,18 @@ export interface Item {
   name: string
   category: string
   description: string
+  isGroup?: boolean
+}
+
+export interface MT {
+  number: string
+  name: string
+  location: string
+  region: string
+}
+
+export interface ItemChange {
+  name: string
+  effect: string
+  section: string
 }

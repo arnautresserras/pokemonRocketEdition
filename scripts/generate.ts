@@ -268,32 +268,74 @@ function parseItems(): object[] {
   const result: object[] = []
 
   let currentCategory = ''
-  let currentItem: { name: string; category: string; description: string } | null = null
+  let currentItem: Record<string, unknown> | null = null
+  let groupBullets: string[] = []
+  let hasIndividualItems = false
 
   const flushItem = () => {
     if (currentItem) result.push(currentItem)
     currentItem = null
   }
 
+  const flushGroup = () => {
+    if (currentCategory && !hasIndividualItems && groupBullets.length > 0) {
+      result.push({
+        name: currentCategory,
+        category: currentCategory,
+        description: groupBullets.join('\n'),
+        isGroup: true,
+      })
+    }
+    groupBullets = []
+    hasIndividualItems = false
+  }
+
+  const isCategoryHeader = (line: string) =>
+    line === line.toUpperCase() &&
+    line.length > 3 &&
+    !line.includes(':') &&
+    /[A-ZÁÉÍÓÚÑÜ]/.test(line)
+
   for (const raw of content.split('\n')) {
     const line = raw.trim()
-
     if (!line) continue
 
-    // Category headers
-    if (/^[A-ZÁÉÍÓÚÑÜ\s]+$/.test(line) && line.length > 3 && !line.includes(':')) {
+    // Stop at MT section
+    if (line.startsWith('OBTENCIÓN DE TODAS LAS MTS')) {
       flushItem()
-      currentCategory = line
-      continue
+      flushGroup()
+      break
     }
 
     // Separator lines
     if (/^-{3,}/.test(line)) continue
 
+    // Category headers
+    if (isCategoryHeader(line)) {
+      flushItem()
+      flushGroup()
+      currentCategory = line
+      continue
+    }
+
+    // Skip "Nota:" lines
+    if (/^Nota:/.test(line)) continue
+
+    // Bullet/continuation (must precede item regex — bullets can contain colons)
+    if (line.startsWith('-')) {
+      if (currentItem) {
+        currentItem.description = (currentItem.description as string) + '\n' + line
+      } else {
+        groupBullets.push(line)
+      }
+      continue
+    }
+
     // Item line: "ItemName: description"
     const itemM = line.match(/^([^:]+): (.+)/)
     if (itemM) {
       flushItem()
+      hasIndividualItems = true
       currentItem = {
         name: itemM[1].trim(),
         category: currentCategory,
@@ -302,12 +344,94 @@ function parseItems(): object[] {
       continue
     }
 
-    // Continuation lines (bullet points for item)
-    if (currentItem && line.startsWith('-')) {
-      currentItem.description += '\n' + line
+    // Other text (continuation or region notes)
+    if (currentItem) {
+      currentItem.description = (currentItem.description as string) + '\n' + line
+    } else if (currentCategory) {
+      groupBullets.push(line)
     }
   }
   flushItem()
+  flushGroup()
+
+  return result
+}
+
+// ── MTs ───────────────────────────────────────────────────────────────────────
+
+function parseMTs(): object[] {
+  const content = readDoc(f => f.includes('OBJETOS') && !f.includes('CAMBIOS'))
+
+  const mtSectionIdx = content.indexOf('OBTENCIÓN DE TODAS LAS MTS')
+  if (mtSectionIdx === -1) return []
+
+  const mtSection = content.slice(mtSectionIdx)
+  const result: object[] = []
+
+  for (const raw of mtSection.split('\n')) {
+    const line = raw.trim()
+    if (!line) continue
+
+    // Range: "MT163 a MT165 - No obtenibles." or "MT196 y MT197 - No obtenibles."
+    if (/^MT\d+\s+[ay]\s+MT\d+\s*-\s*No obtenible/i.test(line)) continue
+
+    // Single not obtainable: "MT161 - No obtenible."
+    if (/^MT\d+\s*-\s*No obtenible/i.test(line)) continue
+
+    // Normal: "MT01 - Puño certero: Quinta planta de Silph. (T1: Kanto)"
+    const m = line.match(/^(MT\d+)\s*-\s*(.+?):\s*(.+)$/)
+    if (m) {
+      const rest = m[3].trim()
+      const regionM = rest.match(/(\(T\d+:[^)]+\))\s*$/)
+      const region = regionM ? regionM[1] : ''
+      const location = rest.replace(regionM?.[0] ?? '', '').trim().replace(/\.?\s*$/, '')
+      result.push({ number: m[1].trim(), name: m[2].trim(), location, region })
+    }
+  }
+
+  return result
+}
+
+// ── Item changes ──────────────────────────────────────────────────────────────
+
+function parseItemChanges(): object[] {
+  const content = readDoc(f => f.includes('CAMBIOS') && f.includes('OBJETOS'))
+  const result: object[] = []
+  let currentSection = ''
+  let currentEntry: Record<string, unknown> | null = null
+
+  const flush = () => {
+    if (currentEntry) result.push(currentEntry)
+    currentEntry = null
+  }
+
+  for (const raw of content.split('\n')) {
+    const line = raw.trim()
+    if (!line || /^-{3,}/.test(line)) {
+      continue
+    }
+
+    // Section headers (all uppercase, no colon)
+    if (line === line.toUpperCase() && !line.includes(':') && line.length > 3 && /[A-ZÁÉÍÓÚÑÜ]/.test(line)) {
+      flush()
+      currentSection = line
+      continue
+    }
+
+    // Item change: "ItemName: effect"
+    const m = line.match(/^([^:]+): (.+)/)
+    if (m) {
+      flush()
+      currentEntry = { name: m[1].trim(), effect: m[2].trim(), section: currentSection }
+      continue
+    }
+
+    // Continuation bullet
+    if (currentEntry && line.startsWith('-')) {
+      currentEntry.effect = (currentEntry.effect as string) + '\n' + line
+    }
+  }
+  flush()
 
   return result
 }
@@ -609,6 +733,16 @@ console.log('Parsing items...')
 const items = parseItems()
 fs.writeFileSync(path.join(DATA_DIR, 'items.json'), JSON.stringify(items, null, 2))
 console.log(`  → ${items.length} items`)
+
+console.log('Parsing MTs...')
+const mts = parseMTs()
+fs.writeFileSync(path.join(DATA_DIR, 'mts.json'), JSON.stringify(mts, null, 2))
+console.log(`  → ${mts.length} MTs`)
+
+console.log('Parsing item changes...')
+const itemChanges = parseItemChanges()
+fs.writeFileSync(path.join(DATA_DIR, 'itemChanges.json'), JSON.stringify(itemChanges, null, 2))
+console.log(`  → ${itemChanges.length} item changes`)
 
 console.log('Parsing guide...')
 const regions = [

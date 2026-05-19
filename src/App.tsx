@@ -7,7 +7,7 @@ import TypesPage from './pages/TypesPage'
 
 const NAV_LINKS = [
   { to: '/', label: 'Pokédex', icon: '◉' },
-  { to: '/moves', label: 'MT/MO', icon: '⚡' },
+  { to: '/moves', label: 'Objetos', icon: '🎒' },
   { to: '/guide', label: 'Guía', icon: '📖' },
   { to: '/types', label: 'Tipos', icon: '🔥' },
 ]
