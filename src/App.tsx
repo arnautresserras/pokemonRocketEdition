@@ -4,12 +4,13 @@ import PokedexPage from './pages/PokedexPage'
 import MovesPage from './pages/MovesPage'
 import GuidePage from './pages/GuidePage'
 import TypesPage from './pages/TypesPage'
+import NaturesPage from './pages/NaturesPage'
 import { NAV_LINKS } from './constants/nav'
 
 function MobileNav() {
   return (
     <nav className="md:hidden flex shrink-0 border-t border-white/10 bg-dex-black pb-[env(safe-area-inset-bottom,0px)]">
-      {NAV_LINKS.map(({ to, label, icon }) => (
+      {NAV_LINKS.map(({ to, mobileLabel, icon }) => (
         <NavLink
           key={to}
           to={to}
@@ -21,7 +22,7 @@ function MobileNav() {
           }
         >
           <span className="text-xl">{icon}</span>
-          <span className="font-mono text-[9px] font-bold">{label}</span>
+          <span className="font-mono text-[8px] font-bold">{mobileLabel}</span>
         </NavLink>
       ))}
     </nav>
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/moves" element={<MovesPage />} />
             <Route path="/guide" element={<GuidePage />} />
             <Route path="/types" element={<TypesPage />} />
+            <Route path="/natures" element={<NaturesPage />} />
             <Route path="*" element={
               <div className="flex items-center justify-center h-full text-gray-600">
                 <div className="text-center space-y-2">
