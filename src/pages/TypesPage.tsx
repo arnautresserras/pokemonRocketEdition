@@ -4,7 +4,7 @@ import { getTypeColor } from '../utils/types'
 const TYPES = [
   'normal', 'fuego', 'agua', 'electrico', 'planta', 'hielo',
   'lucha', 'veneno', 'tierra', 'volador', 'psiquico', 'bicho',
-  'roca', 'fantasma', 'dragon', 'siniestro', 'acero',
+  'roca', 'fantasma', 'dragon', 'siniestro', 'acero', 'hada',
 ]
 
 const TYPE_LABELS: Record<string, string> = {
@@ -12,7 +12,7 @@ const TYPE_LABELS: Record<string, string> = {
   planta: 'Planta', hielo: 'Hielo', lucha: 'Lucha', veneno: 'Veneno',
   tierra: 'Tierra', volador: 'Volad.', psiquico: 'Psíq.', bicho: 'Bicho',
   roca: 'Roca', fantasma: 'Fant.', dragon: 'Dragón', siniestro: 'Sinist.',
-  acero: 'Acero',
+  acero: 'Acero', hada: 'Hada',
 }
 
 // Gen 3 type chart — only non-1× entries; Steel resists Ghost/Dark (pre-Gen4 rules)
@@ -60,6 +60,13 @@ const CHART_RAW: Array<[string, string, number]> = [
   ['siniestro', 'lucha',     0.5], ['siniestro', 'siniestro', 0.5], ['siniestro', 'acero',     0.5],
   ['acero',     'hielo',     2  ], ['acero',     'roca',      2  ],
   ['acero',     'fuego',     0.5], ['acero',     'agua',      0.5], ['acero',     'electrico', 0.5], ['acero', 'acero', 0.5],
+  // Fairy attacking
+  ['hada',      'dragon',    2  ], ['hada',      'siniestro', 2  ], ['hada',      'lucha',     2  ],
+  ['hada',      'fuego',     0.5], ['hada',      'veneno',    0.5], ['hada',      'acero',     0.5],
+  // Other types attacking Fairy
+  ['veneno',    'hada',      2  ], ['acero',     'hada',      2  ],
+  ['lucha',     'hada',      0.5], ['bicho',     'hada',      0.5], ['siniestro', 'hada',      0.5],
+  ['dragon',    'hada',      0  ],
 ]
 
 const CHART: Record<string, Record<string, number>> = Object.fromEntries(TYPES.map(t => [t, {}]))
