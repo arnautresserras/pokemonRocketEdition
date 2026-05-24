@@ -24,6 +24,12 @@ const CAT_LABELS: Record<Category, string> = {
   primal: 'Primigenio',
 }
 
+type SortOrder = 'default' | 'total-desc' | 'total-asc'
+
+function getEffectiveTotal(p: { officialStats?: { total: number }; hackromStats?: { total: number } }): number {
+  return p.hackromStats?.total ?? p.officialStats?.total ?? 0
+}
+
 const POKEAPI_SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
 
 function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>): string {
@@ -37,10 +43,11 @@ function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>)
 export default function PokedexPage() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<Category>('todos')
+  const [sortOrder, setSortOrder] = useState<SortOrder>('default')
   const [selected, setSelected] = useState<Pokemon | null>(null)
 
   const filtered = useMemo(() => {
-    return allPokemon.filter(p => {
+    const result = allPokemon.filter(p => {
       const matchSearch =
         !search ||
         p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -48,7 +55,13 @@ export default function PokedexPage() {
       const matchCat = category === 'todos' || p.category === category
       return matchSearch && matchCat
     })
-  }, [search, category])
+    if (sortOrder === 'total-desc') {
+      result.sort((a, b) => getEffectiveTotal(b) - getEffectiveTotal(a))
+    } else if (sortOrder === 'total-asc') {
+      result.sort((a, b) => getEffectiveTotal(a) - getEffectiveTotal(b))
+    }
+    return result
+  }, [search, category, sortOrder])
 
   const listRef = useRef<HTMLDivElement>(null)
   const virtualizer = useVirtualizer({
@@ -81,6 +94,22 @@ export default function PokedexPage() {
                 }`}
               >
                 {CAT_LABELS[cat]}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="text-[10px] text-gray-600 mr-0.5">BST</span>
+            {(['default', 'total-desc', 'total-asc'] as SortOrder[]).map(order => (
+              <button
+                key={order}
+                onClick={() => setSortOrder(order)}
+                className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
+                  sortOrder === order
+                    ? 'bg-dex-red text-white'
+                    : 'bg-white/10 text-gray-400 hover:bg-white/20'
+                }`}
+              >
+                {order === 'default' ? '—' : order === 'total-desc' ? '↓' : '↑'}
               </button>
             ))}
           </div>
