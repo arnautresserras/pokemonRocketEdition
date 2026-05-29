@@ -30,6 +30,10 @@ function getEffectiveTotal(p: { officialStats?: { total: number }; hackromStats?
   return p.hackromStats?.total ?? p.officialStats?.total ?? 0
 }
 
+const ALL_TYPES = Array.from(
+  new Set(allPokemon.flatMap(p => p.types ?? []))
+).sort()
+
 const POKEAPI_SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
 
 function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>): string {
@@ -44,7 +48,16 @@ export default function PokedexPage() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<Category>('todos')
   const [sortOrder, setSortOrder] = useState<SortOrder>('default')
+  const [typeFilter, setTypeFilter] = useState<Set<string>>(new Set())
   const [selected, setSelected] = useState<Pokemon | null>(null)
+
+  function toggleType(type: string) {
+    setTypeFilter(prev => {
+      const next = new Set(prev)
+      next.has(type) ? next.delete(type) : next.add(type)
+      return next
+    })
+  }
 
   const filtered = useMemo(() => {
     const result = allPokemon.filter(p => {
@@ -53,7 +66,8 @@ export default function PokedexPage() {
         p.name.toLowerCase().includes(search.toLowerCase()) ||
         (p.dexNumber !== undefined && String(p.dexNumber).includes(search))
       const matchCat = category === 'todos' || p.category === category
-      return matchSearch && matchCat
+      const matchType = typeFilter.size === 0 || p.types?.some(t => typeFilter.has(t))
+      return matchSearch && matchCat && matchType
     })
     if (sortOrder === 'total-desc') {
       result.sort((a, b) => getEffectiveTotal(b) - getEffectiveTotal(a))
@@ -61,7 +75,7 @@ export default function PokedexPage() {
       result.sort((a, b) => getEffectiveTotal(a) - getEffectiveTotal(b))
     }
     return result
-  }, [search, category, sortOrder])
+  }, [search, category, sortOrder, typeFilter])
 
   const listRef = useRef<HTMLDivElement>(null)
   const virtualizer = useVirtualizer({
@@ -112,6 +126,26 @@ export default function PokedexPage() {
                 {order === 'default' ? '—' : order === 'total-desc' ? '↓' : '↑'}
               </button>
             ))}
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {ALL_TYPES.map(type => {
+              const active = typeFilter.has(type)
+              const color = getTypeColor(type)
+              return (
+                <button
+                  key={type}
+                  onClick={() => toggleType(type)}
+                  className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider transition-opacity"
+                  style={{
+                    backgroundColor: active ? color : `${color}33`,
+                    color: active ? '#fff' : color,
+                    textShadow: active ? '0 1px 2px rgba(0,0,0,0.5)' : 'none',
+                  }}
+                >
+                  {type}
+                </button>
+              )
+            })}
           </div>
           <p className="text-[10px] text-gray-500">{filtered.length} resultados</p>
         </div>
