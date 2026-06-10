@@ -223,13 +223,13 @@ function parseLocations(): ParsedLocation[] {
   for (const raw of content.split('\n')) {
     const line = raw.trim()
     if (!line) continue
-    // Format: NAME - NUMBER - description
-    const m = line.match(/^([A-ZÁÉÍÓÚÑÜa-záéíóúñü_'\s]+) - (\d+) - (.+)/)
+    // Format: NAME - NUMBER - description (description may be empty)
+    const m = line.match(/^([A-ZÁÉÍÓÚÑÜa-záéíóúñü_'\s]+) - (\d+) - ?(.*)/)
     if (m) {
       result.push({
         name: m[1].trim(),
         dexNumber: +m[2],
-        location: m[3].trim(),
+        location: m[3].trim() || undefined,
       })
     }
   }
@@ -596,7 +596,7 @@ interface ParsedPokemonStats {
 interface ParsedLocation {
   name: string
   dexNumber: number
-  location: string
+  location?: string
 }
 
 interface ParsedEvolution {
@@ -677,6 +677,131 @@ async function enrichWithApiData(pokemon: Pokemon[]): Promise<void> {
   console.log(`\r  → enriched ${enriched} entries (${cacheHits} from cache)          `)
 }
 
+// ── Gen 9 reference list (Paldea, added as reference; types/stats from PokéAPI) ──
+
+const GEN9_POKEMON: Array<{ name: string; dexNumber: number }> = [
+  { name: 'SPRIGATITO', dexNumber: 906 },
+  { name: 'FLORAGATO', dexNumber: 907 },
+  { name: 'MEOWSCARADA', dexNumber: 908 },
+  { name: 'FUECOCO', dexNumber: 909 },
+  { name: 'CROCALOR', dexNumber: 910 },
+  { name: 'SKELEDIRGE', dexNumber: 911 },
+  { name: 'QUAXLY', dexNumber: 912 },
+  { name: 'QUAXWELL', dexNumber: 913 },
+  { name: 'QUAQUAVAL', dexNumber: 914 },
+  { name: 'LECHONK', dexNumber: 915 },
+  { name: 'OINKOLOGNE', dexNumber: 916 },
+  { name: 'TAROUNTULA', dexNumber: 917 },
+  { name: 'SPIDOPS', dexNumber: 918 },
+  { name: 'NYMBLE', dexNumber: 919 },
+  { name: 'LOKIX', dexNumber: 920 },
+  { name: 'PAWMI', dexNumber: 921 },
+  { name: 'PAWMO', dexNumber: 922 },
+  { name: 'PAWMOT', dexNumber: 923 },
+  { name: 'TANDEMAUS', dexNumber: 924 },
+  { name: 'MAUSHOLD', dexNumber: 925 },
+  { name: 'FIDOUGH', dexNumber: 926 },
+  { name: 'DACHSBUN', dexNumber: 927 },
+  { name: 'SMOLIV', dexNumber: 928 },
+  { name: 'DOLLIV', dexNumber: 929 },
+  { name: 'ARBOLIVA', dexNumber: 930 },
+  { name: 'SQUAWKABILLY', dexNumber: 931 },
+  { name: 'NACLI', dexNumber: 932 },
+  { name: 'NACLSTACK', dexNumber: 933 },
+  { name: 'GARGANACL', dexNumber: 934 },
+  { name: 'CHARCADET', dexNumber: 935 },
+  { name: 'ARMAROUGE', dexNumber: 936 },
+  { name: 'CERULEDGE', dexNumber: 937 },
+  { name: 'TADBULB', dexNumber: 938 },
+  { name: 'BELLIBOLT', dexNumber: 939 },
+  { name: 'WATTREL', dexNumber: 940 },
+  { name: 'KILOWATTREL', dexNumber: 941 },
+  { name: 'MASCHIFF', dexNumber: 942 },
+  { name: 'MABOSSTIFF', dexNumber: 943 },
+  { name: 'SHROODLE', dexNumber: 944 },
+  { name: 'GRAFAIAI', dexNumber: 945 },
+  { name: 'BRAMBLIN', dexNumber: 946 },
+  { name: 'BRAMBLEGHAST', dexNumber: 947 },
+  { name: 'TOEDSCOOL', dexNumber: 948 },
+  { name: 'TOEDSCRUEL', dexNumber: 949 },
+  { name: 'KLAWF', dexNumber: 950 },
+  { name: 'CAPSAKID', dexNumber: 951 },
+  { name: 'SCOVILLAIN', dexNumber: 952 },
+  { name: 'RELLOR', dexNumber: 953 },
+  { name: 'RABSCA', dexNumber: 954 },
+  { name: 'FLITTLE', dexNumber: 955 },
+  { name: 'ESPATHRA', dexNumber: 956 },
+  { name: 'TINKATINK', dexNumber: 957 },
+  { name: 'TINKATUFF', dexNumber: 958 },
+  { name: 'TINKATON', dexNumber: 959 },
+  { name: 'WIGLETT', dexNumber: 960 },
+  { name: 'WUGTRIO', dexNumber: 961 },
+  { name: 'BOMBIRDIER', dexNumber: 962 },
+  { name: 'FINIZEN', dexNumber: 963 },
+  { name: 'PALAFIN', dexNumber: 964 },
+  { name: 'VAROOM', dexNumber: 965 },
+  { name: 'REVAVROOM', dexNumber: 966 },
+  { name: 'CYCLIZAR', dexNumber: 967 },
+  { name: 'ORTHWORM', dexNumber: 968 },
+  { name: 'GLIMMET', dexNumber: 969 },
+  { name: 'GLIMMORA', dexNumber: 970 },
+  { name: 'GREAVARD', dexNumber: 971 },
+  { name: 'HOUNDSTONE', dexNumber: 972 },
+  { name: 'FLAMIGO', dexNumber: 973 },
+  { name: 'CETODDLE', dexNumber: 974 },
+  { name: 'CETITAN', dexNumber: 975 },
+  { name: 'VELUZA', dexNumber: 976 },
+  { name: 'DONDOZO', dexNumber: 977 },
+  { name: 'TATSUGIRI', dexNumber: 978 },
+  { name: 'ANNIHILAPE', dexNumber: 979 },
+  { name: 'CLODSIRE', dexNumber: 980 },
+  { name: 'FARIGIRAF', dexNumber: 981 },
+  { name: 'DUDUNSPARCE', dexNumber: 982 },
+  { name: 'KINGAMBIT', dexNumber: 983 },
+  { name: 'GREAT TUSK', dexNumber: 984 },
+  { name: 'SCREAM TAIL', dexNumber: 985 },
+  { name: 'BRUTE BONNET', dexNumber: 986 },
+  { name: 'FLUTTER MANE', dexNumber: 987 },
+  { name: 'SLITHER WING', dexNumber: 988 },
+  { name: 'SANDY SHOCKS', dexNumber: 989 },
+  { name: 'IRON TREADS', dexNumber: 990 },
+  { name: 'IRON BUNDLE', dexNumber: 991 },
+  { name: 'IRON HANDS', dexNumber: 992 },
+  { name: 'IRON JUGULIS', dexNumber: 993 },
+  { name: 'IRON MOTH', dexNumber: 994 },
+  { name: 'IRON THORNS', dexNumber: 995 },
+  { name: 'FRIGIBAX', dexNumber: 996 },
+  { name: 'ARCTIBAX', dexNumber: 997 },
+  { name: 'BAXCALIBUR', dexNumber: 998 },
+  { name: 'GIMMIGHOUL', dexNumber: 999 },
+  { name: 'GHOLDENGO', dexNumber: 1000 },
+  { name: 'WO-CHIEN', dexNumber: 1001 },
+  { name: 'CHIEN-PAO', dexNumber: 1002 },
+  { name: 'TING-LU', dexNumber: 1003 },
+  { name: 'CHI-YU', dexNumber: 1004 },
+  { name: 'ROARING MOON', dexNumber: 1005 },
+  { name: 'IRON VALIANT', dexNumber: 1006 },
+  { name: 'KORAIDON', dexNumber: 1007 },
+  { name: 'MIRAIDON', dexNumber: 1008 },
+  { name: 'WALKING WAKE', dexNumber: 1009 },
+  { name: 'IRON LEAVES', dexNumber: 1010 },
+  { name: 'DIPPLIN', dexNumber: 1011 },
+  { name: 'POLTCHAGEIST', dexNumber: 1012 },
+  { name: 'SINISTCHA', dexNumber: 1013 },
+  { name: 'OKIDOGI', dexNumber: 1014 },
+  { name: 'MUNKIDORI', dexNumber: 1015 },
+  { name: 'FEZANDIPITI', dexNumber: 1016 },
+  { name: 'OGERPON', dexNumber: 1017 },
+  { name: 'ARCHALUDON', dexNumber: 1018 },
+  { name: 'HYDRAPPLE', dexNumber: 1019 },
+  { name: 'GOUGING FIRE', dexNumber: 1020 },
+  { name: 'RAGING BOLT', dexNumber: 1021 },
+  { name: 'IRON BOULDER', dexNumber: 1022 },
+  { name: 'IRON CROWN', dexNumber: 1023 },
+  { name: 'TERAPAGOS', dexNumber: 1024 },
+  { name: 'PECHARUNT', dexNumber: 1025 },
+]
+
 // ── Assemble Pokemon master list ──────────────────────────────────────────────
 
 function assemblePokemon() {
@@ -733,6 +858,14 @@ function assemblePokemon() {
         evolutionMethod: evolutionMap.get(loc.name.toLowerCase()),
         category: 'base',
       })
+    }
+  }
+
+  // Add Gen 9 reference entries not already in the list
+  for (const g9 of GEN9_POKEMON) {
+    const already = pokemon.some(p => p.name.toLowerCase() === g9.name.toLowerCase())
+    if (!already) {
+      pokemon.push({ name: g9.name, dexNumber: g9.dexNumber, category: 'base' })
     }
   }
 
