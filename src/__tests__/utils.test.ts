@@ -42,16 +42,16 @@ describe('categoryLabel', () => {
     expect(categoryLabel('todos')).toBe('Todos')
     expect(categoryLabel('cambios')).toBe('Cambios')
   })
-  it('maps known item category substrings', () => {
+  it('maps known item category exact keys', () => {
     expect(categoryLabel('PIEDRAS EVOLUTIVAS')).toBe('Piedras Evol.')
     expect(categoryLabel('MEGAPIEDRAS NUEVAS')).toBe('Mega Nuevas')
-    expect(categoryLabel('MEGAPIEDRAS')).toBe('Megapiedras')
-    expect(categoryLabel('BAYAS REDUCTORAS DE EVs')).toBe('Bayas EVs')
-    expect(categoryLabel('GEMAS')).toBe('Gemas')
+    expect(categoryLabel('TODAS LAS MEGAPIEDRAS (OFICIALES)')).toBe('Megapiedras')
+    expect(categoryLabel('BAYAS REDUCTORAS EVS')).toBe('Bayas EVs')
+    expect(categoryLabel('GEMAS PKMN')).toBe('Gemas')
     expect(categoryLabel('CRISTALES Z')).toBe('Cristales Z')
   })
-  it('falls back to first two words for unknown categories', () => {
-    expect(categoryLabel('UNKNOWN CATEGORY LONG')).toBe('UNKNOWN CATEGORY')
+  it('falls back to the raw string for unknown categories', () => {
+    expect(categoryLabel('UNKNOWN CATEGORY LONG')).toBe('UNKNOWN CATEGORY LONG')
     expect(categoryLabel('ONE')).toBe('ONE')
   })
 })

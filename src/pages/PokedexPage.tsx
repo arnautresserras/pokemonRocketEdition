@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react'
+import { useState, useMemo, useRef, useCallback } from 'react'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Pokemon, Stats } from '../types'
 import pokemonData from '../data/pokemon.json'
@@ -6,9 +6,11 @@ import experimentsData from '../data/experiments.json'
 import SearchBar from '../components/SearchBar'
 import TypeBadge from '../components/TypeBadge'
 import StatBar from '../components/StatBar'
+import EmptyState from '../components/EmptyState'
 import { getTypeColor } from '../utils/types'
 import { getEffectiveTotal } from '../utils/pokemon'
 import { TOTAL_MAX, STAT_MAX } from '../constants'
+import { useDebouncedValue } from '../utils/useDebounce'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
@@ -49,6 +51,15 @@ export default function PokedexPage() {
   const [typeFilter, setTypeFilter] = useState<Set<string>>(new Set())
   const [selected, setSelected] = useState<Pokemon | null>(null)
 
+  const debouncedSearch = useDebouncedValue(search, 150)
+
+  const clearFilters = useCallback(() => {
+    setSearch('')
+    setCategory('todos')
+    setTypeFilter(new Set())
+    setSortOrder('default')
+  }, [])
+
   function toggleType(type: string) {
     setTypeFilter(prev => {
       const next = new Set(prev)
@@ -61,9 +72,9 @@ export default function PokedexPage() {
   const filtered = useMemo(() => {
     const result = allPokemon.filter(p => {
       const matchSearch =
-        !search ||
-        p.name.toLowerCase().includes(search.toLowerCase()) ||
-        (p.dexNumber !== undefined && String(p.dexNumber).includes(search))
+        !debouncedSearch ||
+        p.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+        (p.dexNumber !== undefined && String(p.dexNumber).includes(debouncedSearch))
       const matchCat = category === 'todos' || p.category === category
       const matchType = typeFilter.size === 0 || p.types?.some(t => typeFilter.has(t))
       return matchSearch && matchCat && matchType
@@ -74,7 +85,7 @@ export default function PokedexPage() {
       result.sort((a, b) => getEffectiveTotal(a) - getEffectiveTotal(b))
     }
     return result
-  }, [search, category, sortOrder, typeFilter])
+  }, [debouncedSearch, category, sortOrder, typeFilter])
 
   const listRef = useRef<HTMLDivElement>(null)
   const virtualizer = useVirtualizer({
@@ -150,20 +161,24 @@ export default function PokedexPage() {
         </div>
 
         <div ref={listRef} className="flex-1 overflow-y-auto">
-          <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
-            {virtualizer.getVirtualItems().map(row => (
-              <div
-                key={row.index}
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
-              >
-                <PokemonRow
-                  pokemon={filtered[row.index]}
-                  isSelected={selected?.name === filtered[row.index].name}
-                  onClick={() => setSelected(filtered[row.index])}
-                />
-              </div>
-            ))}
-          </div>
+          {filtered.length === 0 ? (
+            <EmptyState onClear={clearFilters} />
+          ) : (
+            <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
+              {virtualizer.getVirtualItems().map(row => (
+                <div
+                  key={row.index}
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+                >
+                  <PokemonRow
+                    pokemon={filtered[row.index]}
+                    isSelected={selected?.name === filtered[row.index].name}
+                    onClick={() => setSelected(filtered[row.index])}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -201,6 +216,7 @@ function PokemonRow({
   isSelected: boolean
   onClick: () => void
 }) {
+  const [spriteError, setSpriteError] = useState(false)
   const hasChanges = pokemon.officialStats && pokemon.hackromStats
   const totalDiff =
     hasChanges
@@ -223,14 +239,18 @@ function PokemonRow({
         className="w-10 h-10 rounded shrink-0 flex items-center justify-center"
         style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}33` : 'transparent' }}
       >
-        <img
-          src={getSpriteUrl(pokemon)}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          className="w-10 h-10 object-contain pixelated"
-          onError={e => { e.currentTarget.style.display = 'none' }}
-        />
+        {spriteError ? (
+          <span className="text-gray-600 text-xl opacity-40">◉</span>
+        ) : (
+          <img
+            src={getSpriteUrl(pokemon)}
+            alt=""
+            aria-hidden
+            loading="lazy"
+            className="w-10 h-10 object-contain pixelated"
+            onError={() => setSpriteError(true)}
+          />
+        )}
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-bold text-white truncate">{pokemon.name}</p>
@@ -259,6 +279,7 @@ function PokemonRow({
 }
 
 function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
+  const [spriteError, setSpriteError] = useState(false)
   const stats: { key: keyof Stats; label: string }[] = [
     { key: 'hp', label: 'PS' },
     { key: 'attack', label: 'Ataque' },
@@ -281,12 +302,18 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
           className="flex items-center justify-center py-6 transition-colors"
           style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}30` : '#0f1117' }}
         >
-          <img
-            src={getSpriteUrl(pokemon)}
-            alt={pokemon.name}
-            className="w-32 h-32 object-contain pixelated drop-shadow-lg"
-            onError={e => { e.currentTarget.style.display = 'none' }}
-          />
+          {spriteError ? (
+            <div className="w-32 h-32 flex items-center justify-center text-gray-600 opacity-30">
+              <span className="text-7xl">◉</span>
+            </div>
+          ) : (
+            <img
+              src={getSpriteUrl(pokemon)}
+              alt={pokemon.name}
+              className="w-32 h-32 object-contain pixelated drop-shadow-lg"
+              onError={() => setSpriteError(true)}
+            />
+          )}
         </div>
         {/* Info */}
         <div className="p-4">

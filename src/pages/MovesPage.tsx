@@ -7,7 +7,9 @@ import itemsData from '../data/items.json'
 import itemChangesData from '../data/itemChanges.json'
 import SearchBar from '../components/SearchBar'
 import TypeBadge from '../components/TypeBadge'
+import EmptyState from '../components/EmptyState'
 import { categoryLabel } from '../utils/items'
+import { useDebouncedValue } from '../utils/useDebounce'
 
 const moves = movesData as Move[]
 const mts = mtsData as MT[]
@@ -27,10 +29,16 @@ const MT_REGION_COLORS: Record<MTRegion, string> = {
   T4: 'bg-purple-700', T5: 'bg-green-700',
 }
 
+const MT_REGION_MAP: Partial<Record<string, MTRegion>> = {
+  '(T1: Kanto)': 'T1',
+  '(T2: Archi7)': 'T2',
+  '(T3: Johto)': 'T3',
+  '(T4: DLC)': 'T4',
+  '(T5: Hoenn)': 'T5',
+}
+
 function mtRegionKey(region: string): MTRegion {
-  const m = region.match(/\(T(\d+):/)
-  if (!m) return 'todos'
-  return `T${m[1]}` as MTRegion
+  return MT_REGION_MAP[region] ?? 'todos'
 }
 
 // ── Main component ─────────────────────────────────────────────────────────────
@@ -41,6 +49,7 @@ export default function MovesPage() {
   const [mtRegion, setMtRegion] = useState<MTRegion>('todos')
   const [itemFilter, setItemFilter] = useState('todos')
   const [search, setSearch] = useState('')
+  const debouncedSearch = useDebouncedValue(search, 150)
   const [selectedMove, setSelectedMove] = useState<Move | null>(null)
   const [selectedMT, setSelectedMT] = useState<MT | null>(null)
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)
@@ -76,12 +85,12 @@ export default function MovesPage() {
     () =>
       moves.filter(
         m =>
-          !search ||
-          m.name.toLowerCase().includes(search.toLowerCase()) ||
-          m.official.type.toLowerCase().includes(search.toLowerCase()) ||
-          m.hackrom.type.toLowerCase().includes(search.toLowerCase()),
+          !debouncedSearch ||
+          m.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+          m.official.type.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+          m.hackrom.type.toLowerCase().includes(debouncedSearch.toLowerCase()),
       ),
-    [search],
+    [debouncedSearch],
   )
 
   // Filtered MTs
@@ -89,28 +98,28 @@ export default function MovesPage() {
     () =>
       mts.filter(mt => {
         const matchSearch =
-          !search ||
-          mt.name.toLowerCase().includes(search.toLowerCase()) ||
-          mt.number.toLowerCase().includes(search.toLowerCase())
+          !debouncedSearch ||
+          mt.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+          mt.number.toLowerCase().includes(debouncedSearch.toLowerCase())
         const matchRegion = mtRegion === 'todos' || mtRegionKey(mt.region) === mtRegion
         return matchSearch && matchRegion
       }),
-    [search, mtRegion],
+    [debouncedSearch, mtRegion],
   )
 
   // Filtered items
   const filteredItems = useMemo(() => {
     if (itemFilter === 'cambios') {
       return itemChanges.filter(
-        c => !search || c.name.toLowerCase().includes(search.toLowerCase()),
+        c => !debouncedSearch || c.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
       )
     }
     return items.filter(item => {
-      const matchSearch = !search || item.name.toLowerCase().includes(search.toLowerCase())
+      const matchSearch = !debouncedSearch || item.name.toLowerCase().includes(debouncedSearch.toLowerCase())
       const matchCat = itemFilter === 'todos' || item.category === itemFilter
       return matchSearch && matchCat
     })
-  }, [search, itemFilter])
+  }, [debouncedSearch, itemFilter])
 
   return (
     <div className="flex flex-col h-full">
@@ -271,8 +280,11 @@ function MovesListPanel({
         <p className="text-[10px] text-gray-500">{count} {label}</p>
       </div>
       <div ref={mtListRef} className="flex-1 overflow-y-auto">
-        {moveFilter === 'cambios'
-          ? filteredMoves.map(m => (
+        {moveFilter === 'cambios' ? (
+          filteredMoves.length === 0 ? (
+            <EmptyState onClear={() => setSearch('')} />
+          ) : (
+            filteredMoves.map(m => (
               <MoveRow
                 key={m.name}
                 move={m}
@@ -280,23 +292,25 @@ function MovesListPanel({
                 onClick={() => onSelectMove(m)}
               />
             ))
-          : (
-            <div style={{ height: mtVirtualizer.getTotalSize(), position: 'relative' }}>
-              {mtVirtualizer.getVirtualItems().map(row => (
-                <div
-                  key={row.index}
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
-                >
-                  <MTRow
-                    mt={filteredMTs[row.index]}
-                    isSelected={selectedMT?.number === filteredMTs[row.index].number}
-                    onClick={() => onSelectMT(filteredMTs[row.index])}
-                  />
-                </div>
-              ))}
-            </div>
           )
-        }
+        ) : filteredMTs.length === 0 ? (
+          <EmptyState onClear={() => setSearch('')} />
+        ) : (
+          <div style={{ height: mtVirtualizer.getTotalSize(), position: 'relative' }}>
+            {mtVirtualizer.getVirtualItems().map(row => (
+              <div
+                key={row.index}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+              >
+                <MTRow
+                  mt={filteredMTs[row.index]}
+                  isSelected={selectedMT?.number === filteredMTs[row.index].number}
+                  onClick={() => onSelectMT(filteredMTs[row.index])}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -357,30 +371,34 @@ function ItemsListPanel({
         <p className="text-[10px] text-gray-500">{count} {label}</p>
       </div>
       <div ref={listRef} className="flex-1 overflow-y-auto">
-        <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
-          {virtualizer.getVirtualItems().map(row => {
-            const idx = row.index
-            return (
-              <div
-                key={idx}
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
-              >
-                {isChangesView
-                  ? <ItemChangeRow
-                      change={(filteredItems as ItemChange[])[idx]}
-                      isSelected={selectedChange?.name === (filteredItems as ItemChange[])[idx].name}
-                      onClick={() => onSelectChange((filteredItems as ItemChange[])[idx])}
-                    />
-                  : <ItemRow
-                      item={(filteredItems as Item[])[idx]}
-                      isSelected={selectedItem?.name === (filteredItems as Item[])[idx].name}
-                      onClick={() => onSelectItem((filteredItems as Item[])[idx])}
-                    />
-                }
-              </div>
-            )
-          })}
-        </div>
+        {filteredItems.length === 0 ? (
+          <EmptyState onClear={() => setSearch('')} />
+        ) : (
+          <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
+            {virtualizer.getVirtualItems().map(row => {
+              const idx = row.index
+              return (
+                <div
+                  key={idx}
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+                >
+                  {isChangesView
+                    ? <ItemChangeRow
+                        change={(filteredItems as ItemChange[])[idx]}
+                        isSelected={selectedChange?.name === (filteredItems as ItemChange[])[idx].name}
+                        onClick={() => onSelectChange((filteredItems as ItemChange[])[idx])}
+                      />
+                    : <ItemRow
+                        item={(filteredItems as Item[])[idx]}
+                        isSelected={selectedItem?.name === (filteredItems as Item[])[idx].name}
+                        onClick={() => onSelectItem((filteredItems as Item[])[idx])}
+                      />
+                  }
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
     </div>
   )

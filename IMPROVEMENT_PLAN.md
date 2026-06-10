@@ -27,39 +27,31 @@ parser change, since the app reads the generated JSON, not the raw text.
 
 ## Phase 1 — Bugfixes & Improvements
 
-### 1.1 User-facing bugs & polish (highest priority — players hit these daily)
+### 1.1 User-facing bugs & polish (highest priority — players hit these daily) ✅ Done
 
-- **Broken-sprite fallback leaves empty boxes.** In
-  [PokedexPage.tsx:233](src/pages/PokedexPage.tsx#L233) the `onError` handler
-  hides the `<img>`, leaving a blank colored square with no label cue. Sprites
-  load fine for most Pokémon via `dexNumber` ([line 40](src/pages/PokedexPage.tsx#L40)),
-  but megas/prototypes/Gen-9 entries without `dexNumber`/`spriteId` fall back to
-  a `pokemondb.net` slug ([line 43](src/pages/PokedexPage.tsx#L43)) that often
-  404s. Fix: on error, swap to a neutral Poké-ball placeholder (or show the
-  dex-number monogram) instead of `display:none`. Apply the same handling in the
-  detail header.
-- **No empty state on filtered lists.** When filters yield nothing, the Pokédex
-  shows only "0 resultados" over a blank virtualized area
-  ([PokedexPage.tsx:150-168](src/pages/PokedexPage.tsx#L150-L168)). MovesPage and
-  the items tab have the same gap. Add a shared `EmptyState` component
-  (icon + message + "limpiar filtros" button) and render it when the list is
-  empty. GuidePage already shows "Sin resultados" — align it to the same component.
-- **No search debounce.** [SearchBar.tsx](src/components/SearchBar.tsx) calls
-  `onChange` on every keystroke, re-running the `useMemo` filter over ~1,100
-  Pokémon each time. Add an internal debounce (~150ms) in SearchBar, or a
-  `useDebouncedValue` hook in `src/utils/`, so typing stays smooth on mobile.
-- **No error boundary.** A single malformed JSON entry blanks the whole app
-  (`StrictMode` only, no boundary in [main.tsx](src/main.tsx)). Add an
-  `ErrorBoundary` wrapping `<App/>` with a friendly recovery message.
-- **Mobile: 18×18 type chart overflows.** [TypesPage.tsx](src/pages/TypesPage.tsx)
-  `ChartView` forces horizontal scroll on phones with no affordance. Add a scroll
-  hint/shadow and ensure the interactive Calculator (more phone-friendly) is the
-  default view on small screens.
-- **Brittle category/region string matching.** `categoryLabel()`
-  ([MovesPage.tsx:18-36](src/pages/MovesPage.tsx#L18-L36)) and `mtRegionKey()`
-  use `includes()` chains and regex on display strings; a doc wording change
-  silently mislabels. Replace with explicit lookup maps keyed on the value the
-  parser emits, with a safe fallback.
+- **Broken-sprite fallback.** ✅ `PokemonRow` and `PokemonDetail` in
+  [PokedexPage.tsx](src/pages/PokedexPage.tsx) now track a local `spriteError`
+  state; on error, a `◉` placeholder is rendered instead of a blank box.
+- **Empty state on filtered lists.** ✅ Shared `EmptyState` component added at
+  [src/components/EmptyState.tsx](src/components/EmptyState.tsx) (icon + message +
+  "Limpiar filtros" button). Rendered in PokedexPage, MovesPage (moves, MTs, items),
+  and GuidePage (replaces the ad-hoc "Sin resultados" div).
+- **Search debounce.** ✅ `useDebouncedValue` hook added at
+  [src/utils/useDebounce.ts](src/utils/useDebounce.ts). Used in PokedexPage,
+  MovesPage, and GuidePage — the input updates immediately, expensive filtering
+  waits 150 ms.
+- **Error boundary.** ✅ `ErrorBoundary` class component added at
+  [src/components/ErrorBoundary.tsx](src/components/ErrorBoundary.tsx) and wraps
+  `<App/>` in [main.tsx](src/main.tsx). Shows a friendly recovery screen with a
+  "Reintentar" button.
+- **Mobile: type chart overflow.** ✅ `TypesPage` defaults to the Calculator view
+  on screens < 768 px; `ChartView` shows a "← Desliza →" hint on mobile.
+- **Brittle category/region string matching.** ✅ `categoryLabel()` in
+  [src/utils/items.ts](src/utils/items.ts) replaced with an explicit lookup map
+  keyed on the exact strings the parser emits (verified against `items.json`).
+  `mtRegionKey()` in [MovesPage.tsx](src/pages/MovesPage.tsx) replaced with a
+  direct lookup map keyed on the exact `mt.region` values from `mts.json`.
+  Tests in `utils.test.ts` updated accordingly.
 
 ### 1.2 Data accuracy (parser robustness — wrong data misleads players)
 
@@ -159,7 +151,7 @@ the fragile points and surface what fails instead of silently dropping it:
 
 1. ~~Phase 1.3 infra first (ESLint/Prettier, Vitest, ErrorBoundary) — cheap, makes
    everything after it safer.~~ **✅ Done** (ErrorBoundary is a Phase 1.1 item)
-2. Phase 1.1 user-facing fixes — fastest visible wins.
+2. ~~Phase 1.1 user-facing fixes — fastest visible wins.~~ **✅ Done**
 3. Phase 1.2 parser/data accuracy — confirm with a regenerated dataset.
 4. Phase 2 Tier 1, then Tier 2/3 as appetite allows. Features #1–#4 share a
    `useLocalStorage` hook and the deep-link routing groundwork, so build that

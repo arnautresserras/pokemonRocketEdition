@@ -97,7 +97,7 @@ function cellStyle(mult: number) {
 
 function ChartView() {
   return (
-    <div className="overflow-auto flex-1 p-3">
+    <div className="relative overflow-auto flex-1 p-3">
       <div className="min-w-max">
         {/* Legend */}
         <div className="flex items-center gap-3 mb-3 flex-wrap">
@@ -119,6 +119,8 @@ function ChartView() {
             )
           })}
         </div>
+
+        <p className="md:hidden text-[9px] text-gray-600 mb-2 font-mono">← Desliza para ver la tabla completa →</p>
 
         {/* Table */}
         <table className="border-collapse text-[10px] font-mono">
@@ -332,7 +334,9 @@ function CalculatorView() {
 type Tab = 'chart' | 'calc'
 
 export default function TypesPage() {
-  const [tab, setTab] = useState<Tab>('chart')
+  const [tab, setTab] = useState<Tab>(() =>
+    typeof window !== 'undefined' && window.innerWidth < 768 ? 'calc' : 'chart'
+  )
 
   return (
     <div className="flex flex-col h-full">

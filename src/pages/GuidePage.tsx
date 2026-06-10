@@ -2,21 +2,24 @@ import { useState, useMemo } from 'react'
 import type { RegionGuide, GuideSection, Battle, PokemonEncounter } from '../types'
 import guideData from '../data/guide.json'
 import SearchBar from '../components/SearchBar'
+import EmptyState from '../components/EmptyState'
 import { REGION_COLORS } from '../constants'
+import { useDebouncedValue } from '../utils/useDebounce'
 
 const guide = guideData as RegionGuide[]
 
 export default function GuidePage() {
   const [activeRegion, setActiveRegion] = useState(guide[0]?.region ?? '')
   const [search, setSearch] = useState('')
+  const debouncedSearch = useDebouncedValue(search, 150)
   const [selectedSection, setSelectedSection] = useState<string | null>(null)
 
   const currentGuide = guide.find(g => g.region === activeRegion)
 
   const filteredSections = useMemo(() => {
     if (!currentGuide) return []
-    if (!search) return currentGuide.sections
-    const q = search.toLowerCase()
+    if (!debouncedSearch) return currentGuide.sections
+    const q = debouncedSearch.toLowerCase()
     return currentGuide.sections.filter(
       s =>
         s.location.toLowerCase().includes(q) ||
@@ -26,7 +29,7 @@ export default function GuidePage() {
             b.pokemon.some(p => p.name.toLowerCase().includes(q)),
         ),
     )
-  }, [currentGuide, search])
+  }, [currentGuide, debouncedSearch])
 
   const activeSectionData = currentGuide?.sections.find(s => s.location === selectedSection)
 
@@ -71,9 +74,7 @@ export default function GuidePage() {
 
         <div className="flex-1 overflow-y-auto">
           {filteredSections.length === 0 && (
-            <div className="flex items-center justify-center h-32 text-gray-600">
-              <p className="font-mono text-xs">Sin resultados</p>
-            </div>
+            <EmptyState onClear={() => setSearch('')} />
           )}
           {filteredSections.map(section => (
             <button

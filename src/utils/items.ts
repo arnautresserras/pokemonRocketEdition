@@ -1,19 +1,22 @@
+const CATEGORY_LABELS: Record<string, string> = {
+  todos: 'Todos',
+  cambios: 'Cambios',
+  'PIEDRAS EVOLUTIVAS': 'Piedras Evol.',
+  'OBJETOS POTENCIADORES DE CIERTOS PKMN': 'Potenciadores',
+  'OBJETOS COMPETITIVOS': 'Competitivos',
+  'UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO': '+20% Tipo',
+  'UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)': 'Tablas Arceus',
+  'DISCOS DE GENESECT': 'Discos Genesect',
+  'DISCOS DE SILVALLY': 'Discos Silvally',
+  'BAYAS REDUCTORAS EVS': 'Bayas EVs',
+  'BAYAS MITIGADORAS SUPEREFECTIVO Y BAYAS QUE SUBEN UN STAT EN MOMENTO CRÍTICO': 'Bayas Combat.',
+  'GEMAS PKMN': 'Gemas',
+  'CRISTALES Z': 'Cristales Z',
+  'SEMILLAS CONSUMIBLES BAJO CAMPOS': 'Semillas',
+  'TODAS LAS MEGAPIEDRAS (OFICIALES)': 'Megapiedras',
+  'MEGAPIEDRAS NUEVAS': 'Mega Nuevas',
+}
+
 export function categoryLabel(cat: string): string {
-  if (cat === 'todos') return 'Todos'
-  if (cat === 'cambios') return 'Cambios'
-  if (cat.includes('PIEDRAS EVOLUTIVAS')) return 'Piedras Evol.'
-  if (cat.includes('POTENCIADORES DE CIERTOS')) return 'Potenciadores'
-  if (cat.includes('COMPETITIVOS')) return 'Competitivos'
-  if (cat.includes('+20%')) return '+20% Tipo'
-  if (cat.includes('TABLAS DE ARCEUS')) return 'Tablas Arceus'
-  if (cat.includes('MEGAPIEDRAS NUEVAS')) return 'Mega Nuevas'
-  if (cat.includes('MEGAPIEDRAS')) return 'Megapiedras'
-  if (cat.includes('BAYAS REDUCTORAS')) return 'Bayas EVs'
-  if (cat.includes('BAYAS MITIGADORAS')) return 'Bayas Combat.'
-  if (cat.includes('GEMAS')) return 'Gemas'
-  if (cat.includes('CRISTALES')) return 'Cristales Z'
-  if (cat.includes('SEMILLAS')) return 'Semillas'
-  if (cat.includes('DISCOS DE GENESECT')) return 'Discos Genesect'
-  if (cat.includes('DISCOS DE SILVALLY')) return 'Discos Silvally'
-  return cat.split(' ').slice(0, 2).join(' ')
+  return CATEGORY_LABELS[cat] ?? cat
 }
