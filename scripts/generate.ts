@@ -498,7 +498,10 @@ function parseGuide(filename: string, region: string): RegionGuide {
     // Location/section headers (followed by --- line)
     const nextLine = lines[i + 1]?.trim() ?? ''
     if (nextLine.startsWith('---') || (nextLine === '' && lines[i + 2]?.trim().startsWith('---'))) {
-      if (/^[A-ZÁÉÍÓÚÑÜ]/.test(line) && !line.startsWith('VS ')) {
+      // Guard against Pokémon data lines (e.g. a trailing "IVs:"/"Mov:" line
+      // sitting just above the file's closing separator) being misread as a
+      // location header.
+      if (/^[A-ZÁÉÍÓÚÑÜ]/.test(line) && !line.startsWith('VS ') && !line.startsWith('IVs:') && !line.startsWith('Mov:')) {
         flushSection()
         currentLocation = line
         continue

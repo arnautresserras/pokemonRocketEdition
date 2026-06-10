@@ -2919,15 +2919,13 @@
                   "garra dragón",
                   "vel.extrema",
                   "terremoto"
-                ]
+                ],
+                "ivs": "31/31",
+                "evs": "252 At, 128 Def, 128 Vel"
               }
             ]
           }
         ]
-      },
-      {
-        "location": "IVs: 31/31 | EVs: 252 At, 128 Def, 128 Vel",
-        "battles": []
       }
     ]
   },
@@ -4368,15 +4366,13 @@
                   "barrera",
                   "recuperación",
                   "esfera aural"
-                ]
+                ],
+                "ivs": "31/31",
+                "evs": "252 At.Esp, 252 Vel, 6 Ps"
               }
             ]
           }
         ]
-      },
-      {
-        "location": "IVs: 31/31 | EVs: 252 At.Esp, 252 Vel, 6 Ps",
-        "battles": []
       }
     ]
   },
@@ -9484,15 +9480,13 @@
                   "cabezahierro",
                   "roca afilada",
                   "golpe calor"
-                ]
+                ],
+                "ivs": "31/31",
+                "evs": "252 At, 252 Def.Esp (110 en el resto)"
               }
             ]
           }
         ]
-      },
-      {
-        "location": "IVs: 31/31 | EVs: 252 At, 252 Def.Esp (110 en el resto)",
-        "battles": []
       }
     ]
   },
