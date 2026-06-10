@@ -20229,24 +20229,6 @@
     }
   },
   {
-    "name": "EN",
-    "dexNumber": 973,
-    "category": "base",
-    "types": [
-      "Volador",
-      "Lucha"
-    ],
-    "officialStats": {
-      "hp": 82,
-      "attack": 115,
-      "defense": 74,
-      "spAttack": 75,
-      "spDefense": 64,
-      "speed": 90,
-      "total": 500
-    }
-  },
-  {
     "name": "FLAMIGO",
     "dexNumber": 973,
     "category": "base",

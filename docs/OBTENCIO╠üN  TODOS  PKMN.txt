@@ -1751,7 +1751,7 @@ Evoluciona de Farfetch'D con Piedra Sagrada.
 
 SUI - 971 -
 RAI - 972 -
-EN - 973 -
+FLAMIGO - 973 -
 SACRED_DRAGON - 974 -
 ORIGINAL_DRAGON - 975 -
 ARCEUS_PRIMAL - 976 -
