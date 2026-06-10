@@ -362,12 +362,14 @@ function PokemonRow({
     : 0
 
   return (
-    <div className="flex items-center border-b border-white/5 h-[56px]">
+    <div
+      className={`flex items-center border-b border-white/5 h-[56px] transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
+      }`}
+    >
       <button
         onClick={onClick}
-        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 transition-colors h-full ${
-          isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
-        }`}
+        className="flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 h-full"
       >
         {pokemon.dexNumber && (
           <span className="text-[10px] text-gray-600 w-8 tabular-nums shrink-0">

@@ -502,12 +502,14 @@ function MoveRow({
   const powerChanged = move.official.power !== move.hackrom.power
 
   return (
-    <div className="flex items-center border-b border-white/5 h-[56px]">
+    <div
+      className={`flex items-center border-b border-white/5 h-[56px] transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
+      }`}
+    >
       <button
         onClick={onClick}
-        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 transition-colors h-full ${
-          isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
-        }`}
+        className="flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 h-full"
       >
         <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-white">{move.name}</p>
@@ -574,12 +576,14 @@ function ItemRow({
   onToggleFav: () => void
 }) {
   return (
-    <div className="flex items-center border-b border-white/5 h-[56px]">
+    <div
+      className={`flex items-center border-b border-white/5 h-[56px] transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
+      }`}
+    >
       <button
         onClick={onClick}
-        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 transition-colors h-full ${
-          isSelected ? 'bg-dex-red/20 border-l-4 border-l-dex-red' : 'hover:bg-white/5'
-        }`}
+        className="flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 h-full"
       >
         <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-white truncate">{item.name}</p>
