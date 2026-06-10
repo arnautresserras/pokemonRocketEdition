@@ -45,8 +45,10 @@ function extractInlineDescription(name: string): { clean: string; desc: string |
 function pickText(
   entries: Array<{ flavor_text: string; language: { name: string } }>,
 ): string | null {
-  const es = entries.filter(e => e.language.name === 'es').at(-1)?.flavor_text
-  const en = entries.filter(e => e.language.name === 'en').at(-1)?.flavor_text
+  const esEntries = entries.filter(e => e.language.name === 'es')
+  const enEntries = entries.filter(e => e.language.name === 'en')
+  const es = esEntries[esEntries.length - 1]?.flavor_text
+  const en = enEntries[enEntries.length - 1]?.flavor_text
   return (es ?? en ?? null)?.replace(/[\f\n]/g, ' ').replace(/\s+/g, ' ').trim() ?? null
 }
 
