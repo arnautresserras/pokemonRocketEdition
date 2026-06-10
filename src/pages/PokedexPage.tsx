@@ -7,6 +7,8 @@ import SearchBar from '../components/SearchBar'
 import TypeBadge from '../components/TypeBadge'
 import StatBar from '../components/StatBar'
 import { getTypeColor } from '../utils/types'
+import { getEffectiveTotal } from '../utils/pokemon'
+import { TOTAL_MAX, STAT_MAX } from '../constants'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
@@ -25,10 +27,6 @@ const CAT_LABELS: Record<Category, string> = {
 }
 
 type SortOrder = 'default' | 'total-desc' | 'total-asc'
-
-function getEffectiveTotal(p: { officialStats?: { total: number }; hackromStats?: { total: number } }): number {
-  return p.hackromStats?.total ?? p.officialStats?.total ?? 0
-}
 
 const ALL_TYPES = Array.from(
   new Set(allPokemon.flatMap(p => p.types ?? []))
@@ -54,7 +52,8 @@ export default function PokedexPage() {
   function toggleType(type: string) {
     setTypeFilter(prev => {
       const next = new Set(prev)
-      next.has(type) ? next.delete(type) : next.add(type)
+      if (next.has(type)) next.delete(type)
+      else next.add(type)
       return next
     })
   }
@@ -345,7 +344,7 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
                 label={label}
                 official={pokemon.officialStats?.[key]}
                 hackrom={pokemon.hackromStats?.[key]}
-                max={key === 'total' ? 800 : 255}
+                max={key === 'total' ? TOTAL_MAX : STAT_MAX}
               />
             ))}
           </div>

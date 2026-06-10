@@ -1,3 +1,5 @@
+import { STAT_MAX } from '../constants'
+
 const COLOR_BUFF = '#4ade80'   // Tailwind green-400
 const COLOR_NERF = '#f87171'   // Tailwind red-400
 const COLOR_BASE = '#60a5fa'   // Tailwind blue-400
@@ -9,7 +11,7 @@ interface Props {
   max?: number
 }
 
-export default function StatBar({ label, official, hackrom, max = 255 }: Props) {
+export default function StatBar({ label, official, hackrom, max = STAT_MAX }: Props) {
   const offPct = official !== undefined ? Math.min((official / max) * 100, 100) : 0
   const hackPct = hackrom !== undefined ? Math.min((hackrom / max) * 100, 100) : 0
   const changed = official !== undefined && hackrom !== undefined && official !== hackrom
