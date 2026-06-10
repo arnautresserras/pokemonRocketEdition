@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Move, MoveVersion, MT, Item, ItemChange } from '../types'
 import movesData from '../data/moves.json'
@@ -10,6 +11,7 @@ import TypeBadge from '../components/TypeBadge'
 import EmptyState from '../components/EmptyState'
 import { categoryLabel } from '../utils/items'
 import { useDebouncedValue } from '../utils/useDebounce'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 const moves = movesData as Move[]
 const mts = mtsData as MT[]
@@ -44,16 +46,49 @@ function mtRegionKey(region: string): MTRegion {
 // ── Main component ─────────────────────────────────────────────────────────────
 
 export default function MovesPage() {
-  const [tab, setTab] = useState<'moves' | 'items'>('moves')
+  const location = useLocation()
+
+  // Pre-select from GlobalSearch navigation state (read once at mount)
+  const navState = location.state as { selectMove?: string; selectItem?: string } | null
+
+  const [tab, setTab] = useState<'moves' | 'items'>(
+    navState?.selectItem ? 'items' : 'moves',
+  )
   const [moveFilter, setMoveFilter] = useState<'cambios' | 'mt'>('cambios')
   const [mtRegion, setMtRegion] = useState<MTRegion>('todos')
   const [itemFilter, setItemFilter] = useState('todos')
   const [search, setSearch] = useState('')
   const debouncedSearch = useDebouncedValue(search, 150)
-  const [selectedMove, setSelectedMove] = useState<Move | null>(null)
+  const [selectedMove, setSelectedMove] = useState<Move | null>(
+    () => (navState?.selectMove ? (moves.find(m => m.name === navState.selectMove) ?? null) : null),
+  )
   const [selectedMT, setSelectedMT] = useState<MT | null>(null)
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
+  const [selectedItem, setSelectedItem] = useState<Item | null>(
+    () => (navState?.selectItem ? (items.find(i => i.name === navState.selectItem) ?? null) : null),
+  )
   const [selectedChange, setSelectedChange] = useState<ItemChange | null>(null)
+
+  const [favMoves, setFavMoves] = useLocalStorage<string[]>('fav:move', [])
+  const [favItems, setFavItems] = useLocalStorage<string[]>('fav:item', [])
+  const [favMoveFilter, setFavMoveFilter] = useState(false)
+  const [favItemFilter, setFavItemFilter] = useState(false)
+  const favMoveSet = useMemo(() => new Set(favMoves), [favMoves])
+  const favItemSet = useMemo(() => new Set(favItems), [favItems])
+
+  const toggleFavMove = useCallback(
+    (name: string) =>
+      setFavMoves(prev =>
+        prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name],
+      ),
+    [setFavMoves],
+  )
+  const toggleFavItem = useCallback(
+    (name: string) =>
+      setFavItems(prev =>
+        prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name],
+      ),
+    [setFavItems],
+  )
 
   const switchTab = (t: 'moves' | 'items') => {
     setTab(t)
@@ -83,14 +118,16 @@ export default function MovesPage() {
   // Filtered moves
   const filteredMoves = useMemo(
     () =>
-      moves.filter(
-        m =>
+      moves.filter(m => {
+        const matchSearch =
           !debouncedSearch ||
           m.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
           m.official.type.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-          m.hackrom.type.toLowerCase().includes(debouncedSearch.toLowerCase()),
-      ),
-    [debouncedSearch],
+          m.hackrom.type.toLowerCase().includes(debouncedSearch.toLowerCase())
+        const matchFav = !favMoveFilter || favMoveSet.has(m.name)
+        return matchSearch && matchFav
+      }),
+    [debouncedSearch, favMoveFilter, favMoveSet],
   )
 
   // Filtered MTs
@@ -115,11 +152,13 @@ export default function MovesPage() {
       )
     }
     return items.filter(item => {
-      const matchSearch = !debouncedSearch || item.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+      const matchSearch =
+        !debouncedSearch || item.name.toLowerCase().includes(debouncedSearch.toLowerCase())
       const matchCat = itemFilter === 'todos' || item.category === itemFilter
-      return matchSearch && matchCat
+      const matchFav = !favItemFilter || favItemSet.has(item.name)
+      return matchSearch && matchCat && matchFav
     })
-  }, [debouncedSearch, itemFilter])
+  }, [debouncedSearch, itemFilter, favItemFilter, favItemSet])
 
   return (
     <div className="flex flex-col h-full">
@@ -162,6 +201,10 @@ export default function MovesPage() {
               selectedMT={selectedMT}
               onSelectMove={setSelectedMove}
               onSelectMT={setSelectedMT}
+              favMoveSet={favMoveSet}
+              toggleFavMove={toggleFavMove}
+              favMoveFilter={favMoveFilter}
+              setFavMoveFilter={setFavMoveFilter}
             />
           ) : (
             <ItemsListPanel
@@ -174,6 +217,10 @@ export default function MovesPage() {
               selectedChange={selectedChange}
               onSelectItem={setSelectedItem}
               onSelectChange={setSelectedChange}
+              favItemSet={favItemSet}
+              toggleFavItem={toggleFavItem}
+              favItemFilter={favItemFilter}
+              setFavItemFilter={setFavItemFilter}
             />
           )}
         </div>
@@ -219,6 +266,7 @@ function MovesListPanel({
   moveFilter, setMoveFilter, mtRegion, setMtRegion,
   search, setSearch, filteredMoves, filteredMTs,
   selectedMove, selectedMT, onSelectMove, onSelectMT,
+  favMoveSet, toggleFavMove, favMoveFilter, setFavMoveFilter,
 }: {
   moveFilter: 'cambios' | 'mt'
   setMoveFilter: (f: 'cambios' | 'mt') => void
@@ -232,6 +280,10 @@ function MovesListPanel({
   selectedMT: MT | null
   onSelectMove: (m: Move) => void
   onSelectMT: (mt: MT) => void
+  favMoveSet: Set<string>
+  toggleFavMove: (name: string) => void
+  favMoveFilter: boolean
+  setFavMoveFilter: (v: boolean) => void
 }) {
   const count = moveFilter === 'cambios' ? filteredMoves.length : filteredMTs.length
   const label = moveFilter === 'cambios' ? 'movimientos modificados' : 'MTs'
@@ -248,7 +300,7 @@ function MovesListPanel({
     <div className="flex flex-col h-full">
       <div className="p-4 border-b border-white/10 space-y-3">
         <h2 className="font-mono text-xs text-dex-red font-bold">MOVIMIENTOS</h2>
-        <div className="flex gap-1">
+        <div className="flex gap-1 flex-wrap">
           {(['cambios', 'mt'] as const).map(f => (
             <button
               key={f}
@@ -260,6 +312,16 @@ function MovesListPanel({
               {f === 'cambios' ? 'Cambios' : 'MT'}
             </button>
           ))}
+          {moveFilter === 'cambios' && (
+            <button
+              onClick={() => setFavMoveFilter(!favMoveFilter)}
+              className={`px-2.5 py-1 rounded text-[10px] font-bold transition-colors ${
+                favMoveFilter ? 'bg-yellow-500 text-white' : 'bg-white/10 text-gray-400 hover:bg-white/20'
+              }`}
+            >
+              ⭐ Favs
+            </button>
+          )}
         </div>
         <SearchBar value={search} onChange={setSearch} placeholder="Buscar..." />
         {moveFilter === 'mt' && (
@@ -290,6 +352,8 @@ function MovesListPanel({
                 move={m}
                 isSelected={selectedMove?.name === m.name}
                 onClick={() => onSelectMove(m)}
+                isFav={favMoveSet.has(m.name)}
+                onToggleFav={() => toggleFavMove(m.name)}
               />
             ))
           )
@@ -321,6 +385,7 @@ function MovesListPanel({
 function ItemsListPanel({
   itemFilter, setItemFilter, search, setSearch, filteredItems,
   selectedItem, selectedChange, onSelectItem, onSelectChange,
+  favItemSet, toggleFavItem, favItemFilter, setFavItemFilter,
 }: {
   itemFilter: string
   setItemFilter: (f: string) => void
@@ -331,6 +396,10 @@ function ItemsListPanel({
   selectedChange: ItemChange | null
   onSelectItem: (i: Item) => void
   onSelectChange: (c: ItemChange) => void
+  favItemSet: Set<string>
+  toggleFavItem: (name: string) => void
+  favItemFilter: boolean
+  setFavItemFilter: (v: boolean) => void
 }) {
   const isChangesView = itemFilter === 'cambios'
   const count = filteredItems.length
@@ -366,6 +435,18 @@ function ItemsListPanel({
               {categoryLabel(cat)}
             </button>
           ))}
+          {itemFilter !== 'cambios' && (
+            <button
+              onClick={() => setFavItemFilter(!favItemFilter)}
+              className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
+                favItemFilter
+                  ? 'bg-yellow-500 text-white'
+                  : 'bg-white/10 text-gray-400 hover:bg-white/20'
+              }`}
+            >
+              ⭐ Favs
+            </button>
+          )}
         </div>
         <SearchBar value={search} onChange={setSearch} placeholder="Buscar..." />
         <p className="text-[10px] text-gray-500">{count} {label}</p>
@@ -392,6 +473,8 @@ function ItemsListPanel({
                         item={(filteredItems as Item[])[idx]}
                         isSelected={selectedItem?.name === (filteredItems as Item[])[idx].name}
                         onClick={() => onSelectItem((filteredItems as Item[])[idx])}
+                        isFav={favItemSet.has((filteredItems as Item[])[idx].name)}
+                        onToggleFav={() => toggleFavItem((filteredItems as Item[])[idx].name)}
                       />
                   }
                 </div>
@@ -406,35 +489,60 @@ function ItemsListPanel({
 
 // ── Row components ─────────────────────────────────────────────────────────────
 
-function MoveRow({ move, isSelected, onClick }: { move: Move; isSelected: boolean; onClick: () => void }) {
+function MoveRow({
+  move, isSelected, onClick, isFav, onToggleFav,
+}: {
+  move: Move
+  isSelected: boolean
+  onClick: () => void
+  isFav: boolean
+  onToggleFav: () => void
+}) {
   const typeChanged = move.official.type !== move.hackrom.type
   const powerChanged = move.official.power !== move.hackrom.power
 
   return (
-    <button
-      onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-2.5 text-left border-b border-white/5 transition-colors ${
-        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : 'hover:bg-white/5'
+    <div
+      className={`flex items-center border-b border-white/5 transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : ''
       }`}
     >
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-bold text-white">{move.name}</p>
-        <div className="flex items-center gap-2 mt-0.5">
-          <TypeBadge type={move.hackrom.type} small />
-          {typeChanged && (
-            <span className="text-[9px] text-gray-500 line-through">
-              <TypeBadge type={move.official.type} small />
-            </span>
-          )}
+      <button
+        onClick={onClick}
+        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 ${
+          !isSelected ? 'hover:bg-white/5' : ''
+        }`}
+      >
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-bold text-white">{move.name}</p>
+          <div className="flex items-center gap-2 mt-0.5">
+            <TypeBadge type={move.hackrom.type} small />
+            {typeChanged && (
+              <span className="text-[9px] text-gray-500 line-through">
+                <TypeBadge type={move.official.type} small />
+              </span>
+            )}
+          </div>
         </div>
-      </div>
-      <div className="text-right shrink-0">
-        <p className={`text-xs font-bold tabular-nums ${powerChanged ? 'text-green-400' : 'text-gray-400'}`}>
-          {move.hackrom.power || '—'}
-        </p>
-        <p className="text-[9px] text-gray-600">poder</p>
-      </div>
-    </button>
+        <div className="text-right shrink-0">
+          <p
+            className={`text-xs font-bold tabular-nums ${
+              powerChanged ? 'text-green-400' : 'text-gray-400'
+            }`}
+          >
+            {move.hackrom.power || '—'}
+          </p>
+          <p className="text-[9px] text-gray-600">poder</p>
+        </div>
+      </button>
+      <button
+        onClick={onToggleFav}
+        className="px-2 py-2.5 shrink-0 transition-colors text-gray-600 hover:text-yellow-400"
+        aria-label={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+      >
+        {isFav ? '⭐' : '☆'}
+      </button>
+    </div>
   )
 }
 
@@ -460,19 +568,42 @@ function MTRow({ mt, isSelected, onClick }: { mt: MT; isSelected: boolean; onCli
   )
 }
 
-function ItemRow({ item, isSelected, onClick }: { item: Item; isSelected: boolean; onClick: () => void }) {
+function ItemRow({
+  item, isSelected, onClick, isFav, onToggleFav,
+}: {
+  item: Item
+  isSelected: boolean
+  onClick: () => void
+  isFav: boolean
+  onToggleFav: () => void
+}) {
   return (
-    <button
-      onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-2.5 text-left border-b border-white/5 transition-colors ${
-        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : 'hover:bg-white/5'
+    <div
+      className={`flex items-center border-b border-white/5 transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : ''
       }`}
     >
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-bold text-white truncate">{item.name}</p>
-        <p className="text-[10px] text-gray-500 truncate">{item.description.split('\n')[0]}</p>
-      </div>
-    </button>
+      <button
+        onClick={onClick}
+        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 ${
+          !isSelected ? 'hover:bg-white/5' : ''
+        }`}
+      >
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-bold text-white truncate">{item.name}</p>
+          <p className="text-[10px] text-gray-500 truncate">
+            {item.description.split('\n')[0]}
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={onToggleFav}
+        className="px-2 py-2.5 shrink-0 transition-colors text-gray-600 hover:text-yellow-400"
+        aria-label={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+      >
+        {isFav ? '⭐' : '☆'}
+      </button>
+    </div>
   )
 }
 

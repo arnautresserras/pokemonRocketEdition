@@ -1,4 +1,5 @@
-import { useState, useMemo, useRef, useCallback } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import type { Pokemon, Stats } from '../types'
 import pokemonData from '../data/pokemon.json'
@@ -11,17 +12,19 @@ import { getTypeColor } from '../utils/types'
 import { getEffectiveTotal } from '../utils/pokemon'
 import { TOTAL_MAX, STAT_MAX } from '../constants'
 import { useDebouncedValue } from '../utils/useDebounce'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
   ...(experimentsData as Pokemon[]),
 ]
 
-const CATEGORIES = ['todos', 'base', 'mega', 'prototype', 'primal'] as const
+const CATEGORIES = ['todos', 'favoritos', 'base', 'mega', 'prototype', 'primal'] as const
 type Category = (typeof CATEGORIES)[number]
 
 const CAT_LABELS: Record<Category, string> = {
   todos: 'Todos',
+  favoritos: '⭐ Favs',
   base: 'Base',
   mega: 'Mega',
   prototype: 'Prototipo',
@@ -34,7 +37,8 @@ const ALL_TYPES = Array.from(
   new Set(allPokemon.flatMap(p => p.types ?? []))
 ).sort()
 
-const POKEAPI_SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
+const POKEAPI_SPRITES =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
 
 function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>): string {
   const id = pokemon.spriteId ?? pokemon.dexNumber
@@ -43,15 +47,46 @@ function getSpriteUrl(pokemon: Pick<Pokemon, 'name' | 'dexNumber' | 'spriteId'>)
   return `https://img.pokemondb.net/sprites/ruby-sapphire/normal/${slug}.png`
 }
 
-
 export default function PokedexPage() {
+  const { pokemonName: nameParam } = useParams<{ pokemonName?: string }>()
+  const navigate = useNavigate()
+
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState<Category>('todos')
   const [sortOrder, setSortOrder] = useState<SortOrder>('default')
   const [typeFilter, setTypeFilter] = useState<Set<string>>(new Set())
-  const [selected, setSelected] = useState<Pokemon | null>(null)
+
+  const [favPokemon, setFavPokemon] = useLocalStorage<string[]>('fav:pokemon', [])
+  const favSet = useMemo(() => new Set(favPokemon), [favPokemon])
+
+  const toggleFav = useCallback(
+    (name: string) => {
+      setFavPokemon(prev =>
+        prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name],
+      )
+    },
+    [setFavPokemon],
+  )
 
   const debouncedSearch = useDebouncedValue(search, 150)
+
+  // Selected Pokémon is derived from the URL param
+  const selected = useMemo(() => {
+    if (!nameParam) return null
+    const decoded = decodeURIComponent(nameParam).toLowerCase()
+    return allPokemon.find(p => p.name.toLowerCase() === decoded) ?? null
+  }, [nameParam])
+
+  const setSelected = useCallback(
+    (pokemon: Pokemon | null) => {
+      if (pokemon) {
+        navigate(`/pokedex/${encodeURIComponent(pokemon.name.toLowerCase())}`)
+      } else {
+        navigate('/pokedex')
+      }
+    },
+    [navigate],
+  )
 
   const clearFilters = useCallback(() => {
     setSearch('')
@@ -75,7 +110,9 @@ export default function PokedexPage() {
         !debouncedSearch ||
         p.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         (p.dexNumber !== undefined && String(p.dexNumber).includes(debouncedSearch))
-      const matchCat = category === 'todos' || p.category === category
+      const matchCat =
+        category === 'todos' ||
+        (category === 'favoritos' ? favSet.has(p.name) : p.category === category)
       const matchType = typeFilter.size === 0 || p.types?.some(t => typeFilter.has(t))
       return matchSearch && matchCat && matchType
     })
@@ -85,15 +122,25 @@ export default function PokedexPage() {
       result.sort((a, b) => getEffectiveTotal(a) - getEffectiveTotal(b))
     }
     return result
-  }, [debouncedSearch, category, sortOrder, typeFilter])
+  }, [debouncedSearch, category, sortOrder, typeFilter, favSet])
 
   const listRef = useRef<HTMLDivElement>(null)
+  const prevNameParam = useRef<string | undefined>()
   const virtualizer = useVirtualizer({
     count: filtered.length,
     getScrollElement: () => listRef.current,
     estimateSize: () => 56,
     overscan: 5,
   })
+
+  // Scroll to the selected Pokémon in the list only when the URL param changes
+  useEffect(() => {
+    if (nameParam === prevNameParam.current) return
+    prevNameParam.current = nameParam
+    if (!selected) return
+    const idx = filtered.findIndex(p => p.name === selected.name)
+    if (idx >= 0) virtualizer.scrollToIndex(idx, { align: 'center' })
+  }, [nameParam, filtered, selected, virtualizer])
 
   return (
     <div className="flex flex-col md:flex-row h-full">
@@ -168,12 +215,20 @@ export default function PokedexPage() {
               {virtualizer.getVirtualItems().map(row => (
                 <div
                   key={row.index}
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    transform: `translateY(${row.start}px)`,
+                  }}
                 >
                   <PokemonRow
                     pokemon={filtered[row.index]}
                     isSelected={selected?.name === filtered[row.index].name}
                     onClick={() => setSelected(filtered[row.index])}
+                    isFav={favSet.has(filtered[row.index].name)}
+                    onToggleFav={() => toggleFav(filtered[row.index].name)}
                   />
                 </div>
               ))}
@@ -192,7 +247,11 @@ export default function PokedexPage() {
             >
               ← Volver
             </button>
-            <PokemonDetail pokemon={selected} />
+            <PokemonDetail
+              pokemon={selected}
+              isFav={favSet.has(selected.name)}
+              onToggleFav={() => toggleFav(selected.name)}
+            />
           </>
         ) : (
           <div className="flex items-center justify-center h-full text-gray-600">
@@ -211,74 +270,107 @@ function PokemonRow({
   pokemon,
   isSelected,
   onClick,
+  isFav,
+  onToggleFav,
 }: {
   pokemon: Pokemon
   isSelected: boolean
   onClick: () => void
+  isFav: boolean
+  onToggleFav: () => void
 }) {
   const [spriteError, setSpriteError] = useState(false)
   const hasChanges = pokemon.officialStats && pokemon.hackromStats
-  const totalDiff =
-    hasChanges
-      ? (pokemon.hackromStats!.total ?? 0) - (pokemon.officialStats!.total ?? 0)
-      : 0
+  const totalDiff = hasChanges
+    ? (pokemon.hackromStats!.total ?? 0) - (pokemon.officialStats!.total ?? 0)
+    : 0
 
   return (
-    <button
-      onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-2.5 text-left border-b border-white/5 transition-colors ${
-        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : 'hover:bg-white/5'
+    <div
+      className={`flex items-center border-b border-white/5 transition-colors ${
+        isSelected ? 'bg-dex-red/20 border-l-2 border-l-dex-red' : ''
       }`}
     >
-      {pokemon.dexNumber && (
-        <span className="text-[10px] text-gray-600 w-8 tabular-nums shrink-0">
-          #{String(pokemon.dexNumber).padStart(3, '0')}
-        </span>
-      )}
-      <div
-        className="w-10 h-10 rounded shrink-0 flex items-center justify-center"
-        style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}33` : 'transparent' }}
+      <button
+        onClick={onClick}
+        className={`flex-1 flex items-center gap-3 px-4 py-2.5 text-left min-w-0 transition-colors ${
+          !isSelected ? 'hover:bg-white/5' : ''
+        }`}
       >
-        {spriteError ? (
-          <span className="text-gray-600 text-xl opacity-40">◉</span>
-        ) : (
-          <img
-            src={getSpriteUrl(pokemon)}
-            alt=""
-            aria-hidden
-            loading="lazy"
-            className="w-10 h-10 object-contain pixelated"
-            onError={() => setSpriteError(true)}
-          />
+        {pokemon.dexNumber && (
+          <span className="text-[10px] text-gray-600 w-8 tabular-nums shrink-0">
+            #{String(pokemon.dexNumber).padStart(3, '0')}
+          </span>
         )}
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-bold text-white truncate">{pokemon.name}</p>
-        <div className="flex gap-1 mt-0.5 flex-wrap">
-          {pokemon.types?.map(t => <TypeBadge key={t} type={t} small />)}
-          {pokemon.category !== 'base' && (
-            <span className="text-[8px] px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-400 font-bold uppercase">
-              {pokemon.category === 'prototype'
-                ? `P.Nv${pokemon.prototypeLevel ?? ''}`
-                : pokemon.category}
-            </span>
+        <div
+          className="w-10 h-10 rounded shrink-0 flex items-center justify-center"
+          style={{
+            backgroundColor: pokemon.types?.[0]
+              ? `${getTypeColor(pokemon.types[0])}33`
+              : 'transparent',
+          }}
+        >
+          {spriteError ? (
+            <span className="text-gray-600 text-xl opacity-40">◉</span>
+          ) : (
+            <img
+              src={getSpriteUrl(pokemon)}
+              alt=""
+              aria-hidden
+              loading="lazy"
+              className="w-10 h-10 object-contain pixelated"
+              onError={() => setSpriteError(true)}
+            />
           )}
         </div>
-      </div>
-      {hasChanges && (
-        <span
-          className={`text-[10px] font-bold shrink-0 ${
-            totalDiff > 0 ? 'text-green-400' : totalDiff < 0 ? 'text-red-400' : 'text-gray-500'
-          }`}
-        >
-          {totalDiff > 0 ? `+${totalDiff}` : totalDiff}
-        </span>
-      )}
-    </button>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-bold text-white truncate">{pokemon.name}</p>
+          <div className="flex gap-1 mt-0.5 flex-wrap">
+            {pokemon.types?.map(t => <TypeBadge key={t} type={t} small />)}
+            {pokemon.category !== 'base' && (
+              <span className="text-[8px] px-1.5 py-0.5 rounded bg-yellow-500/20 text-yellow-400 font-bold uppercase">
+                {pokemon.category === 'prototype'
+                  ? `P.Nv${pokemon.prototypeLevel ?? ''}`
+                  : pokemon.category}
+              </span>
+            )}
+          </div>
+        </div>
+        {hasChanges && (
+          <span
+            className={`text-[10px] font-bold shrink-0 ${
+              totalDiff > 0
+                ? 'text-green-400'
+                : totalDiff < 0
+                  ? 'text-red-400'
+                  : 'text-gray-500'
+            }`}
+          >
+            {totalDiff > 0 ? `+${totalDiff}` : totalDiff}
+          </span>
+        )}
+      </button>
+      <button
+        onClick={onToggleFav}
+        className="px-2 py-2.5 shrink-0 transition-colors text-gray-600 hover:text-yellow-400"
+        aria-label={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+        title={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+      >
+        {isFav ? '⭐' : '☆'}
+      </button>
+    </div>
   )
 }
 
-function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
+function PokemonDetail({
+  pokemon,
+  isFav,
+  onToggleFav,
+}: {
+  pokemon: Pokemon
+  isFav: boolean
+  onToggleFav: () => void
+}) {
   const [spriteError, setSpriteError] = useState(false)
   const stats: { key: keyof Stats; label: string }[] = [
     { key: 'hp', label: 'PS' },
@@ -300,7 +392,11 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
         {/* Sprite screen */}
         <div
           className="flex items-center justify-center py-6 transition-colors"
-          style={{ backgroundColor: pokemon.types?.[0] ? `${getTypeColor(pokemon.types[0])}30` : '#0f1117' }}
+          style={{
+            backgroundColor: pokemon.types?.[0]
+              ? `${getTypeColor(pokemon.types[0])}30`
+              : '#0f1117',
+          }}
         >
           {spriteError ? (
             <div className="w-32 h-32 flex items-center justify-center text-gray-600 opacity-30">
@@ -317,13 +413,21 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
         </div>
         {/* Info */}
         <div className="p-4">
-          <div className="flex items-baseline gap-3 flex-wrap">
+          <div className="flex items-center gap-3 flex-wrap">
             {pokemon.dexNumber && (
               <span className="text-gray-500 font-mono text-sm">
                 #{String(pokemon.dexNumber).padStart(3, '0')}
               </span>
             )}
-            <h2 className="text-2xl font-bold text-white">{pokemon.name}</h2>
+            <h2 className="text-2xl font-bold text-white flex-1">{pokemon.name}</h2>
+            <button
+              onClick={onToggleFav}
+              className="text-xl transition-colors text-gray-500 hover:text-yellow-400 shrink-0"
+              aria-label={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+              title={isFav ? 'Quitar favorito' : 'Añadir a favoritos'}
+            >
+              {isFav ? '⭐' : '☆'}
+            </button>
           </div>
           <div className="flex gap-1.5 mt-2 flex-wrap">
             {pokemon.types?.map(t => <TypeBadge key={t} type={t} />)}
@@ -418,7 +522,9 @@ function PokemonDetail({ pokemon }: { pokemon: Pokemon }) {
       {/* Evolution */}
       {pokemon.evolutionMethod && (
         <section className="mb-6">
-          <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Método de evolución</h3>
+          <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">
+            Método de evolución
+          </h3>
           <div className="bg-dex-gray rounded-lg p-4 text-sm text-gray-300">
             {pokemon.evolutionMethod}
           </div>

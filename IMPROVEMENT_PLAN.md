@@ -112,25 +112,36 @@ the fragile points and surface what fails instead of silently dropping it:
 
 ## Phase 2 — New Features (prioritized for players mid-playthrough)
 
-### Tier 1 — Directly speeds up playthrough lookups
+### Tier 1 — Directly speeds up playthrough lookups ✅ Done
 
-1. **Favorites / "mi equipo" pins.** Let players star Pokémon, moves, and items;
-   persist to `localStorage` and surface a "Favoritos" filter. Lets a player pin
-   their current team and the items they're hunting. Add a small `useLocalStorage`
-   hook and a star toggle on rows/detail headers.
-2. **Guide progress tracker.** In [GuidePage.tsx](src/pages/GuidePage.tsx), add a
-   per-battle "completado" checkbox persisted to `localStorage`, plus a per-region
-   progress bar (`x/y combates`). This is the single biggest win for someone
-   playing through — they can see where they are.
-3. **Deep-linkable detail + cross-links.** Make Pokémon/move/item/trainer detail
-   addressable via the hash route (e.g. `#/pokedex/charizard`) so lookups are
-   shareable and survive refresh. Then cross-link: a Pokémon's evolution/location
-   text and a trainer's Pokémon link straight to the relevant Pokédex entry; item
-   names in guide battles link to the item entry.
-4. **Global search (⌘K / "/").** One overlay that searches across Pokémon, moves,
-   items, and trainers and jumps to the right page+detail. Mid-playthrough users
-   often don't know which tab a thing lives in. Reuse the existing per-page filter
-   logic behind a single index.
+1. **Favorites / "mi equipo" pins.** ✅ `useLocalStorage` hook added at
+   [src/utils/useLocalStorage.ts](src/utils/useLocalStorage.ts). Star toggle on
+   `PokemonRow` and `PokemonDetail` in [PokedexPage.tsx](src/pages/PokedexPage.tsx)
+   (localStorage key `fav:pokemon`). "⭐ Favs" filter added to CATEGORIES. Star
+   toggle on `MoveRow` (`fav:move`) and `ItemRow` (`fav:item`) in
+   [MovesPage.tsx](src/pages/MovesPage.tsx), each with a "⭐ Favs" toggle button
+   in the relevant panel header.
+2. **Guide progress tracker.** ✅ Per-battle "Marcar / ✓ Hecho" checkbox in
+   `BattleCard` in [GuidePage.tsx](src/pages/GuidePage.tsx). Completed battle keys
+   stored in `localStorage` under `guide:completed`. Per-section progress fraction
+   (`X/Y ✓`) shown in the section list and header. Per-region progress bar under
+   each region tab (fills green as battles are completed).
+3. **Deep-linkable detail + cross-links.** ✅ Routes added in
+   [App.tsx](src/App.tsx): `/pokedex/:pokemonName` and `/guide/:region/:section`
+   (plus a redirect from `/` → `/pokedex`). Both pages derive selected state from
+   URL params via `useParams` and update the URL via `useNavigate` on user
+   selection. Cross-links: Pokémon names in guide battles are `<Link>` components
+   to `/pokedex/:slug`; item badges in battles link to `/moves` with pre-selection
+   state. Pokédex nav updated to `/pokedex` in [nav.ts](src/constants/nav.ts).
+4. **Global search (⌘K / "/").** ✅ `GlobalSearch` overlay component added at
+   [src/components/GlobalSearch.tsx](src/components/GlobalSearch.tsx). Indexes all
+   Pokémon, moves, items, and guide trainers. Keyboard shortcuts: `Ctrl+K`/`⌘K`
+   opens the overlay from any page; `/` opens it when not in an input; `Esc`
+   closes. Arrow keys navigate results, `Enter` navigates to the result. A "🔍
+   Buscar" button in the [Sidebar](src/components/Sidebar.tsx) and the mobile nav
+   triggers it. Pokémon results deep-link to `/pokedex/:name`; trainer results
+   deep-link to `/guide/:region/:section`; move/item results navigate to `/moves`
+   with pre-selection state.
 
 ### Tier 2 — High value, more build effort
 
@@ -162,9 +173,12 @@ the fragile points and surface what fails instead of silently dropping it:
    everything after it safer.~~ **✅ Done** (ErrorBoundary is a Phase 1.1 item)
 2. ~~Phase 1.1 user-facing fixes — fastest visible wins.~~ **✅ Done**
 3. Phase 1.2 parser/data accuracy — confirm with a regenerated dataset.
-4. Phase 2 Tier 1, then Tier 2/3 as appetite allows. Features #1–#4 share a
+4. ~~Phase 2 Tier 1, then Tier 2/3 as appetite allows. Features #1–#4 share a
    `useLocalStorage` hook and the deep-link routing groundwork, so build that
-   foundation once.
+   foundation once.~~ **✅ Done**
+5. Phase 2 Tier 2/3 as appetite allows — team type-coverage analyzer (feature #7)
+   can now use the `fav:pokemon` set directly; compare mode builds on the existing
+   `StatBar`.
 
 ## Verification
 
@@ -179,9 +193,14 @@ the fragile points and surface what fails instead of silently dropping it:
 - **Manual / `/run` the app (`npm run dev`):**
   - Filter the Pokédex to an empty result → friendly empty state with "clear".
   - Force a sprite 404 (e.g. a mega) → placeholder shows, no blank box.
-  - Toggle a favorite and a guide "completado" → persists across reload.
-  - Deep link (`#/pokedex/<name>`) → opens the right detail on refresh.
-  - Global search jumps to items/moves/trainers from any page.
+  - Toggle a favorite (⭐) on a Pokémon/move/item → persists across reload; ⭐ Favs filter shows only starred entries.
+  - Mark guide battles as done → progress bar fills per-region and per-section; persists across reload.
+  - Deep link (`#/pokedex/charizard`) → opens the right detail on refresh; back navigates correctly.
+  - Deep link (`#/guide/Kanto/Ruta%201`) → opens the right region + section.
+  - Pokémon name in guide battle → click opens Pokédex detail for that Pokémon.
+  - Item badge in guide battle → click navigates to Moves/Items page with item pre-selected.
+  - `Ctrl+K` / `⌘K` / `/` → opens global search overlay; results navigate correctly.
+  - Global search → Pokémon result opens detail; trainer result opens guide section.
   - Type chart usable on a narrow viewport.
 - **Deploy:** push to `master`; confirm the GitHub Pages action builds and the
   subpath `/pokemonRocketEdition/` still routes correctly under HashRouter.

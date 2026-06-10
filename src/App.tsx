@@ -1,5 +1,6 @@
-import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
+import { HashRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
+import GlobalSearch, { openGlobalSearch } from './components/GlobalSearch'
 import PokedexPage from './pages/PokedexPage'
 import MovesPage from './pages/MovesPage'
 import GuidePage from './pages/GuidePage'
@@ -14,7 +15,6 @@ function MobileNav() {
         <NavLink
           key={to}
           to={to}
-          end={to === '/'}
           className={({ isActive }) =>
             `flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors ${
               isActive ? 'text-dex-red' : 'text-gray-500'
@@ -25,6 +25,13 @@ function MobileNav() {
           <span className="font-mono text-[8px] font-bold">{mobileLabel}</span>
         </NavLink>
       ))}
+      <button
+        onClick={openGlobalSearch}
+        className="flex-1 flex flex-col items-center justify-center py-3 gap-1 text-gray-500 transition-colors active:text-dex-red"
+      >
+        <span className="text-xl">🔍</span>
+        <span className="font-mono text-[8px] font-bold">Buscar</span>
+      </button>
     </nav>
   )
 }
@@ -36,22 +43,30 @@ export default function App() {
         <Sidebar />
         <main className="flex-1 overflow-y-auto overflow-x-hidden bg-dex-black min-h-0">
           <Routes>
-            <Route path="/" element={<PokedexPage />} />
+            <Route path="/" element={<Navigate to="/pokedex" replace />} />
+            <Route path="/pokedex" element={<PokedexPage />} />
+            <Route path="/pokedex/:pokemonName" element={<PokedexPage />} />
             <Route path="/moves" element={<MovesPage />} />
             <Route path="/guide" element={<GuidePage />} />
+            <Route path="/guide/:region" element={<GuidePage />} />
+            <Route path="/guide/:region/:section" element={<GuidePage />} />
             <Route path="/types" element={<TypesPage />} />
             <Route path="/natures" element={<NaturesPage />} />
-            <Route path="*" element={
-              <div className="flex items-center justify-center h-full text-gray-600">
-                <div className="text-center space-y-2">
-                  <div className="text-6xl opacity-20">404</div>
-                  <p className="font-mono text-xs">Página no encontrada</p>
+            <Route
+              path="*"
+              element={
+                <div className="flex items-center justify-center h-full text-gray-600">
+                  <div className="text-center space-y-2">
+                    <div className="text-6xl opacity-20">404</div>
+                    <p className="font-mono text-xs">Página no encontrada</p>
+                  </div>
                 </div>
-              </div>
-            } />
+              }
+            />
           </Routes>
         </main>
         <MobileNav />
+        <GlobalSearch />
       </div>
     </HashRouter>
   )

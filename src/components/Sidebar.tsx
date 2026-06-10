@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { NAV_LINKS } from '../constants/nav'
+import { openGlobalSearch } from './GlobalSearch'
 
 export default function Sidebar() {
   return (
@@ -29,7 +30,6 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
-            end={to === '/'}
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all ${
                 isActive
@@ -42,6 +42,18 @@ export default function Sidebar() {
             <span className="font-mono text-[10px]">{label}</span>
           </NavLink>
         ))}
+
+        {/* Global search trigger */}
+        <button
+          onClick={openGlobalSearch}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all text-red-100 hover:bg-dex-darkred hover:text-white"
+        >
+          <span className="text-base w-5 text-center">🔍</span>
+          <span className="font-mono text-[10px] flex-1 text-left">Buscar</span>
+          <kbd className="font-mono text-[7px] bg-dex-darkred/60 px-1 py-0.5 rounded opacity-70">
+            ⌘K
+          </kbd>
+        </button>
       </nav>
 
       {/* Bottom decoration */}
