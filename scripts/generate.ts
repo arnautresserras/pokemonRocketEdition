@@ -8,6 +8,13 @@ const __dirname = path.dirname(__filename)
 const DOCS_DIR = path.join(__dirname, '../docs')
 const DATA_DIR = path.join(__dirname, '../src/data')
 
+const parseWarnings: string[] = []
+const warn = (msg: string) => parseWarnings.push(msg)
+
+function normalizeName(name: string): string {
+  return name.toLowerCase().replace(/_/g, '-').replace(/\s+/g, ' ').trim()
+}
+
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true })
 
 function readDoc(predicate: (name: string) => boolean): string {
@@ -35,10 +42,12 @@ function parseMoves() {
     const parseVersion = (block: string, label: string) => {
       const typeM = block.match(new RegExp(`${label} \\(Tipo ([^)]+)\\)`))
       const power = block.match(/Potencia - (.+)/)?.[1]?.trim() ?? ''
+      const powerNumeric = parseInt(power, 10)
+      const powerValue: number | null = !isNaN(powerNumeric) ? powerNumeric : null
       const accuracy = block.match(/Precisi[oó]n - (.+)/)?.[1]?.trim() ?? ''
       const effect = block.match(/Ef\.Secundario - (.+)/)?.[1]?.trim() ?? ''
       const pp = parseInt(block.match(/PP - (\d+)/)?.[1] ?? '0')
-      return { type: typeM?.[1]?.trim() ?? '', power, accuracy, effect, pp }
+      return { type: typeM?.[1]?.trim() ?? '', power, powerValue, accuracy, effect, pp }
     }
 
     const oficialIdx = body.indexOf('Oficial')
@@ -70,7 +79,7 @@ function parseStats(content: string): ParsedPokemonStats[] {
   let currentName = ''
   let officialStats: Stats | undefined
   let hackromStats: Stats | undefined
-  let abilities: string[] = []
+  let abilities: string[] | undefined = undefined
   let hackromTypes: string[] | undefined
 
   const flush = () => {
@@ -79,7 +88,7 @@ function parseStats(content: string): ParsedPokemonStats[] {
     }
     officialStats = undefined
     hackromStats = undefined
-    abilities = []
+    abilities = undefined
     hackromTypes = undefined
   }
 
@@ -103,7 +112,7 @@ function parseStats(content: string): ParsedPokemonStats[] {
       continue
     }
 
-    const abilityMatch = line.match(/Habilidades?: (.+)/)
+    const abilityMatch = line.match(/Habilidad(?:es)?: (.+)/)
     if (abilityMatch) {
       abilities = abilityMatch[1].split('/').map(a => a.trim())
       continue
@@ -223,14 +232,20 @@ function parseLocations(): ParsedLocation[] {
   for (const raw of content.split('\n')) {
     const line = raw.trim()
     if (!line) continue
-    // Format: NAME - NUMBER - description (description may be empty)
-    const m = line.match(/^([A-ZÁÉÍÓÚÑÜa-záéíóúñü_'\s]+) - (\d+) - ?(.*)/)
+    // Standard format: NAME - NUM - desc (NAME may contain digits, e.g. PORYGON2)
+    let m = line.match(/^([A-ZÁÉÍÓÚÑÜa-záéíóúñü_'\s0-9]+) - (\d+) -?\s*(.*)/)
+    if (!m) {
+      // Fallback: NAME NUM - desc (missing first dash, e.g. MACHAMP 68 - …)
+      m = line.match(/^([A-ZÁÉÍÓÚÑÜa-záéíóúñü_']+(?:\s+[A-ZÁÉÍÓÚÑÜa-záéíóúñü_']+)*)\s+(\d+)\s*-\s*(.*)/)
+    }
     if (m) {
       result.push({
         name: m[1].trim(),
         dexNumber: +m[2],
         location: m[3].trim() || undefined,
       })
+    } else if (/^[A-ZÁÉÍÓÚÑÜ]/.test(line) && /\d/.test(line)) {
+      warn(`[locations] unmatched line: ${line.slice(0, 80)}`)
     }
   }
 
@@ -589,7 +604,7 @@ interface ParsedPokemonStats {
   name: string
   officialStats?: Stats
   hackromStats?: Stats
-  abilities?: string[]
+  abilities: string[] | undefined
   hackromTypes?: string[]
 }
 
@@ -649,7 +664,8 @@ async function enrichWithApiData(pokemon: Pokemon[]): Promise<void> {
   for (let i = 0; i < pokemon.length; i += CONCURRENCY) {
     const batch = pokemon.slice(i, i + CONCURRENCY)
     await Promise.all(batch.map(async p => {
-      const identifier = p.dexNumber ?? CANONICAL_MEGA_API_SLUGS[p.name]
+      // Regional slugs take priority so forms get their own types (not the base form's)
+      const identifier = CANONICAL_REGIONAL_API_SLUGS[p.name] ?? CANONICAL_MEGA_API_SLUGS[p.name] ?? p.dexNumber
       if (!identifier) return
       const needsTypes = !p.types
       const needsStats = !p.officialStats
@@ -802,6 +818,39 @@ const GEN9_POKEMON: Array<{ name: string; dexNumber: number }> = [
   { name: 'PECHARUNT', dexNumber: 1025 },
 ]
 
+// ── Name normalisation helpers ────────────────────────────────────────────────
+
+// Stats file uses HONCHCROW; location file uses HONCHKROW.
+const LOCATION_NAME_ALIASES: Record<string, string> = {
+  honchcrow: 'honchkrow',
+}
+
+// Pokémon that exist as forms/variants without their own location entry.
+// We reuse the base Pokémon's dex number for sprite lookup.
+const FORM_DEX_NUMBERS: Record<string, number> = {
+  'WEEZING-GALAR':           110,
+  'DARMANITAN ZEN':          555,
+  'DARMANITAN GALAR':        555,
+  'DARMANITAN GALAR ZEN':    555,
+  'LYCANROC FORMA DIURNA':   745,
+  'LYCANROC FORMA NOCTURNA': 745,
+  'LYCANROC FORMA CREPUSCULAR': 745,
+  'VIKABOLT':                738,
+}
+
+// PokéAPI slugs for forms/variants whose type differs from the base form.
+// Only needed when the base-dex-number fetch would return the wrong types.
+// VIKABOLT is deliberately absent: it uses its own dex number (738) directly.
+const CANONICAL_REGIONAL_API_SLUGS: Record<string, string> = {
+  'WEEZING-GALAR':           'weezing-galar',
+  'DARMANITAN ZEN':          'darmanitan-zen',
+  'DARMANITAN GALAR':        'darmanitan-galar',
+  'DARMANITAN GALAR ZEN':    'darmanitan-galar-zen',
+  'LYCANROC FORMA DIURNA':   'lycanroc-midday',
+  'LYCANROC FORMA NOCTURNA': 'lycanroc-midnight',
+  'LYCANROC FORMA CREPUSCULAR': 'lycanroc-dusk',
+}
+
 // ── Assemble Pokemon master list ──────────────────────────────────────────────
 
 function assemblePokemon() {
@@ -811,20 +860,33 @@ function assemblePokemon() {
   const evolutionsRaw = parseEvolutions()
   const experimentsRaw = parseExperiments()
 
-  // Index locations and evolutions by name
-  const locationMap = new Map(locationsRaw.map(l => [l.name.toLowerCase(), l]))
+  // Index locations by normalized name (underscore→dash, lowercase)
+  const locationMap = new Map(locationsRaw.map(l => [normalizeName(l.name), l]))
 
   const evolutionMap = new Map<string, string>()
   for (const e of evolutionsRaw) {
     evolutionMap.set(e.to.toLowerCase(), e.method)
   }
 
+  // Lookup a location entry using normalized name + alias fallback
+  const findLocation = (name: string) => {
+    const key = normalizeName(name)
+    return locationMap.get(key) ?? locationMap.get(LOCATION_NAME_ALIASES[key] ?? '')
+  }
+
   const pokemon: Pokemon[] = []
+  // Track normalized names already in the list to avoid duplicates
+  const inPokemon = new Set<string>()
 
   for (const entry of statsRaw) {
-    const key = entry.name.toLowerCase()
-    const loc = locationMap.get(key)
-    const evolMethod = evolutionMap.get(key)
+    const loc = findLocation(entry.name)
+    const key = normalizeName(entry.name)
+    const evolMethod = evolutionMap.get(entry.name.toLowerCase())
+
+    const dexNumber = loc?.dexNumber ?? FORM_DEX_NUMBERS[entry.name]
+    if (!dexNumber && entry.name && !entry.name.startsWith('MEGA ')) {
+      warn(`[stats] no dex number for "${entry.name}"`)
+    }
 
     const category = entry.name.startsWith('MEGA ')
       ? 'mega'
@@ -834,7 +896,7 @@ function assemblePokemon() {
 
     pokemon.push({
       name: entry.name,
-      dexNumber: loc?.dexNumber,
+      dexNumber,
       spriteId: CANONICAL_MEGA_SPRITE_IDS[entry.name],
       officialStats: entry.officialStats,
       hackromStats: entry.hackromStats,
@@ -845,12 +907,19 @@ function assemblePokemon() {
       evolutionMethod: evolMethod,
       category,
     })
+    inPokemon.add(key)
   }
 
   // Add Pokémon that only appear in locations (no stat changes documented)
   for (const loc of locationsRaw) {
-    const already = pokemon.some(p => p.name.toLowerCase() === loc.name.toLowerCase())
-    if (!already) {
+    const locKey = normalizeName(loc.name)
+    // Skip if already covered directly or via an alias pointing to this location name
+    const covered =
+      inPokemon.has(locKey) ||
+      Object.entries(LOCATION_NAME_ALIASES).some(
+        ([statsKey, locAlias]) => locAlias === locKey && inPokemon.has(statsKey),
+      )
+    if (!covered) {
       pokemon.push({
         name: loc.name,
         dexNumber: loc.dexNumber,
@@ -858,14 +927,15 @@ function assemblePokemon() {
         evolutionMethod: evolutionMap.get(loc.name.toLowerCase()),
         category: 'base',
       })
+      inPokemon.add(locKey)
     }
   }
 
   // Add Gen 9 reference entries not already in the list
   for (const g9 of GEN9_POKEMON) {
-    const already = pokemon.some(p => p.name.toLowerCase() === g9.name.toLowerCase())
-    if (!already) {
+    if (!inPokemon.has(normalizeName(g9.name))) {
       pokemon.push({ name: g9.name, dexNumber: g9.dexNumber, category: 'base' })
+      inPokemon.add(normalizeName(g9.name))
     }
   }
 
@@ -923,5 +993,10 @@ const guide = regions.map(({ file, region }) => parseGuide(file, region))
 fs.writeFileSync(path.join(DATA_DIR, 'guide.json'), JSON.stringify(guide, null, 2))
 const totalSections = guide.reduce((acc, g) => acc + g.sections.length, 0)
 console.log(`  → ${totalSections} guide sections across ${regions.length} regions`)
+
+if (parseWarnings.length > 0) {
+  console.log(`\nParse warnings (${parseWarnings.length}):`)
+  for (const w of parseWarnings) console.log(`  ⚠  ${w}`)
+}
 
 console.log('Done.')

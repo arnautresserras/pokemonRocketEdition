@@ -1,0 +1,522 @@
+[
+  {
+    "name": "NIDOKING-X",
+    "officialStats": {
+      "hp": 81,
+      "attack": 102,
+      "defense": 77,
+      "spAttack": 85,
+      "spDefense": 75,
+      "speed": 85,
+      "total": 505
+    },
+    "hackromStats": {
+      "hp": 91,
+      "attack": 142,
+      "defense": 117,
+      "spAttack": 50,
+      "spDefense": 105,
+      "speed": 125,
+      "total": 630
+    },
+    "types": [
+      "Veneno",
+      "Siniestro"
+    ],
+    "abilities": [
+      "Adaptable"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "NIDOQUEEN-Y",
+    "officialStats": {
+      "hp": 90,
+      "attack": 92,
+      "defense": 87,
+      "spAttack": 75,
+      "spDefense": 85,
+      "speed": 76,
+      "total": 505
+    },
+    "hackromStats": {
+      "hp": 100,
+      "attack": 52,
+      "defense": 107,
+      "spAttack": 135,
+      "spDefense": 150,
+      "speed": 86,
+      "total": 630
+    },
+    "types": [
+      "Veneno",
+      "Tierra"
+    ],
+    "abilities": [
+      "Peluche"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "ELECTRODE-Y",
+    "hackromStats": {
+      "hp": 60,
+      "attack": 10,
+      "defense": 85,
+      "spAttack": 140,
+      "spDefense": 95,
+      "speed": 200,
+      "total": 590
+    },
+    "types": [
+      "Eléctrico",
+      "Acero"
+    ],
+    "abilities": [
+      "Levitación"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "TAUROS-X",
+    "hackromStats": {
+      "hp": 75,
+      "attack": 155,
+      "defense": 150,
+      "spAttack": 30,
+      "spDefense": 90,
+      "speed": 90,
+      "total": 490
+    },
+    "types": [
+      "Roca",
+      "Normal"
+    ],
+    "abilities": [
+      "Cabeza Roca"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "PORYGON3",
+    "hackromStats": {
+      "hp": 95,
+      "attack": 65,
+      "defense": 70,
+      "spAttack": 155,
+      "spDefense": 95,
+      "speed": 135,
+      "total": 615
+    },
+    "types": [
+      "NORMAL",
+      "FANTASMA"
+    ],
+    "abilities": [
+      "Adaptable"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "AERODACTYL-P",
+    "hackromStats": {
+      "hp": 80,
+      "attack": 145,
+      "defense": 105,
+      "spAttack": 60,
+      "spDefense": 85,
+      "speed": 140,
+      "total": 615
+    },
+    "types": [
+      "Roca",
+      "Dragón"
+    ],
+    "abilities": [
+      "Levitación"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "CRADILY-P",
+    "hackromStats": {
+      "hp": 86,
+      "attack": 41,
+      "defense": 137,
+      "spAttack": 111,
+      "spDefense": 167,
+      "speed": 53,
+      "total": 595
+    },
+    "types": [
+      "Roca",
+      "Planta"
+    ],
+    "abilities": [
+      "Roca Sólida"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "ARMALDO-P",
+    "hackromStats": {
+      "hp": 75,
+      "attack": 155,
+      "defense": 120,
+      "spAttack": 70,
+      "spDefense": 100,
+      "speed": 75,
+      "total": 595
+    },
+    "types": [
+      "Roca",
+      "Bicho"
+    ],
+    "abilities": [
+      "Armadura Frágil"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "RELICANTH-P",
+    "hackromStats": {
+      "hp": 110,
+      "attack": 110,
+      "defense": 140,
+      "spAttack": 55,
+      "spDefense": 75,
+      "speed": 105,
+      "total": 585
+    },
+    "types": [
+      "Agua",
+      "Roca"
+    ],
+    "abilities": [
+      "Cabeza Roca"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "MAGMORTAR-Y",
+    "officialStats": {
+      "hp": 75,
+      "attack": 95,
+      "defense": 67,
+      "spAttack": 125,
+      "spDefense": 95,
+      "speed": 83,
+      "total": 540
+    },
+    "hackromStats": {
+      "hp": 75,
+      "attack": 95,
+      "defense": 97,
+      "spAttack": 165,
+      "spDefense": 105,
+      "speed": 103,
+      "total": 640
+    },
+    "types": [
+      "Fuego"
+    ],
+    "abilities": [
+      "Indefenso"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "ELECTIVIRE-X",
+    "officialStats": {
+      "hp": 75,
+      "attack": 123,
+      "defense": 67,
+      "spAttack": 95,
+      "spDefense": 85,
+      "speed": 95,
+      "total": 540
+    },
+    "hackromStats": {
+      "hp": 75,
+      "attack": 153,
+      "defense": 97,
+      "spAttack": 95,
+      "spDefense": 105,
+      "speed": 115,
+      "total": 640
+    },
+    "types": [
+      "Eléctrico",
+      "Lucha"
+    ],
+    "abilities": [
+      "Piel Eléctrica"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "PORYGONZ-X",
+    "officialStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 70,
+      "spAttack": 135,
+      "spDefense": 75,
+      "speed": 90,
+      "total": 535
+    },
+    "hackromStats": {
+      "hp": 85,
+      "attack": 125,
+      "defense": 70,
+      "spAttack": 95,
+      "spDefense": 85,
+      "speed": 185,
+      "total": 645
+    },
+    "types": [
+      "Normal",
+      "Volador"
+    ],
+    "abilities": [
+      "Adaptable"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "PORYGONZ-Y",
+    "officialStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 70,
+      "spAttack": 135,
+      "spDefense": 75,
+      "speed": 90,
+      "total": 535
+    },
+    "hackromStats": {
+      "hp": 85,
+      "attack": 70,
+      "defense": 80,
+      "spAttack": 185,
+      "spDefense": 105,
+      "speed": 120,
+      "total": 645
+    },
+    "types": [
+      "Normal",
+      "Eléctrico"
+    ],
+    "abilities": [
+      "Levitación"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 1
+  },
+  {
+    "name": "NIDOGOD",
+    "officialStats": {
+      "hp": 81,
+      "attack": 102,
+      "defense": 77,
+      "spAttack": 85,
+      "spDefense": 75,
+      "speed": 85,
+      "total": 505
+    },
+    "hackromStats": {
+      "hp": 111,
+      "attack": 172,
+      "defense": 147,
+      "spAttack": 85,
+      "spDefense": 115,
+      "speed": 50,
+      "total": 680
+    },
+    "types": [
+      "Veneno",
+      "Acero"
+    ],
+    "abilities": [
+      "Potencia Bruta"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 2
+  },
+  {
+    "name": "PORYGON3.1",
+    "hackromStats": {
+      "hp": 105,
+      "attack": 70,
+      "defense": 65,
+      "spAttack": 165,
+      "spDefense": 115,
+      "speed": 145,
+      "total": 665
+    },
+    "types": [
+      "Normal",
+      "Psíquico"
+    ],
+    "abilities": [
+      "Peluche"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 2
+  },
+  {
+    "name": "GYARADOS-Z",
+    "hackromStats": {
+      "hp": 115,
+      "attack": 165,
+      "defense": 99,
+      "spAttack": 60,
+      "spDefense": 140,
+      "speed": 111,
+      "total": 690
+    },
+    "types": [
+      "Agua",
+      "Volador"
+    ],
+    "abilities": [
+      "Intimidación"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 2
+  },
+  {
+    "name": "BLASTOISE-Z",
+    "officialStats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 75,
+      "spAttack": 115,
+      "spDefense": 100,
+      "speed": 115,
+      "total": 580
+    },
+    "hackromStats": {
+      "hp": 110,
+      "attack": 85,
+      "defense": 135,
+      "spAttack": 110,
+      "spDefense": 165,
+      "speed": 100,
+      "total": 705
+    },
+    "types": [
+      "Agua",
+      "Hada"
+    ],
+    "abilities": [
+      "Piel Feérica"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 2
+  },
+  {
+    "name": "ZAPDOS-Z",
+    "officialStats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "spAttack": 125,
+      "spDefense": 90,
+      "speed": 100,
+      "total": 580
+    },
+    "hackromStats": {
+      "hp": 110,
+      "attack": 115,
+      "defense": 130,
+      "spAttack": 185,
+      "spDefense": 100,
+      "speed": 90,
+      "total": 730
+    },
+    "types": [
+      "Eléctrico",
+      "Acero"
+    ],
+    "abilities": [
+      "Levitación"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 2
+  },
+  {
+    "name": "MEWTWO ARMADURA",
+    "hackromStats": {
+      "hp": 106,
+      "attack": 120,
+      "defense": 140,
+      "spAttack": 164,
+      "spDefense": 140,
+      "speed": 110,
+      "total": 780
+    },
+    "types": [
+      "Psíquico",
+      "Acero"
+    ],
+    "abilities": [
+      "Filtro"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 3
+  },
+  {
+    "name": "ULTIMATE PROJECT",
+    "hackromStats": {
+      "hp": 126,
+      "attack": 90,
+      "defense": 154,
+      "spAttack": 216,
+      "spDefense": 154,
+      "speed": 90,
+      "total": 830
+    },
+    "types": [
+      "Psíquico",
+      "Acero"
+    ],
+    "abilities": [
+      "Armadura Ultimate (mitiga x0,5 movimientos superefectivos)"
+    ],
+    "category": "prototype",
+    "prototypeLevel": 3
+  },
+  {
+    "name": "MEGA NOIVERN",
+    "hackromStats": {
+      "hp": 75,
+      "attack": 78,
+      "defense": 85,
+      "spAttack": 154,
+      "spDefense": 95,
+      "speed": 115,
+      "total": 602
+    },
+    "types": [
+      "Eléctrico",
+      "Veneno"
+    ],
+    "abilities": [
+      "Punk Rock"
+    ],
+    "category": "mega"
+  }
+]

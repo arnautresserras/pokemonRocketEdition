@@ -53,32 +53,41 @@ parser change, since the app reads the generated JSON, not the raw text.
   direct lookup map keyed on the exact `mt.region` values from `mts.json`.
   Tests in `utils.test.ts` updated accordingly.
 
-### 1.2 Data accuracy (parser robustness — wrong data misleads players)
+### 1.2 Data accuracy (parser robustness — wrong data misleads players) ✅ Done
 
-`scripts/generate.ts` parses free-form Spanish text with rigid regexes. Harden
+`scripts/generate.ts` parses free-form Spanish text with rigid regexes. Hardened
 the fragile points and surface what fails instead of silently dropping it:
 
-- **Make header/label matching tolerant.** Ability regex is case-sensitive
-  ([~line 106](scripts/generate.ts#L106)); Pokémon-name and item/category
-  headers require strict uppercase/format ([~lines 119, 294, 416](scripts/generate.ts#L119));
-  move-block split assumes exactly `\n---\n` ([~line 26](scripts/generate.ts#L26)).
-  Loosen whitespace/case handling and allow names with parentheses/numbers.
-- **Stop silent fallbacks.** Experiment stat labels default unknown labels to
-  `hackromStats` ([~lines 161-168](scripts/generate.ts#L161-L168)); guide/MT/item
-  lines that don't match are dropped. Add a parse-warning collector that prints a
-  summary ("N lines skipped in FILE") at the end of `npm run parse` so data loss
-  is visible.
-- **Fill the data gaps the agents found:** ~112 Pokémon with empty `abilities: []`,
-  ~26 with no `types`/`dexNumber` (e.g. PORYGON-Z, VIKABOLT — likely a name-case
-  mismatch in the `locationMap` lookup, [~line 815](scripts/generate.ts#L815)).
-  Normalize names to a single canonical case before the join; let
-  `enrichWithApiData()` backfill remaining types. Distinguish "absent" (`undefined`)
-  from "empty" abilities so the UI can say "sin datos" vs hide the row.
-- **Normalize `MoveVersion.power`.** It's typed `string`
-  ([types/index.ts:25-31](src/types/index.ts#L25-L31)) but holds mixed values
-  ("170", "KO en un golpe", "50% daño de retroceso"). Keep the raw string for
-  display but add a parsed numeric/`null` companion so any future sorting/calc is
-  safe; document the field.
+- **Header/label matching now tolerant.** ✅ Ability regex changed from
+  `/Habilidades?:/` (which silently missed the singular `Habilidad:` form) to
+  `/Habilidad(?:es)?:/`. Location parser now handles both the standard
+  `NAME - NUM - desc` format and the malformed `NAME NUM - desc` variant
+  (fixed MACHAMP #68, which lacked the first dash). Digits allowed in Pokémon
+  names (fixed PORYGON2 #233, previously dropped entirely).
+- **Stop silent fallbacks.** ✅ `parseWarnings` collector added; prints a summary
+  at the end of `npm run parse` with any unmatched lines. Stats entries with no
+  dex-number resolution also emit a warning. `abilities` init changed from `[]`
+  to `undefined` so "no data" is now distinguishable from "empty list".
+- **Data gaps closed.** ✅ All 26 previously dex-numberless entries resolved:
+  - **Name normalization** (`normalizeName()`: underscore→dash, lowercase) fixed
+    PORYGON-Z/PORYGON_Z mismatch.
+  - **`LOCATION_NAME_ALIASES`** fixed the HONCHCROW/HONCHKROW spelling split.
+  - **`FORM_DEX_NUMBERS`** supplies dex numbers for regional forms/variants absent
+    from the location file (WEEZING-GALAR=110, DARMANITAN forms=555,
+    LYCANROC forms=745, VIKABOLT=738).
+  - **`CANONICAL_REGIONAL_API_SLUGS`** maps form names to the correct PokéAPI
+    endpoint so type enrichment returns form-specific types (e.g.
+    WEEZING-GALAR → Veneno/Hada, not Veneno from the base form).
+  - **Duplicate dedup** updated to use normalized names, preventing phantom
+    entries when location-file and stats-file spellings differ.
+  - Result after `npm run parse`: 0 Pokémon with no dex number (non-mega),
+    0 Pokémon with no types, 112 `abilities: []` → `abilities: undefined`
+    (correctly signals "not documented" rather than "empty").
+  - Also added: PORYGON2 (#233) was completely absent; now parsed correctly.
+- **`MoveVersion.powerValue`.** ✅ Added `powerValue: number | null` to
+  [MoveVersion](src/types/index.ts#L25-L31): parsed numeric power for sorting/
+  calculations, `null` for non-numeric strings like "KO en un golpe". Raw `power`
+  string kept for display.
 
 ### 1.3 Code quality & infra (maintainability) ✅ Done
 

@@ -1,0 +1,439 @@
+[
+  {
+    "name": "GUILLOTINA",
+    "official": {
+      "type": "normal",
+      "power": "KO en un golpe",
+      "powerValue": null,
+      "accuracy": "30",
+      "effect": "No",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "siniestro",
+      "power": "170",
+      "powerValue": 170,
+      "accuracy": "90",
+      "effect": "Inmoviliza un turno",
+      "pp": 5
+    }
+  },
+  {
+    "name": "CORTE",
+    "official": {
+      "type": "normal",
+      "power": "50",
+      "powerValue": 50,
+      "accuracy": "95",
+      "effect": "No",
+      "pp": 30
+    },
+    "hackrom": {
+      "type": "bicho",
+      "power": "65",
+      "powerValue": 65,
+      "accuracy": "95",
+      "effect": "50% de bajar un nivel la Defensa",
+      "pp": 30
+    }
+  },
+  {
+    "name": "PERFORADOR",
+    "official": {
+      "type": "normal",
+      "power": "KO en un golpe",
+      "powerValue": null,
+      "accuracy": "30",
+      "effect": "No",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "normal",
+      "power": "150",
+      "powerValue": 150,
+      "accuracy": "90",
+      "effect": "50% daño de retroceso",
+      "pp": 5
+    }
+  },
+  {
+    "name": "HIPERRAYO",
+    "official": {
+      "type": "normal",
+      "power": "150",
+      "powerValue": 150,
+      "accuracy": "90",
+      "effect": "Un turno inmovilizado",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "normal",
+      "power": "160",
+      "powerValue": 160,
+      "accuracy": "90",
+      "effect": "Un turno inmovilizado",
+      "pp": 5
+    }
+  },
+  {
+    "name": "ABSORBER",
+    "official": {
+      "type": "planta",
+      "power": "20",
+      "powerValue": 20,
+      "accuracy": "100",
+      "effect": "Recupera el 50% del daño causado",
+      "pp": 25
+    },
+    "hackrom": {
+      "type": "planta",
+      "power": "30",
+      "powerValue": 30,
+      "accuracy": "100",
+      "effect": "Recupera el 50% del daño causado",
+      "pp": 25
+    }
+  },
+  {
+    "name": "FURIA DRAGÓN",
+    "official": {
+      "type": "dragón",
+      "power": "Siempre resta 40 Ps",
+      "powerValue": null,
+      "accuracy": "100",
+      "effect": "No",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "dragón",
+      "power": "70",
+      "powerValue": 70,
+      "accuracy": "100",
+      "effect": "20% de causar retroceso",
+      "pp": 25
+    }
+  },
+  {
+    "name": "RAPIDEZ",
+    "official": {
+      "type": "normal",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    },
+    "hackrom": {
+      "type": "normal",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    }
+  },
+  {
+    "name": "TRIATAQUE",
+    "official": {
+      "type": "normal",
+      "power": "80",
+      "powerValue": 80,
+      "accuracy": "100",
+      "effect": "20% de quemar, congelar o paralizar",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "normal",
+      "power": "90",
+      "powerValue": 90,
+      "accuracy": "100",
+      "effect": "20% de quemar, congelar o paralizar",
+      "pp": 10
+    }
+  },
+  {
+    "name": "BOFETÓN LODO",
+    "official": {
+      "type": "tierra",
+      "power": "20",
+      "powerValue": 20,
+      "accuracy": "100",
+      "effect": "100% bajar precisión rival",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "tierra",
+      "power": "30 (físico)",
+      "powerValue": 30,
+      "accuracy": "100",
+      "effect": "100% bajar precisión rival",
+      "pp": 10
+    }
+  },
+  {
+    "name": "PODER PASADO",
+    "official": {
+      "type": "roca",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "100",
+      "effect": "10% subir todas las estadísticas",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "roca",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "100",
+      "effect": "10% subir todas las estadísticas",
+      "pp": 5
+    }
+  },
+  {
+    "name": "BUCEO",
+    "official": {
+      "type": "agua",
+      "power": "80",
+      "powerValue": 80,
+      "accuracy": "100",
+      "effect": "Ataque en dos turnos",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "agua",
+      "power": "110 (especial)",
+      "powerValue": 110,
+      "accuracy": "100",
+      "effect": "Ataque en dos turnos",
+      "pp": 5
+    }
+  },
+  {
+    "name": "HIDROCAÑÓN",
+    "official": {
+      "type": "agua",
+      "power": "150",
+      "powerValue": 150,
+      "accuracy": "95",
+      "effect": "Inmoviliza un turno",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "agua",
+      "power": "105",
+      "powerValue": 105,
+      "accuracy": "95",
+      "effect": "No",
+      "pp": 10
+    }
+  },
+  {
+    "name": "VIENTO PLATA",
+    "official": {
+      "type": "bicho",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "100",
+      "effect": "10% subir todas las estadísticas",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "bicho",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "100",
+      "effect": "10% subir todas las estadísticas",
+      "pp": 5
+    }
+  },
+  {
+    "name": "GOLPE AÉREO",
+    "official": {
+      "type": "volador",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    },
+    "hackrom": {
+      "type": "volador",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    }
+  },
+  {
+    "name": "HOJA MÁGICA",
+    "official": {
+      "type": "planta",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    },
+    "hackrom": {
+      "type": "planta",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "Nunca falla",
+      "effect": "No",
+      "pp": 20
+    }
+  },
+  {
+    "name": "HIDROPULSO",
+    "official": {
+      "type": "agua",
+      "power": "60",
+      "powerValue": 60,
+      "accuracy": "100",
+      "effect": "20% de confundir",
+      "pp": 20
+    },
+    "hackrom": {
+      "type": "agua",
+      "power": "75",
+      "powerValue": 75,
+      "accuracy": "100",
+      "effect": "20% de confundir",
+      "pp": 20
+    }
+  },
+  {
+    "name": "ROMPERROCAS",
+    "official": {
+      "type": "roca",
+      "power": "150",
+      "powerValue": 150,
+      "accuracy": "90",
+      "effect": "Inmoviliza un turno",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "roca",
+      "power": "165",
+      "powerValue": 165,
+      "accuracy": "90",
+      "effect": "Inmoviliza un turno",
+      "pp": 5
+    }
+  },
+  {
+    "name": "CORTE VACÍO",
+    "official": {
+      "type": "dragón",
+      "power": "100",
+      "powerValue": 100,
+      "accuracy": "95",
+      "effect": "+1 índice crítico",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "dragón",
+      "power": "115",
+      "powerValue": 115,
+      "accuracy": "90",
+      "effect": "+1 índice crítico",
+      "pp": 10
+    }
+  },
+  {
+    "name": "ARIETE",
+    "official": {
+      "type": "normal",
+      "power": "120",
+      "powerValue": 120,
+      "accuracy": "100",
+      "effect": "25% daño de retroceso",
+      "pp": 15
+    },
+    "hackrom": {
+      "type": "normal",
+      "power": "130",
+      "powerValue": 130,
+      "accuracy": "100",
+      "effect": "25% daño retroceso",
+      "pp": 15
+    }
+  },
+  {
+    "name": "LLAMA GÉLIDA",
+    "official": {
+      "type": "hielo",
+      "power": "140",
+      "powerValue": 140,
+      "accuracy": "90",
+      "effect": "Ataque en dos turnos | 30% quemar",
+      "pp": 5
+    },
+    "hackrom": {
+      "type": "hielo",
+      "power": "130",
+      "powerValue": 130,
+      "accuracy": "90",
+      "effect": "33% daño retroceso | 10% quemar",
+      "pp": 10
+    }
+  },
+  {
+    "name": "PULSO PRIMIGENIO",
+    "official": {
+      "type": "agua",
+      "power": "110",
+      "powerValue": 110,
+      "accuracy": "85",
+      "effect": "x1,5 con Megadisparador",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "agua",
+      "power": "120",
+      "powerValue": 120,
+      "accuracy": "85",
+      "effect": "x1,5 con Megadisparador",
+      "pp": 10
+    }
+  },
+  {
+    "name": "LÁSER PRISMA",
+    "official": {
+      "type": "psíquico",
+      "power": "160",
+      "powerValue": 160,
+      "accuracy": "100",
+      "effect": "Inmoviliza un turno",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "psíquico",
+      "power": "175",
+      "powerValue": 175,
+      "accuracy": "100",
+      "effect": "Inmoviliza un turno",
+      "pp": 10
+    }
+  },
+  {
+    "name": "METALÁSER",
+    "official": {
+      "type": "acero",
+      "power": "140",
+      "powerValue": 140,
+      "accuracy": "95",
+      "effect": "Resta 1/2 de salud al usuario",
+      "pp": 10
+    },
+    "hackrom": {
+      "type": "acero",
+      "power": "140",
+      "powerValue": 140,
+      "accuracy": "95",
+      "effect": "50% daño de retroceso",
+      "pp": 10
+    }
+  }
+]

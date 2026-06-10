@@ -1,0 +1,1010 @@
+[
+  {
+    "number": "MT01",
+    "name": "Puño certero",
+    "location": "Quinta planta de Silph",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT02",
+    "name": "Garra Dragón",
+    "location": "Calle victoria de Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT03",
+    "name": "Hidropulso",
+    "location": "Regalo de Líder Misty al derrotarla",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT04",
+    "name": "Paz Mental",
+    "location": "Regalo de Líder Sabrina al derrotarla",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT05",
+    "name": "Rugido",
+    "location": "Venta en Centro Comercial Azulona",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT06",
+    "name": "Tóxico",
+    "location": "Regalo de Líder Koga al derrotarlo",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT07",
+    "name": "Granizo",
+    "location": "Calle victoria de Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT08",
+    "name": "Corpulencia",
+    "location": "Séptima planta de Silph",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT09",
+    "name": "Recurrente",
+    "location": "Mt.Moon",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT10",
+    "name": "Poder Oculto",
+    "location": "Zona Safari",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT11",
+    "name": "Día Soleado",
+    "location": "Zona Safari",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT12",
+    "name": "Mofa",
+    "location": "Isla Exta, Valle Ruinas",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT13",
+    "name": "Rayo Hielo",
+    "location": "Venta en Base Rocket Profunda",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT14",
+    "name": "Ventisca",
+    "location": "Isla Canela, interior Mansión Pokémon",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT15",
+    "name": "Hiperrayo",
+    "location": "Ruta 2, Ayudante Oak | Venta C.Comercial Azulona",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT16",
+    "name": "Pantalla Luz",
+    "location": "Ruta 3, entre Mt.Moon y C.Celeste",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT17",
+    "name": "Protección",
+    "location": "Venta en B.Rocket Profunda - Sala Ejecutivos",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT18",
+    "name": "Danza Lluvia",
+    "location": "Ruta 15",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT19",
+    "name": "Gigadrenado",
+    "location": "Regalo de Líder Erika al derrotarla",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT20",
+    "name": "Velo Sagrado",
+    "location": "Venta en Centro Comercial Azulona",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT21",
+    "name": "Frustración",
+    "location": "Base Rocket Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT22",
+    "name": "Rayo Solar",
+    "location": "Isla Canela, interior Mansión Pokémon",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT23",
+    "name": "Cola Férrea",
+    "location": "Túnel Roca",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT24",
+    "name": "Rayo",
+    "location": "Venta en Base Rocket Profunda",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT25",
+    "name": "Trueno",
+    "location": "Central Energía Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT26",
+    "name": "Terremoto",
+    "location": "Regalo de Líder C.Verde tras derrotarlo",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT27",
+    "name": "Retroceso",
+    "location": "Regalo de chica en el mirador de Ruta 12",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT28",
+    "name": "Excavar",
+    "location": "Regalo de Rocket tras misión C.Celeste",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT29",
+    "name": "Psíquico",
+    "location": "Venta en B.Rocket Profunda - Sala Ejecutivos",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT30",
+    "name": "Bola Sombra",
+    "location": "Venta en B.Rocket Profunda - Sala Ejecutivos",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT31",
+    "name": "Demolición",
+    "location": "Ruta 11 | Venta C.Comercial Azulona",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT32",
+    "name": "Doble Equipo",
+    "location": "B.Rocket Profunda - S.Potencial Máximo - Zona Norte",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT33",
+    "name": "Reflejo",
+    "location": "Regalo Científico en Base Rocket Profunda",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT34",
+    "name": "Onda Voltio",
+    "location": "Regalo de Líder Surge tras derrotarlo",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT35",
+    "name": "Lanzallamas",
+    "location": "Venta en Base Rocket Profunda",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT36",
+    "name": "Bomba Lodo",
+    "location": "Venta en B.Rocket Profunda - Sala Entrenamiento",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT37",
+    "name": "Torm.Arena",
+    "location": "Calle Victoria de Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT38",
+    "name": "Llamarada",
+    "location": "Regalo de Líder Blaine tras derrotarlo",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT39",
+    "name": "Tumba Rocas",
+    "location": "Regalo de Líder Brock tras derrotarlo",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT40",
+    "name": "Golpe Aéreo",
+    "location": "Ruta 9",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT41",
+    "name": "Tormento",
+    "location": "Cuarta Planta de Silph",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT42",
+    "name": "Imagen",
+    "location": "Base Rocket Profunda",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT43",
+    "name": "Daño Secreto",
+    "location": "Ruta 25 | Venta en C.Comercial Azulona",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT44",
+    "name": "Descanso",
+    "location": "Ruta 2",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT45",
+    "name": "Atracción",
+    "location": "Islas Espuma | Venta en C.Comercial Azulona",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT46",
+    "name": "Ladrón",
+    "location": "Mt.Moon",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT47",
+    "name": "Ala de Acero",
+    "location": "Zona Safari",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT48",
+    "name": "Intercambio",
+    "location": "Ruta 12",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT49",
+    "name": "Robo",
+    "location": "Base Rocket Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT50",
+    "name": "Sofoco",
+    "location": "Calle Victoria Kanto",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT51",
+    "name": "Onda Certera",
+    "location": "Silph S3",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT52",
+    "name": "Acróbata",
+    "location": "Ruta 49, misión 'Ruta 47' DLC",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT53",
+    "name": "Giga Impacto",
+    "location": "Regalo tutor Contador en C.Comercial Azulona",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT54",
+    "name": "Pulso Umbrío",
+    "location": "Venta en B.Rocket Profunda - Sala Entrenamiento",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT55",
+    "name": "Voltio Cruel",
+    "location": "Base Rocket Hoenn",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT56",
+    "name": "Roca Afilada",
+    "location": "Regalo tutor Avalanca en Túnel Roca",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT57",
+    "name": "Veneno X",
+    "location": "Base Rocket Ciudad Verde",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT58",
+    "name": "Tijera X",
+    "location": "Secundaria Bar Ciudad Olivo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT59",
+    "name": "Afilargarras",
+    "location": "Regalo Líder Johto Trigal al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT60",
+    "name": "Psicocarga",
+    "location": "Regalo Líder Johto Iris al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT61",
+    "name": "Respiro",
+    "location": "Regalo Líder Johto Malva al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT62",
+    "name": "Antiaéreo",
+    "location": "Ruta 50, misión 'Ruta 47' DLC",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT63",
+    "name": "Onda Tóxica",
+    "location": "Regalo Científico en Torre Radio Lavanda, P5",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT64",
+    "name": "Nitrocarga",
+    "location": "P.Caoba, secundaria ancianos casa noreste",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT65",
+    "name": "Patada Baja",
+    "location": "Regalo Líder Johto Orquídea al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT66",
+    "name": "Eco Voz",
+    "location": "Venta en Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT67",
+    "name": "Energibola",
+    "location": "Vías Trigal-Azafrán, zona hierba",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT68",
+    "name": "Falsotortazo",
+    "location": "Venta en subterráneo de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT69",
+    "name": "Escaldar",
+    "location": "Isla Prima, secundaria Cueva Tesoro",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT70",
+    "name": "Rayo Carga",
+    "location": "Neo Central Energía, regalo Presidente",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT71",
+    "name": "Caída Libre",
+    "location": "Ruta 47, misión 'Ruta 47' DLC",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT72",
+    "name": "Fuego Fatuo",
+    "location": "Torre Quemada, regalo exorcista",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT73",
+    "name": "Explosión",
+    "location": "Volcán Canela, laboratorio destruído",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT74",
+    "name": "Garra Umbría",
+    "location": "Venta en subterráneo de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT75",
+    "name": "Vendetta",
+    "location": "Culto Lavanda regreso, S4",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT76",
+    "name": "Represalia",
+    "location": "Neo Lavanda Cementerio, S2",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT77",
+    "name": "Pulimento",
+    "location": "Regalo Líder Johto Olivo al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT78",
+    "name": "Voltiocambio",
+    "location": "Regalo electricista en Faro Olivo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT79",
+    "name": "Onda Trueno",
+    "location": "Torre Radio Lavanda",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT80",
+    "name": "Giro Bola",
+    "location": "Base Rocket Hoenn, S2",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT81",
+    "name": "Danza Espada",
+    "location": "Regalo Líder Sete, secundaria Atlas",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT82",
+    "name": "Estoicismo",
+    "location": "Regalo Líder Johto Azalea al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT83",
+    "name": "Terratemblor",
+    "location": "Mt.Ascuas, montañero tutor explosión",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT84",
+    "name": "Vaho Gélido",
+    "location": "Regalo Líder Johto Caoba tras derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT85",
+    "name": "Avalancha",
+    "location": "Anciana I.Cuarta tras secundaria, requiere cascada",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT86",
+    "name": "Cola Dragón",
+    "location": "Ruta 50, Pilar Dun. Misión 'Ruta 47' DLC",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT87",
+    "name": "Puya Nociva",
+    "location": "Base Rocket Johto, P2",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT88",
+    "name": "Hierba Lazo",
+    "location": "Vías Trigal-Azafrán, zona hierba",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT89",
+    "name": "Contoneo",
+    "location": "Venta en subterráneo de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT90",
+    "name": "Picoteo",
+    "location": "Vías Trigal-Azafrán, Bosque Secreto al norte",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT91",
+    "name": "Ida y Vuelta",
+    "location": "Regalo de Antón en el Encinar",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT92",
+    "name": "Sustituto",
+    "location": "Venta en Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT93",
+    "name": "Foco Resplandor",
+    "location": "Torre Campana, regalo de Pensador",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT94",
+    "name": "Espacio Raro",
+    "location": "Regalo de Líder Sete, secundaria Bosque Baya",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT95",
+    "name": "Trampa Rocas",
+    "location": "Vías Trigal-Azafrán, zona rocosa al sur",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT96",
+    "name": "Alud",
+    "location": "Interior Lago Furia",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT97",
+    "name": "Salmuera",
+    "location": "Cueva Unión, regalo de pescador en el interior",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT98",
+    "name": "Puño Drenaje",
+    "location": "Lago Furia, regalo karateka alrededor",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT99",
+    "name": "Pulso Dragón",
+    "location": "Regalo Líder Johto Endrino al derrotarlo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT100",
+    "name": "Brillo Mágico",
+    "location": "Venta Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT101",
+    "name": "Giro Vil",
+    "location": "Refugios subterráneos de Kanto",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT102",
+    "name": "Cuerno Certero",
+    "location": "Secundaria estafadores Kanto en Johto",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT103",
+    "name": "Velo Aurora",
+    "location": "Isla Cuarta, zona secreta de Cueva Glaciada",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT104",
+    "name": "Acoso",
+    "location": "Refugios subterráneos de Kanto",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT105",
+    "name": "Alarido",
+    "location": "Neo Lavanda Cementerio, regalo rocket Alto Rango",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT106",
+    "name": "Puño Incremento",
+    "location": "Refugios subterráneos de Kanto",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT107",
+    "name": "Puño Hielo",
+    "location": "Venta en Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT108",
+    "name": "Puño Trueno",
+    "location": "Venta en Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT109",
+    "name": "Puño Fuego",
+    "location": "Venta en Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT110",
+    "name": "Ataque Aéreo",
+    "location": "Cima misión 'Vías Tren' DLC",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT111",
+    "name": "Psicoonda",
+    "location": "Cima Torre Radio Lavanda",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT112",
+    "name": "Esfera Aural",
+    "location": "Torre Dun, P2",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT113",
+    "name": "Viento Afín",
+    "location": "Pilar Dun, P2",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT114",
+    "name": "Lanza Mugre",
+    "location": "Base Rocket Johto, regalo de Científico",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT115",
+    "name": "Cabezahierro",
+    "location": "Volcán Canela, interior laboratorio",
+    "region": "(T4: DLC)"
+  },
+  {
+    "number": "MT116",
+    "name": "Campo Eléctrico",
+    "location": "A la venta en la Base Rocket de Johto",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT117",
+    "name": "Campo de Hierba",
+    "location": "A la venta en la Base Rocket de Johto",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT118",
+    "name": "Campo Psíquico",
+    "location": "A la venta en la Base Rocket de Johto",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT119",
+    "name": "Campo de Niebla",
+    "location": "A la venta en la Base Rocket de Johto",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT120",
+    "name": "Cuerpo Pesado",
+    "location": "Nao Abandonada",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT121",
+    "name": "Vozarrón",
+    "location": "Venta Centro Comercial Calagua",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT122",
+    "name": "Onda Anómala",
+    "location": "Laboratorio Misión 10 Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT123",
+    "name": "Cuchilla Solar",
+    "location": "Cueva Ruta 120",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT124",
+    "name": "Colm.Rayo",
+    "location": "Venta Centro Comercial Calagua",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT125",
+    "name": "Colm.Hielo",
+    "location": "Venta Centro Comercial Calagua",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT126",
+    "name": "Colm.Fuego",
+    "location": "Venta Centro Comercial Calagua",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT127",
+    "name": "Electrotela",
+    "location": "Venta en Comercio Portual",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT128",
+    "name": "Fisura",
+    "location": "Mt.Cenizo. Cueva de Groudon",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT129",
+    "name": "Cola Veneno",
+    "location": "Casino Malvalona, S2",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT130",
+    "name": "Triataque",
+    "location": "Laboratorio Misión 10 Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT131",
+    "name": "Tierra Viva",
+    "location": "Ruta 134, Cámara Sellada",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT132",
+    "name": "Maquinación",
+    "location": "Silph, S2. Regalo de Científico",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT133",
+    "name": "Golpe Calor",
+    "location": "Pueblo Lavacalda, NPC del Centro Pkmn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT134",
+    "name": "Maldición",
+    "location": "Torre Pokémon, S3",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT135",
+    "name": "Onda Vacío",
+    "location": "Venta en Comercio Portual",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT136",
+    "name": "Meteorobola",
+    "location": "Ruta 119. Instituto Meteorológico",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT137",
+    "name": "Superdiente",
+    "location": "Casino Malvalona, uno de los premios",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT138",
+    "name": "Fuerza Equina",
+    "location": "Ruta 39, regalo de Criador en Granja Muu-mu",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT139",
+    "name": "Arenas Ardientes",
+    "location": "Desierto de Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT140",
+    "name": "Poltergeist",
+    "location": "Monte Pírico, cima interior",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT141",
+    "name": "Metaláser",
+    "location": "P.Caoba, secundaria casa al noreste",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT142",
+    "name": "Truco",
+    "location": "Venta en Centro Comercial Calagua",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT143",
+    "name": "Chupavidas",
+    "location": "C.Plateada, secundaria cazabichos",
+    "region": "(T1: Kanto)"
+  },
+  {
+    "number": "MT144",
+    "name": "Pedrada",
+    "location": "Interior Cueva Granito",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT145",
+    "name": "Poder Reserva",
+    "location": "Pasadizo hacia el Culto Lavanda",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT146",
+    "name": "Beso Drenaje",
+    "location": "Venta Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT147",
+    "name": "Amortiguador",
+    "location": "Venta Centro Comercial de C.Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT148",
+    "name": "Comesueños",
+    "location": "Cementerio antiguo Gimnasio Lavanda",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT149",
+    "name": "Electrocañón",
+    "location": "Malvalanova",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT150",
+    "name": "Golpe Cuerpo",
+    "location": "Venta Centro Comercial Trigal",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT151",
+    "name": "Carámbano",
+    "location": "Templo Puntaneva",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT152",
+    "name": "Llama Embrujada",
+    "location": "Monte Pírico, cima exterior",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT153",
+    "name": "Psicocorte",
+    "location": "Ciudad Algaria, NPC de los Recreativos",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT154",
+    "name": "Frío Polar",
+    "location": "Cueva Abisal, sala Kyogre",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT155",
+    "name": "Carbatóxica",
+    "location": "Neo Ciudad Fucsia, zona norte abandonada",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT156",
+    "name": "Guillotina",
+    "location": "Torre Isla Secunda. Secundaria NPCs Isla Tera",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT157",
+    "name": "Pin Misil",
+    "location": "Zona Safari de Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT158",
+    "name": "Bomba Ácida",
+    "location": "Premio en el Casino Malvalona",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT159",
+    "name": "Juego Sucio",
+    "location": "Premio Casino Malvalona",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT160",
+    "name": "Perforador",
+    "location": "Zona Safari Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT162",
+    "name": "Onda Ígnea",
+    "location": "Torre Radio Trigal, Científico en el P7",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT166",
+    "name": "Amnesia",
+    "location": "Secundaria Bosque Baya, Cueva Hypno",
+    "region": "(T2: Archi7)"
+  },
+  {
+    "number": "MT167",
+    "name": "Viraje",
+    "location": "Mares de Hoenn, tras una zona de buceo",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT169",
+    "name": "Ala Bis",
+    "location": "Exterior Faro Ciudad Olivo",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT170",
+    "name": "Mil Temblores",
+    "location": "Torre Radio Trigal, P10",
+    "region": "(T3: Johto)"
+  },
+  {
+    "number": "MT179",
+    "name": "Otra Vez",
+    "location": "Museo Pueblo Verdegal",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT195",
+    "name": "Furia Dragon",
+    "location": "Gimnasio Endrino abierto, tras misión 10 Hoenn",
+    "region": "(T5: Hoenn)"
+  },
+  {
+    "number": "MT198",
+    "name": "Bofetón Lodo",
+    "location": "Prado de Isla Inta, surfeando",
+    "region": "(T1: Kanto)"
+  }
+]

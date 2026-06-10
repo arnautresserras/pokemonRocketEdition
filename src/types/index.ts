@@ -25,6 +25,7 @@ export interface Pokemon {
 export interface MoveVersion {
   type: string
   power: string
+  powerValue: number | null
   accuracy: string
   effect: string
   pp: number

@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Piedra Espíritu",
+    "effect": "+30% At.Esp y Def.Esp en Spiritomb.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Ala Arcoiris",
+    "effect": "+20% Ataque y Defensa en Ho-Oh.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Ala Plateada",
+    "effect": "+20% At.Esp y Def.Esp en Lugia.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Escamadragón",
+    "effect": "+30% Velocidad y Defensa en Kingdra.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Mejora",
+    "effect": "+30% At.Esp y Velocidad en Porygon2.\n- Funciona también como una piedra evolutiva para Porygon",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Protector",
+    "effect": "+30% Defensa y Def.esp en Rhyperior.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Electrizador",
+    "effect": "+30% Ataque y Def.Esp en Electivire.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Magmatizador",
+    "effect": "+30% At.Esp y Def.Esp en Magmortar.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Discoxtraño",
+    "effect": "+30% Def y At.Esp en Porygon-Z.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Telaterrible",
+    "effect": "+30% Ataque y Velocidad en Dusknoir.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Escama Bella",
+    "effect": "+30% Def.Esp y Velocidad en Milotic.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Dulce de Nata",
+    "effect": "+30% At.Esp y Def.Esp en Slurpuff (No obtenible).",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Sam.Flagrante",
+    "effect": "+30% Defensa y Def.Esp en Aromatisse (No obtenible).",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Discos Genesect",
+    "effect": "+30% Defensa y Def.Esp en Genesect. Mantiene efecto anterior.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Discos Silvally",
+    "effect": "+30% Ataque y Def.Esp en Silvally.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Escama Marina",
+    "effect": "+30% At.Esp y Velocidad en Gorebyss.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Diente Marino",
+    "effect": "+30% Ataque y Velocidad en Huntail.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Roca del Rey",
+    "effect": "+30% At.Esp y Velocidad en Slowking/Politoed.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Rev.Metálico",
+    "effect": "+30% Ataque y Defensa en Scizor/Steelix.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Garra Afilada",
+    "effect": "+30% Ataque y Defensa en Weavile.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Colm.Agudo",
+    "effect": "+30% Ataque y Defensa en Gliscor.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Escama Roja",
+    "effect": "+30% Defensa y Def.Esp en Guardaos.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Condensador Gas",
+    "effect": "-30% Ataque. +30% At.Esp, Def.Esp y Defensa en Weezing.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Mineral Negro",
+    "effect": "+30% Velocidad y Def.Esp en Kleavor.",
+    "section": "OBJETOS POTENCIADORES DE CIERTOS PKMN"
+  },
+  {
+    "name": "Tablas de Arceus",
+    "effect": "Pasan de potenciar un 20% a un 30% el tipo objetivo.",
+    "section": "OBJETOS CUYO EFECTO COMPETITIVO SE HA MODIFICADO"
+  },
+  {
+    "name": "Gemas",
+    "effect": "Pasan de potenciar un 30% a un 40% el movimiento objetivo.",
+    "section": "OBJETOS CUYO EFECTO COMPETITIVO SE HA MODIFICADO"
+  },
+  {
+    "name": "Cola Plúmbea",
+    "effect": "+35% Ataque. Mantiene el efecto anterior.",
+    "section": "OBJETOS CUYO EFECTO COMPETITIVO SE HA MODIFICADO"
+  },
+  {
+    "name": "Bola Férrea",
+    "effect": "+35% Defensa. Mantiene el efecto anterior.",
+    "section": "OBJETOS CUYO EFECTO COMPETITIVO SE HA MODIFICADO"
+  },
+  {
+    "name": "Piedra Pómez",
+    "effect": "+25% Velocidad. Mantiene el efecto anterior.",
+    "section": "OBJETOS CUYO EFECTO COMPETITIVO SE HA MODIFICADO"
+  }
+]

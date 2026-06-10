@@ -1,0 +1,884 @@
+[
+  {
+    "name": "Piedra Agua",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda."
+  },
+  {
+    "name": "Piedra Trueno",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda."
+  },
+  {
+    "name": "Piedra Fuego",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda."
+  },
+  {
+    "name": "Piedra Hoja",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda."
+  },
+  {
+    "name": "Piedra Alba",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda (Sala Entrenamiento)."
+  },
+  {
+    "name": "Piedra Noche",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda (Sala Entrenamiento)."
+  },
+  {
+    "name": "Piedra Día",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda (Sala Entrenamiento)."
+  },
+  {
+    "name": "Piedra Hielo",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda (Sala Entrenamiento)."
+  },
+  {
+    "name": "Piedra Link",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Venta en Base Rocket Profunda (Sala Entrenamiento)."
+  },
+  {
+    "name": "Piedra Lunar",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "No está a la venta.\n- Como objeto de suelo: Mt.Moon | Base Rocket Kanto | Mansion Pkmn S1 | Zona Secreta Bosque Baya | Cataratas Tohjo | Ruinas Alfa | Interior Cámara Sellada\n- Como objeto invisible: Mt.Moon 3F | Mansión Pkmn 1F\n- Equipado en un Eevee de la secundaria en Mansión Canela"
+  },
+  {
+    "name": "Piedra Solar",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "No está a la venta.\n- Como objeto de suelo: Jardín Sec.Cazabichos Plateada | Valle Ruinas | Ruta 36 | Ruta 51 (Mar Oeste Cerezo) | Interior Casino Malvalona\n- Equipado en un Eevee de la secundaria en Mansión Canela | Regalo de NPC en el Centro Espacial Algaria"
+  },
+  {
+    "name": "Piedra Sagrada",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "No accesible hasta misión 'Ruta 47' del DLC.\n- Se obtiene una para entrar a la torre Dun. Dentro de la propia torre hay dos más.\n- A partir de la apertura de la Torre Radio Lavanda, se venden en sus pisos superiores."
+  },
+  {
+    "name": "Piedra Rocket",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "No accesible hasta el período 5ta-6ta medalla de Johto.\n- A partir de la apertura De la Torre Radio Lavanda, se venden en sus pisos superiores."
+  },
+  {
+    "name": "Piedra Devon",
+    "category": "PIEDRAS EVOLUTIVAS",
+    "description": "Una única unidad disponible, obtenible en la 4ta misión de la temporada de Hoenn."
+  },
+  {
+    "name": "Piedra Espíritu",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "S3 del Culto Lavanda. En una tumba en la zona sureste. (T2: Archi7)\n- Accesible desde la primera visita al culto."
+  },
+  {
+    "name": "Ala Arcoíris",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Regalo de científico en el P9 de la T.Radio de C.Trigal. (T3: Johto - Medalla 5)\n- Accesible tras ganar la 5ta medalla de Johto."
+  },
+  {
+    "name": "Ala Plateada",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "En la casa de la Ex Campeona Frida. (T4: DLC)\n- En una zona secreta, al norte de las vías de tren.\n- Accesible tras misión Volcán Canela del DLC."
+  },
+  {
+    "name": "Escamadragón",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Siguiendo la Vía Acuática hacia el sur de Isla Exta.(T2: Archi7)"
+  },
+  {
+    "name": "Mejora",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Regalo del P.Silph junto a un Porygon en el asalto a Silph.(T1: Kanto)\n- Se venden más unidades en el subterráneo de C.Trigal.(T3: Johto - Medalla 2)"
+  },
+  {
+    "name": "Protector",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Como objeto de suelo dentro de la secundaria del bar Olivo.(T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Electrizador",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Como objeto de suelo dentro de la secundaria de la casa al noroeste de Caoba.(T3: Johto - Medalla 6)"
+  },
+  {
+    "name": "Magmatizador",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Como objeto de suelo dentro de la misión del Volcán Canela.(T4: DLC - Misión 5)"
+  },
+  {
+    "name": "Discoxtraño",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Regalo de Científico en el S2 de Silph.(T2: Archi7)\n- Se venden más unidades en el subterráneo de C.Trigal.(T3: Johto - Medalla 2)"
+  },
+  {
+    "name": "Telaterrible",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Objeto de suelo en la Cueva de Hypno.(T2: Archi7 - Secundaria Bosque Baya)\n- También aparece en la 2da visita al Culto Lavanda.(T3: Johto - Medalla 7)"
+  },
+  {
+    "name": "Escama Bella",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Objeto de suelo en Ruta 51 (Mar Oeste Cerezo).(T3: Johto)"
+  },
+  {
+    "name": "Escama Marina",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Cámara Sellada Regigigas.(T5: Hoenn - Misión 9)"
+  },
+  {
+    "name": "Diente Marino",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Faro Ciudad Olivo | Nao Abandonada(T3: Johto - Medalla 4) | (T5: Hoenn - Misión 3)"
+  },
+  {
+    "name": "Roca del Rey",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Cañón Sete de Isla Sétima(T2: Archi7)"
+  },
+  {
+    "name": "Rev.Metálico",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Pilar Recuerdo de Isla Inta.(T1: Kanto)"
+  },
+  {
+    "name": "Bolaluminosa",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Se vende en el subterráneo de C.Trigal.(T3: Johto - Medalla 2)"
+  },
+  {
+    "name": "Palo",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "En el Encinar.(T3: Johto - Medalla 2)"
+  },
+  {
+    "name": "Escama Roja",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Interior del Lago Furia, zona más profunda.(T4: DLC - Misión 'Lago Furia')"
+  },
+  {
+    "name": "Condensador Gas",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Zona Central de los refugios de Kanto.(T4: DLC - Misión 7)"
+  },
+  {
+    "name": "Mineral Negro",
+    "category": "OBJETOS POTENCIADORES DE CIERTOS PKMN",
+    "description": "Torre Dun, P11.(T4: DLC - Misión 'Ruta 47')"
+  },
+  {
+    "name": "C.Elegida",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Regalo Científico M.Plateada post 8 Medallas de Kanto. (T1: Kanto)"
+  },
+  {
+    "name": "G.Especiales",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Regalo Copiona en C.Azafrán post 8 Medallas de Kanto. (T1: Kanto)"
+  },
+  {
+    "name": "P.Elegido",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Regalo Entr.Guay Isla Sétima. (T2: Archi7)"
+  },
+  {
+    "name": "Llamasfera",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Regalo anciano lago C.Azulona post 8 Medallas de Kanto. (T1: Kanto)"
+  },
+  {
+    "name": "Toxisfera",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Robado al combatir con el Ayudante de Oak de Ruta 15. (T1: Kanto)"
+  },
+  {
+    "name": "Roca Lluvia",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Isla Exta, caverna secreta de Cueva Punteada. (T2: Archi7)"
+  },
+  {
+    "name": "Roca Calor",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Isla Prima, caverna secreta del Mt.Ascuas. (T2: Archi7)"
+  },
+  {
+    "name": "Roca Suave",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial de C.Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Roca Helada",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Cueva Glaciada, zona secreta anciana isla. (T2: Archi7)"
+  },
+  {
+    "name": "Banda Focus",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Base Rocket Profunda. (T1: Kanto)"
+  },
+  {
+    "name": "Periscopio",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Equipado en el regalo del anciano del Machop en C.Carmín. (T1: Kanto)"
+  },
+  {
+    "name": "Restos",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Calle victoria, y invisible usando buscaobjetos sobre el lugar enel que estaba Snorlax (buscaobjetos se roba del Ayudante de Oak de Ruta 8)"
+  },
+  {
+    "name": "Camp.Concha",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Base Rocket Profunda."
+  },
+  {
+    "name": "Lupa",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Isla Secunda, regalo exorcista de Cabo Extremo. (T2: Archi7)"
+  },
+  {
+    "name": "Banda Fuerte",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "C.Azafrán, equipado en el reglo del motorista. (T1: Kanto)"
+  },
+  {
+    "name": "Gafas especiales",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Como objeto de suelo en el S2 de Silph. (T2: Archi7)"
+  },
+  {
+    "name": "Cinta Xperto",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "C.Fucsia, Cazabichos post 8 Medallas de Kanto. (T1: Kanto)"
+  },
+  {
+    "name": "Vidasfera",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Último Entr.Guay de Calle Victoria. (T1: Kanto)"
+  },
+  {
+    "name": "Telescopio",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Silph S3. (T2: Archi7)"
+  },
+  {
+    "name": "Metrónomo",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en el Casino de C.Trigal (T3: Johto)"
+  },
+  {
+    "name": "Cola Plúmbea",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Cueva Vías de tren C.Trigal (T3: Johto)"
+  },
+  {
+    "name": "Bola Férrea",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Torre Secundaria Recreativos (T2: Archi7)"
+  },
+  {
+    "name": "Lodo Negro",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "C.Verde, regalo tutor comesueños tras ganar 8 Medallas. (T1: Kanto)"
+  },
+  {
+    "name": "Garra Garfio",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Guarida Dragón, S3. (T3: Johto)"
+  },
+  {
+    "name": "Raíz Grande",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Farmacia de C.Orquídea (T3: Johto)"
+  },
+  {
+    "name": "Garra Afilada",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Torre Secundaria Recreativos (T2: Archi7)"
+  },
+  {
+    "name": "Colm.Agudo",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Senda Orquídea hacia Ruta 47 (T4: DLC)"
+  },
+  {
+    "name": "Min.Evol",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Regalo de Giovanni tras completar misión de P.Paleta (T1: Kanto)"
+  },
+  {
+    "name": "Piedra Pómez",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Ruta 47, al borde de la orilla. (T4: DLC)"
+  },
+  {
+    "name": "Casco Dentado",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Isla Cuarta, regalo NPC Golpe Cuerpo en FR. (T2: Archi7)"
+  },
+  {
+    "name": "Globo Helio",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Tarjeta Roja",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Blanco",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Banda Atadura",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Botón Escape",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Seguro Debilidad",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Centro Comercial Trigal. (T3: Johto)"
+  },
+  {
+    "name": "Chaleco Asalto",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Lab.Canela, regalo tutor metrónomo tras ganar 8 Medallas. (T1: Kanto)"
+  },
+  {
+    "name": "Gafas Protectoras",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Nerviosfera",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Cubresuelos",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Paracontacto",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Spray.Bucal",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Moch.Escape",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Botas Gruesas",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Seguro Fallo",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Par.Multiuso",
+    "category": "OBJETOS COMPETITIVOS",
+    "description": "Venta en Torre Radio Lavanda. (T4: DLC)"
+  },
+  {
+    "name": "Pañuelo Seda",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de Karatekas en Ruta 4. (T1: Kanto)"
+  },
+  {
+    "name": "Carbón",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Equipado en Charmander secundaria estafadores. (T1: Kanto)"
+  },
+  {
+    "name": "Agua Mística",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Equipado en el Omanyte regalado tras salvar el Museo Plateada. (T1: Kanto)"
+  },
+  {
+    "name": "Imán",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de chica en el P2 de Silph. (T1: Kanto)"
+  },
+  {
+    "name": "Sem.Milagro",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Base Rocket Profunda, Sala Potencial Máximo. (T1: Kanto)"
+  },
+  {
+    "name": "Antiderretir",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Cueva Glaciada de Isla Cuarta. (T2: Archi7)"
+  },
+  {
+    "name": "Cinturón Negro",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo del Rey del Kárate en C.Azafrán. (T1: Kanto)"
+  },
+  {
+    "name": "Flecha Venenosa",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de Petrel tras salvar el Museo Plateada. (T1: Kanto)"
+  },
+  {
+    "name": "Arena Fina",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de Recluta Rocket tras derrotar al Montañero de C.Celeste. (T1: Kanto)"
+  },
+  {
+    "name": "Pico Afilado",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Equipado en el Aerodactyl regalado tras misión Aves. (T1: Kanto)"
+  },
+  {
+    "name": "Cuchara Torcida",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de Científico en B.Profunda, zona oeste. (T1: Kanto)"
+  },
+  {
+    "name": "Polvo Plata",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Equipado en el Pinsir regalado por los Entr.Guays del Bosque Verde. (T1: Kanto)"
+  },
+  {
+    "name": "Piedra Dura",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Equipado en el Kabuto regalado tras misión Kangaskhan. (T1: Kanto)"
+  },
+  {
+    "name": "Hechizo",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Base Rocket Profunda, Sala Potencial Máximo. (T1: Kanto)"
+  },
+  {
+    "name": "Colmillodragón",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Base Rocket Profunda, Sala Ejecutivos. (T1: Kanto)"
+  },
+  {
+    "name": "Gafas de Sol",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Regalo de Koga al llegar a C.Fucsia. (T1: Kanto)"
+  },
+  {
+    "name": "Rev.Metálico",
+    "category": "UBICACIÓN OBJETOS POTENCIADORES +20% UN TIPO CONCRETO",
+    "description": "Pilar Recuerdo de Isla Inta. (T1: Kanto)"
+  },
+  {
+    "name": "Tabla Llama",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Volcán de Isla Canela (T4: DLC - Misión 5)."
+  },
+  {
+    "name": "Tabla Linfa",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Nao Abandonada (T5: Hoenn - Misión 3)."
+  },
+  {
+    "name": "Tabla Trueno",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Malvalanova (T5: Hoenn - Misión 2)."
+  },
+  {
+    "name": "Tabla Pradal",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Casa Desierta en Ruta 26 (T3: Johto - Medalla 5)."
+  },
+  {
+    "name": "Tabla Helada",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Templo Puntaneva (T5: Hoenn - Misión 5)."
+  },
+  {
+    "name": "Tabla Fuerte",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Mt.Mortero (T3: Johto - Medalla 4)."
+  },
+  {
+    "name": "Tabla Tóxica",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Casa Ex-Campeón, Ruta 50 (T4: DLC - Misión 'Ruta 47')."
+  },
+  {
+    "name": "Tabla Terrax",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Fosa Wringsparce, Noreste Ruta 50 (T4: DLC - Misión 'Ruta 47')."
+  },
+  {
+    "name": "Tabla Cielo",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Cima Pilar Celeste (T5: Hoenn - Misión 9)."
+  },
+  {
+    "name": "Tabla Mental",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Cima Pilar Dun (T4: DLC - Misión 'Ruta 47')."
+  },
+  {
+    "name": "Tabla Bicho",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Bosque oculto al norte vías de tren (T4: DLC - Misión 6)."
+  },
+  {
+    "name": "Tabla Pétrea",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Zona secreta de Cueva Granito (T5: Hoenn - Misión 4)."
+  },
+  {
+    "name": "Tabla Terror",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Pasadizo que lleva al Culto Lavanda (T2: Archi7)."
+  },
+  {
+    "name": "Tabla Draco",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Interior Guarida Dragón (T3: Johto - Medalla 8)."
+  },
+  {
+    "name": "Tabla Oscura",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Culto lavanda, última zona de la 2da visita (T3: Johto - Medalla 7)."
+  },
+  {
+    "name": "Tabla Acero",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Ruta 120, al lado de las ruinas de Registeel (T5: Hoenn - Misión 7)."
+  },
+  {
+    "name": "Tabla Duende",
+    "category": "UBICACIÓN DE LAS TABLAS DE ARCEUS (+30% UN TIPO CONCRETO)",
+    "description": "Ruta 51, mar al oeste de Ciudad Cerezo (T3: Johto - Medalla 5)."
+  },
+  {
+    "name": "DISCOS DE GENESECT",
+    "category": "DISCOS DE GENESECT",
+    "description": "- Los 4 se hallan en el Laboratorio del interior del Volcán Canela. (T4: DLC - Misión 5)",
+    "isGroup": true
+  },
+  {
+    "name": "DISCOS DE SILVALLY",
+    "category": "DISCOS DE SILVALLY",
+    "description": "- Todos están a la venta en la Torre Radio de Pueblo Lavanda. (T4: DLC - Misión 9)",
+    "isGroup": true
+  },
+  {
+    "name": "BAYAS REDUCTORAS EVS",
+    "category": "BAYAS REDUCTORAS EVS",
+    "description": "- Todas están a la venta en la Base Rocket de Johto. (T3: Johto - Medalla 5)",
+    "isGroup": true
+  },
+  {
+    "name": "BAYAS MITIGADORAS SUPEREFECTIVO Y BAYAS QUE SUBEN UN STAT EN MOMENTO CRÍTICO",
+    "category": "BAYAS MITIGADORAS SUPEREFECTIVO Y BAYAS QUE SUBEN UN STAT EN MOMENTO CRÍTICO",
+    "description": "- Todas a la venta en Bosque Secreto de I.Sétima | Secundaria Atlas(T2: Archi7)\n- Más tarde están también disponible en una casa al noreste de C.Trigal.(T3: Johto - Medalla 3)",
+    "isGroup": true
+  },
+  {
+    "name": "GEMAS PKMN",
+    "category": "GEMAS PKMN",
+    "description": "- Todas están a la venta en la Base Rocket de Hoenn.(T4: DLC - Misión 4)",
+    "isGroup": true
+  },
+  {
+    "name": "CRISTALES Z",
+    "category": "CRISTALES Z",
+    "description": "- Todos están a la venta en la Torre Radio de Pueblo Lavanda.(T4: DLC - Misión 9)",
+    "isGroup": true
+  },
+  {
+    "name": "SEMILLAS CONSUMIBLES BAJO CAMPOS",
+    "category": "SEMILLAS CONSUMIBLES BAJO CAMPOS",
+    "description": "- Todos están a la venta en la Torre Radio de Pueblo Lavanda.(T4: DLC - Misión 9)",
+    "isGroup": true
+  },
+  {
+    "name": "Venusaurita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Noroeste de Ciudad Trigal (T3: Johto - Medalla 2/3)"
+  },
+  {
+    "name": "Charizardita-X",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo de Científico en Base Caoba (T3: Johto - Medalla 6)"
+  },
+  {
+    "name": "Charizardita-Y",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Base estafadores en el mar Olivo (T3: Johto - Medalla 4)\n- Ver secundaria que se activa dejándote estafar el Magikarp al pie del Mt.Moon)"
+  },
+  {
+    "name": "Blastoisenita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Cueva Unión de Johto. S2, zona interior. (T3: Johto - Medalla 1)"
+  },
+  {
+    "name": "Beedrillita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Parque Nacional. Zona Noreste. (T3: Johto - Medalla 3)"
+  },
+  {
+    "name": "Pidgeotita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Mar al sur de C.Cerezo. Discípulo Pegaso. (T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Alakazita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Detrás de Torre Bellsprout, Ciudad Malva. (T3: Johto - Medalla 1)"
+  },
+  {
+    "name": "Slowbronita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Supernecio Pozo Slowpoke, tras hablar con César. (T3: Johto - Medalla 2)"
+  },
+  {
+    "name": "Gengarita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo de Agatha tras 6ta medalla Johto. (T3: Johto - Medalla 3)"
+  },
+  {
+    "name": "Kangaskhanita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Dentro de Cueva Oscura, Johto. (T3: Johto - Medalla 1)"
+  },
+  {
+    "name": "Pinsirita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ciudad Olivo, zona norte encima del gimnasio. (T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Aerodactylita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo de Elo al combatir en P.Primavera. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Mewtwonita-X",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Laboratorio Secreto, S1. (T5: Hoenn - Misión 10)"
+  },
+  {
+    "name": "Mewtwonita-Y",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo de Giovanni al acabar el DLC. (T4: DLC - Misión 9)"
+  },
+  {
+    "name": "Ampharosita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo del farero de C.Olivo, tras derrotar a Crom. (T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Steelixita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Afueras de C.Trigal, parte norte vías de tren. (T3: Johto - Medalla 3)"
+  },
+  {
+    "name": "Scizorita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo granja Mu-muu tras derrotarlos. (T3: Johto - Medalla 3)"
+  },
+  {
+    "name": "Heracronita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo esposa Aníbal tras traerlo de vuelta. (T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Houndoomita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ruta 26, Johto. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Tyranitarita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Interior Mt.Plateado, tras una de las cascadas. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Sceptilita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ruta 111, tras derrotar a la familia estratega. (T5: Hoenn - Misión 1)"
+  },
+  {
+    "name": "Blazikenita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ruta 133, zona norte de las corrientes. (T5: Hoenn - Misión 9)"
+  },
+  {
+    "name": "Swampertita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Nao abandonada, zona secreta. (T5: Hoenn - Misión 3)"
+  },
+  {
+    "name": "Gardevoirita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Sablenita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Cueva Granito. (T5: Hoenn - Misión 4)"
+  },
+  {
+    "name": "Mawilita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Secundaria casa noroeste P.Caoba. (T3: Johto - Medalla 6)"
+  },
+  {
+    "name": "Aggronita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Medichamita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Manectita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Torre Radio Lavanda, P9. (T4: DLC - Misión 9)"
+  },
+  {
+    "name": "Sharpedonita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Secundaria Científico Ruinas Alfa. (T3: Johto - Medalla 3)"
+  },
+  {
+    "name": "Cameruptita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Laboratorio Volcán Canela. (T4: DLC - Misión 5)"
+  },
+  {
+    "name": "Altarianita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ruta 119, tras la última cascada. (T5: Hoenn - Misión 6)"
+  },
+  {
+    "name": "Banettita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Cima Monte Pírico. (T5: Hoenn - Misión 7)"
+  },
+  {
+    "name": "Absolita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Glalita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ruta 125, al lado de Cueva Cardumen. (T5: Hoenn - Misión 8)"
+  },
+  {
+    "name": "Salamencita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Metagrossita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "No obtenible por ahora."
+  },
+  {
+    "name": "Latiasita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "No obtenible por ahora."
+  },
+  {
+    "name": "Latiosita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "No obtenible por ahora."
+  },
+  {
+    "name": "Lopunnita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Casino Malvalona. (T5: Hoenn - Misión 2)"
+  },
+  {
+    "name": "Garchompita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Lucarionita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Regalo 4to Líder Johto. (T3: Johto - Medalla 4)"
+  },
+  {
+    "name": "Abomasita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Templo Puntaneva. (T5: Hoenn - Misión 5)"
+  },
+  {
+    "name": "Galladita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Audinita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Ciudad Calagua, regalo de Npc casa este. (T5: Hoenn - Misión 7)"
+  },
+  {
+    "name": "Diancita",
+    "category": "TODAS LAS MEGAPIEDRAS (OFICIALES)",
+    "description": "Laboratorio Secreto, S3. (T5: Hoenn - Misión 10)"
+  },
+  {
+    "name": "Fligonita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Miloticita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Starmitita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Tras derrotar chica oeste mar C.Cerezo. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Butterfrita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
+    "name": "Dusknoirita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Culto Lavanda, segunda visita. (T3: Johto - Medalla 7)"
+  },
+  {
+    "name": "Noivernita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Regalo de Mirto. (T3: Johto - Medalla 7)"
+  },
+  {
+    "name": "Toxtricitita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "Zona final refugios guerra Kanto. (T4: DLC - Misión 7)"
+  },
+  {
+    "name": "Porygonita",
+    "category": "MEGAPIEDRAS NUEVAS",
+    "description": "No obtenible por ahora."
+  }
+]
