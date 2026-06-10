@@ -12,6 +12,7 @@ import EmptyState from '../components/EmptyState'
 import { categoryLabel } from '../utils/items'
 import { useDebouncedValue } from '../utils/useDebounce'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import { trackEvent } from '../lib/analytics'
 
 const moves = movesData as Move[]
 const mts = mtsData as MT[]
@@ -111,6 +112,12 @@ export default function MovesPage() {
     (f: string) => { setItemFilter(f); setSelectedItem(null); setSelectedChange(null); setSearch('') },
     [],
   )
+
+  // Track official-vs-hackrom diff opens (keyed on move name)
+  const selectedMoveName = selectedMove?.name
+  useEffect(() => {
+    if (selectedMoveName) trackEvent('move_diff_viewed', { move: selectedMoveName })
+  }, [selectedMoveName])
 
   const hasSelection =
     tab === 'moves' ? !!(selectedMove || selectedMT) : !!(selectedItem || selectedChange)

@@ -15,6 +15,7 @@ import { useDebouncedValue } from '../utils/useDebounce'
 import { useLocalStorage } from '../utils/useLocalStorage'
 import { useAbilityDescription } from '../hooks/useAbilityDescription'
 import { usePokemonApiAbilities } from '../hooks/usePokemonApiAbilities'
+import { trackEvent } from '../lib/analytics'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
@@ -152,6 +153,12 @@ export default function PokedexPage() {
     estimateSize: () => 56,
     overscan: 5,
   })
+
+  // Track detail opens (keyed on species so it fires once per Pokémon)
+  const selectedName = selected?.name
+  useEffect(() => {
+    if (selectedName) trackEvent('pokemon_viewed', { species: selectedName })
+  }, [selectedName])
 
   // Scroll to the selected Pokémon in the list only when the URL param changes
   useEffect(() => {

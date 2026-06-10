@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { NAV_LINKS } from '../constants/nav'
 import { openGlobalSearch } from './GlobalSearch'
+import { trackEvent } from '../lib/analytics'
 
 export default function Sidebar() {
   return (
@@ -30,6 +31,7 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
+            onClick={() => trackEvent('nav_clicked', { destination: to, source: 'sidebar' })}
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all ${
                 isActive

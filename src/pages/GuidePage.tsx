@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import type { RegionGuide, GuideSection, Battle, PokemonEncounter } from '../types'
 import guideData from '../data/guide.json'
@@ -7,6 +7,7 @@ import EmptyState from '../components/EmptyState'
 import { REGION_COLORS } from '../constants'
 import { useDebouncedValue } from '../utils/useDebounce'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import { trackEvent } from '../lib/analytics'
 
 const guide = guideData as RegionGuide[]
 
@@ -53,6 +54,16 @@ export default function GuidePage() {
   const activeSectionData = currentGuide?.sections.find(
     s => s.location === selectedSection,
   )
+
+  // Track section opens (keyed on region + section so it fires once per view)
+  useEffect(() => {
+    if (selectedSection && activeSectionData) {
+      trackEvent('guide_section_viewed', {
+        region: activeRegion,
+        section: selectedSection,
+      })
+    }
+  }, [activeRegion, selectedSection, activeSectionData])
 
   // Per-region progress
   const regionProgress = useMemo(

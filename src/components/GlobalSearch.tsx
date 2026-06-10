@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { Pokemon, Move, Item, RegionGuide } from '../types'
+import { trackEvent } from '../lib/analytics'
 import pokemonData from '../data/pokemon.json'
 import experimentsData from '../data/experiments.json'
 import movesData from '../data/moves.json'
@@ -137,10 +138,11 @@ export default function GlobalSearch() {
 
   const goTo = useCallback(
     (result: SearchResult) => {
+      trackEvent('global_search', { queryLength: query.trim().length, resultType: result.type })
       navigate(result.to, result.state ? { state: result.state } : undefined)
       close()
     },
-    [navigate, close],
+    [navigate, close, query],
   )
 
   useEffect(() => {

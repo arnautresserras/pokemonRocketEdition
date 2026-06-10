@@ -7,6 +7,13 @@ import GuidePage from './pages/GuidePage'
 import TypesPage from './pages/TypesPage'
 import NaturesPage from './pages/NaturesPage'
 import { NAV_LINKS } from './constants/nav'
+import { usePageTracking } from './hooks/usePageTracking'
+import { trackEvent } from './lib/analytics'
+
+function PageTracker() {
+  usePageTracking()
+  return null
+}
 
 function MobileNav() {
   return (
@@ -15,6 +22,7 @@ function MobileNav() {
         <NavLink
           key={to}
           to={to}
+          onClick={() => trackEvent('nav_clicked', { destination: to, source: 'mobile' })}
           className={({ isActive }) =>
             `flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors ${
               isActive ? 'text-dex-red' : 'text-gray-500'
@@ -39,6 +47,7 @@ function MobileNav() {
 export default function App() {
   return (
     <HashRouter>
+      <PageTracker />
       <div className="flex flex-col md:flex-row h-dvh overflow-hidden">
         <Sidebar />
         <main className="flex-1 overflow-y-auto overflow-x-hidden bg-dex-black min-h-0">
