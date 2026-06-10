@@ -18,6 +18,7 @@ export interface Pokemon {
   types?: string[]
   location?: string
   evolutionMethod?: string
+  megastoneLocation?: string
   category: 'base' | 'mega' | 'prototype' | 'primal'
   prototypeLevel?: 1 | 2 | 3
 }

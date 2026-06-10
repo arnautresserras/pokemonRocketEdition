@@ -498,25 +498,5 @@
     ],
     "category": "prototype",
     "prototypeLevel": 3
-  },
-  {
-    "name": "MEGA NOIVERN",
-    "hackromStats": {
-      "hp": 75,
-      "attack": 78,
-      "defense": 85,
-      "spAttack": 154,
-      "spDefense": 95,
-      "speed": 115,
-      "total": 602
-    },
-    "types": [
-      "Eléctrico",
-      "Veneno"
-    ],
-    "abilities": [
-      "Punk Rock"
-    ],
-    "category": "mega"
   }
 ]

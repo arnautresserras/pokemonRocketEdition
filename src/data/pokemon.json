@@ -248,6 +248,37 @@
     }
   },
   {
+    "name": "MEGA BUTTERFREE",
+    "hackromStats": {
+      "hp": 60,
+      "attack": 15,
+      "defense": 50,
+      "spAttack": 140,
+      "spDefense": 108,
+      "speed": 122,
+      "total": 495
+    },
+    "types": [
+      "Bicho",
+      "Volador"
+    ],
+    "abilities": [
+      "Adaptable"
+    ],
+    "category": "mega",
+    "dexNumber": 12,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "officialStats": {
+      "hp": 60,
+      "attack": 45,
+      "defense": 50,
+      "spAttack": 90,
+      "spDefense": 80,
+      "speed": 70,
+      "total": 395
+    }
+  },
+  {
     "name": "WEEDLE",
     "dexNumber": 13,
     "location": "Salvaje en Bosque Verde, Ruta 24...",
@@ -2358,6 +2389,37 @@
       "Agua",
       "Psíquico"
     ],
+    "officialStats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "spAttack": 100,
+      "spDefense": 85,
+      "speed": 115,
+      "total": 520
+    }
+  },
+  {
+    "name": "MEGA STARMIE",
+    "hackromStats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 105,
+      "spAttack": 130,
+      "spDefense": 105,
+      "speed": 145,
+      "total": 620
+    },
+    "types": [
+      "Hielo",
+      "Psíquico"
+    ],
+    "abilities": [
+      "Refrigeración"
+    ],
+    "category": "mega",
+    "dexNumber": 121,
+    "megastoneLocation": "Tras derrotar chica oeste mar C.Cerezo. (T3: Johto - Medalla 5)",
     "officialStats": {
       "hp": 60,
       "attack": 75,
@@ -6521,6 +6583,37 @@
     "category": "base"
   },
   {
+    "name": "MEGA FLYGON",
+    "officialStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 80,
+      "spAttack": 80,
+      "spDefense": 80,
+      "speed": 100,
+      "total": 520
+    },
+    "hackromStats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 100,
+      "spAttack": 140,
+      "spDefense": 100,
+      "speed": 140,
+      "total": 650
+    },
+    "types": [
+      "Bicho",
+      "Dragón"
+    ],
+    "abilities": [
+      "Piel Celeste"
+    ],
+    "category": "mega",
+    "dexNumber": 330,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
+  },
+  {
     "name": "CACNEA",
     "dexNumber": 331,
     "location": "Obtenible únicamente mediante crianza de Capturen.",
@@ -6925,6 +7018,37 @@
     "location": "Evolución de Feebas al nv.54.",
     "evolutionMethod": "Nivel 54",
     "category": "base"
+  },
+  {
+    "name": "MEGA MILOTIC",
+    "officialStats": {
+      "hp": 95,
+      "attack": 60,
+      "defense": 79,
+      "spAttack": 100,
+      "spDefense": 125,
+      "speed": 81,
+      "total": 540
+    },
+    "hackromStats": {
+      "hp": 105,
+      "attack": 65,
+      "defense": 99,
+      "spAttack": 135,
+      "spDefense": 185,
+      "speed": 81,
+      "total": 670
+    },
+    "types": [
+      "Agua",
+      "Hada"
+    ],
+    "abilities": [
+      "Aura Feérica"
+    ],
+    "category": "mega",
+    "dexNumber": 350,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)"
   },
   {
     "name": "CASTFORM",
@@ -9377,6 +9501,36 @@
     "category": "base"
   },
   {
+    "name": "MEGA PORYGON-Z",
+    "officialStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 70,
+      "spAttack": 135,
+      "spDefense": 75,
+      "speed": 90,
+      "total": 535
+    },
+    "hackromStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 70,
+      "spAttack": 145,
+      "spDefense": 75,
+      "speed": 90,
+      "total": 545
+    },
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Potencia"
+    ],
+    "category": "mega",
+    "dexNumber": 474,
+    "megastoneLocation": "No obtenible por ahora."
+  },
+  {
     "name": "GALLADE",
     "dexNumber": 475,
     "officialStats": {
@@ -9453,6 +9607,37 @@
     "location": "Evolución de Dusclops al nv.49.",
     "evolutionMethod": "Piedra Link",
     "category": "base"
+  },
+  {
+    "name": "MEGA DUSKNOIR",
+    "officialStats": {
+      "hp": 45,
+      "attack": 100,
+      "defense": 135,
+      "spAttack": 65,
+      "spDefense": 135,
+      "speed": 45,
+      "total": 525
+    },
+    "hackromStats": {
+      "hp": 55,
+      "attack": 110,
+      "defense": 170,
+      "spAttack": 105,
+      "spDefense": 170,
+      "speed": 25,
+      "total": 635
+    },
+    "types": [
+      "Fantasma",
+      "Siniestro"
+    ],
+    "abilities": [
+      "Espejomágico"
+    ],
+    "category": "mega",
+    "dexNumber": 477,
+    "megastoneLocation": "Culto Lavanda, segunda visita. (T3: Johto - Medalla 7)"
   },
   {
     "name": "FROSLASS",
@@ -14030,6 +14215,37 @@
     }
   },
   {
+    "name": "MEGA NOIVERN",
+    "hackromStats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 100,
+      "spAttack": 127,
+      "spDefense": 90,
+      "speed": 153,
+      "total": 635
+    },
+    "types": [
+      "Volador",
+      "Dragón"
+    ],
+    "abilities": [
+      "Indefenso"
+    ],
+    "category": "mega",
+    "dexNumber": 715,
+    "megastoneLocation": "Regalo de Mirto. (T3: Johto - Medalla 7)",
+    "officialStats": {
+      "hp": 85,
+      "attack": 70,
+      "defense": 80,
+      "spAttack": 97,
+      "spDefense": 80,
+      "speed": 123,
+      "total": 535
+    }
+  },
+  {
     "name": "XERNEAS",
     "dexNumber": 716,
     "category": "base",
@@ -16594,6 +16810,37 @@
       "Eléctrico",
       "Veneno"
     ],
+    "officialStats": {
+      "hp": 75,
+      "attack": 98,
+      "defense": 70,
+      "spAttack": 114,
+      "spDefense": 70,
+      "speed": 75,
+      "total": 502
+    }
+  },
+  {
+    "name": "MEGA TOXTRICITY",
+    "hackromStats": {
+      "hp": 75,
+      "attack": 78,
+      "defense": 85,
+      "spAttack": 154,
+      "spDefense": 95,
+      "speed": 115,
+      "total": 602
+    },
+    "types": [
+      "Eléctrico",
+      "Veneno"
+    ],
+    "abilities": [
+      "Punk Rock"
+    ],
+    "category": "mega",
+    "dexNumber": 849,
+    "megastoneLocation": "Zona final refugios guerra Kanto. (T4: DLC - Misión 7)",
     "officialStats": {
       "hp": 75,
       "attack": 98,
@@ -20998,6 +21245,25 @@
     }
   },
   {
+    "name": "MEGA ABOMASNOW",
+    "spriteId": 10060,
+    "megastoneLocation": "Templo Puntaneva. (T5: Hoenn - Misión 5)",
+    "category": "mega",
+    "types": [
+      "Planta",
+      "Hielo"
+    ],
+    "officialStats": {
+      "hp": 90,
+      "attack": 132,
+      "defense": 105,
+      "spAttack": 132,
+      "spDefense": 105,
+      "speed": 30,
+      "total": 594
+    }
+  },
+  {
     "name": "MEGA ABSOL",
     "spriteId": 10057,
     "officialStats": {
@@ -21021,7 +21287,63 @@
     "types": [
       "Siniestro"
     ],
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA AERODACTYL",
+    "spriteId": 10042,
+    "megastoneLocation": "Regalo de Elo al combatir en P.Primavera. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Roca",
+      "Volador"
+    ],
+    "officialStats": {
+      "hp": 80,
+      "attack": 135,
+      "defense": 85,
+      "spAttack": 70,
+      "spDefense": 95,
+      "speed": 150,
+      "total": 615
+    }
+  },
+  {
+    "name": "MEGA AGGRON",
+    "spriteId": 10073,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Acero"
+    ],
+    "officialStats": {
+      "hp": 70,
+      "attack": 140,
+      "defense": 230,
+      "spAttack": 60,
+      "spDefense": 80,
+      "speed": 50,
+      "total": 630
+    }
+  },
+  {
+    "name": "MEGA ALAKAZAM",
+    "spriteId": 10037,
+    "megastoneLocation": "Detrás de Torre Bellsprout, Ciudad Malva. (T3: Johto - Medalla 1)",
+    "category": "mega",
+    "types": [
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 65,
+      "spAttack": 175,
+      "spDefense": 105,
+      "speed": 150,
+      "total": 600
+    }
   },
   {
     "name": "MEGA ALTARIA",
@@ -21048,7 +21370,83 @@
       "Dragón",
       "Hada"
     ],
+    "megastoneLocation": "Ruta 119, tras la última cascada. (T5: Hoenn - Misión 6)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA AMPHAROS",
+    "spriteId": 10045,
+    "megastoneLocation": "Regalo del farero de C.Olivo, tras derrotar a Crom. (T3: Johto - Medalla 4)",
+    "category": "mega",
+    "types": [
+      "Eléctrico",
+      "Dragón"
+    ],
+    "officialStats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 105,
+      "spAttack": 165,
+      "spDefense": 110,
+      "speed": 45,
+      "total": 610
+    }
+  },
+  {
+    "name": "MEGA AUDINO",
+    "spriteId": 10076,
+    "megastoneLocation": "Ciudad Calagua, regalo de Npc casa este. (T5: Hoenn - Misión 7)",
+    "category": "mega",
+    "types": [
+      "Normal",
+      "Hada"
+    ],
+    "officialStats": {
+      "hp": 103,
+      "attack": 60,
+      "defense": 126,
+      "spAttack": 80,
+      "spDefense": 126,
+      "speed": 50,
+      "total": 545
+    }
+  },
+  {
+    "name": "MEGA BANETTE",
+    "spriteId": 10055,
+    "megastoneLocation": "Cima Monte Pírico. (T5: Hoenn - Misión 7)",
+    "category": "mega",
+    "types": [
+      "Fantasma"
+    ],
+    "officialStats": {
+      "hp": 64,
+      "attack": 165,
+      "defense": 75,
+      "spAttack": 93,
+      "spDefense": 83,
+      "speed": 75,
+      "total": 555
+    }
+  },
+  {
+    "name": "MEGA BEEDRILL",
+    "spriteId": 10090,
+    "megastoneLocation": "Parque Nacional. Zona Noreste. (T3: Johto - Medalla 3)",
+    "category": "mega",
+    "types": [
+      "Bicho",
+      "Veneno"
+    ],
+    "officialStats": {
+      "hp": 65,
+      "attack": 150,
+      "defense": 40,
+      "spAttack": 15,
+      "spDefense": 80,
+      "speed": 145,
+      "total": 495
+    }
   },
   {
     "name": "MEGA BLASTOISE",
@@ -21074,7 +21472,27 @@
     "types": [
       "Agua"
     ],
+    "megastoneLocation": "Cueva Unión de Johto. S2, zona interior. (T3: Johto - Medalla 1)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA BLAZIKEN",
+    "spriteId": 10053,
+    "megastoneLocation": "Ruta 133, zona norte de las corrientes. (T5: Hoenn - Misión 9)",
+    "category": "mega",
+    "types": [
+      "Fuego",
+      "Lucha"
+    ],
+    "officialStats": {
+      "hp": 80,
+      "attack": 160,
+      "defense": 80,
+      "spAttack": 130,
+      "spDefense": 80,
+      "speed": 100,
+      "total": 630
+    }
   },
   {
     "name": "MEGA CAMERUPT",
@@ -21101,6 +21519,7 @@
       "Fuego",
       "Tierra"
     ],
+    "megastoneLocation": "Laboratorio Volcán Canela. (T4: DLC - Misión 5)",
     "category": "mega"
   },
   {
@@ -21128,6 +21547,7 @@
       "Fuego",
       "Dragón"
     ],
+    "megastoneLocation": "Regalo de Científico en Base Caoba (T3: Johto - Medalla 6)",
     "category": "mega"
   },
   {
@@ -21155,7 +21575,65 @@
       "Fuego",
       "Volador"
     ],
+    "megastoneLocation": "Base estafadores en el mar Olivo (T3: Johto - Medalla 4)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA DIANCIE",
+    "spriteId": 10086,
+    "megastoneLocation": "Laboratorio Secreto, S3. (T5: Hoenn - Misión 10)",
+    "category": "mega",
+    "types": [
+      "Roca",
+      "Hada"
+    ],
+    "officialStats": {
+      "hp": 50,
+      "attack": 160,
+      "defense": 110,
+      "spAttack": 160,
+      "spDefense": 110,
+      "speed": 110,
+      "total": 700
+    }
+  },
+  {
+    "name": "MEGA GALLADE",
+    "spriteId": 10089,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Psíquico",
+      "Lucha"
+    ],
+    "officialStats": {
+      "hp": 68,
+      "attack": 165,
+      "defense": 95,
+      "spAttack": 65,
+      "spDefense": 115,
+      "speed": 110,
+      "total": 618
+    }
+  },
+  {
+    "name": "MEGA GARCHOMP",
+    "spriteId": 10058,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Dragón",
+      "Tierra"
+    ],
+    "officialStats": {
+      "hp": 108,
+      "attack": 170,
+      "defense": 115,
+      "spAttack": 120,
+      "spDefense": 95,
+      "speed": 92,
+      "total": 700
+    }
   },
   {
     "name": "MEGA GARDEVOIR",
@@ -21182,6 +21660,7 @@
       "Psíquico",
       "Hada"
     ],
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
     "category": "mega"
   },
   {
@@ -21209,6 +21688,7 @@
       "Fantasma",
       "Veneno"
     ],
+    "megastoneLocation": "Regalo de Agatha tras 6ta medalla Johto. (T3: Johto - Medalla 3)",
     "category": "mega"
   },
   {
@@ -21236,7 +21716,27 @@
       "Hielo",
       "Fantasma"
     ],
+    "megastoneLocation": "Ruta 125, al lado de Cueva Cardumen. (T5: Hoenn - Misión 8)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA HERACROSS",
+    "spriteId": 10047,
+    "megastoneLocation": "Regalo esposa Aníbal tras traerlo de vuelta. (T3: Johto - Medalla 4)",
+    "category": "mega",
+    "types": [
+      "Bicho",
+      "Lucha"
+    ],
+    "officialStats": {
+      "hp": 80,
+      "attack": 185,
+      "defense": 115,
+      "spAttack": 40,
+      "spDefense": 105,
+      "speed": 75,
+      "total": 600
+    }
   },
   {
     "name": "MEGA HOUNDOOM",
@@ -21266,7 +21766,45 @@
       "Siniestro",
       "Fuego"
     ],
+    "megastoneLocation": "Ruta 26, Johto. (T3: Johto - Medalla 5)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA KANGASKHAN",
+    "spriteId": 10039,
+    "megastoneLocation": "Dentro de Cueva Oscura, Johto. (T3: Johto - Medalla 1)",
+    "category": "mega",
+    "types": [
+      "Normal"
+    ],
+    "officialStats": {
+      "hp": 105,
+      "attack": 125,
+      "defense": 100,
+      "spAttack": 60,
+      "spDefense": 100,
+      "speed": 100,
+      "total": 590
+    }
+  },
+  {
+    "name": "MEGA LATIAS",
+    "spriteId": 10054,
+    "megastoneLocation": "No obtenible por ahora.",
+    "category": "mega",
+    "types": [
+      "Dragón",
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 120,
+      "spAttack": 140,
+      "spDefense": 150,
+      "speed": 110,
+      "total": 700
+    }
   },
   {
     "name": "MEGA LATIOS",
@@ -21293,6 +21831,7 @@
       "Dragón",
       "Psíquico"
     ],
+    "megastoneLocation": "No obtenible por ahora.",
     "category": "mega"
   },
   {
@@ -21320,7 +21859,234 @@
       "Normal",
       "Lucha"
     ],
+    "megastoneLocation": "Casino Malvalona. (T5: Hoenn - Misión 2)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA LUCARIO",
+    "spriteId": 10059,
+    "megastoneLocation": "Regalo 4to Líder Johto. (T3: Johto - Medalla 4)",
+    "category": "mega",
+    "types": [
+      "Lucha",
+      "Acero"
+    ],
+    "officialStats": {
+      "hp": 70,
+      "attack": 145,
+      "defense": 88,
+      "spAttack": 140,
+      "spDefense": 70,
+      "speed": 112,
+      "total": 625
+    }
+  },
+  {
+    "name": "MEGA MANECTRIC",
+    "spriteId": 10050,
+    "megastoneLocation": "Torre Radio Lavanda, P9. (T4: DLC - Misión 9)",
+    "category": "mega",
+    "types": [
+      "Eléctrico"
+    ],
+    "officialStats": {
+      "hp": 70,
+      "attack": 75,
+      "defense": 80,
+      "spAttack": 135,
+      "spDefense": 80,
+      "speed": 135,
+      "total": 575
+    }
+  },
+  {
+    "name": "MEGA MAWILE",
+    "spriteId": 10068,
+    "megastoneLocation": "Secundaria casa noroeste P.Caoba. (T3: Johto - Medalla 6)",
+    "category": "mega",
+    "types": [
+      "Acero",
+      "Hada"
+    ],
+    "officialStats": {
+      "hp": 50,
+      "attack": 105,
+      "defense": 125,
+      "spAttack": 55,
+      "spDefense": 95,
+      "speed": 50,
+      "total": 480
+    }
+  },
+  {
+    "name": "MEGA MEDICHAM",
+    "spriteId": 10049,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Lucha",
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 60,
+      "attack": 100,
+      "defense": 85,
+      "spAttack": 80,
+      "spDefense": 85,
+      "speed": 100,
+      "total": 510
+    }
+  },
+  {
+    "name": "MEGA METAGROSS",
+    "spriteId": 10072,
+    "megastoneLocation": "No obtenible por ahora.",
+    "category": "mega",
+    "types": [
+      "Acero",
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 80,
+      "attack": 145,
+      "defense": 150,
+      "spAttack": 105,
+      "spDefense": 110,
+      "speed": 110,
+      "total": 700
+    }
+  },
+  {
+    "name": "MEGA MEWTWO X",
+    "spriteId": 10043,
+    "megastoneLocation": "Laboratorio Secreto, S1. (T5: Hoenn - Misión 10)",
+    "category": "mega",
+    "types": [
+      "Psíquico",
+      "Lucha"
+    ],
+    "officialStats": {
+      "hp": 106,
+      "attack": 190,
+      "defense": 100,
+      "spAttack": 154,
+      "spDefense": 100,
+      "speed": 130,
+      "total": 780
+    }
+  },
+  {
+    "name": "MEGA MEWTWO Y",
+    "spriteId": 10044,
+    "megastoneLocation": "Regalo de Giovanni al acabar el DLC. (T4: DLC - Misión 9)",
+    "category": "mega",
+    "types": [
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 106,
+      "attack": 150,
+      "defense": 70,
+      "spAttack": 194,
+      "spDefense": 120,
+      "speed": 140,
+      "total": 780
+    }
+  },
+  {
+    "name": "MEGA PIDGEOT",
+    "spriteId": 10091,
+    "megastoneLocation": "Mar al sur de C.Cerezo. Discípulo Pegaso. (T3: Johto - Medalla 4)",
+    "category": "mega",
+    "types": [
+      "Normal",
+      "Volador"
+    ],
+    "officialStats": {
+      "hp": 83,
+      "attack": 80,
+      "defense": 80,
+      "spAttack": 135,
+      "spDefense": 80,
+      "speed": 121,
+      "total": 579
+    }
+  },
+  {
+    "name": "MEGA PINSIR",
+    "spriteId": 10040,
+    "megastoneLocation": "Ciudad Olivo, zona norte encima del gimnasio. (T3: Johto - Medalla 4)",
+    "category": "mega",
+    "types": [
+      "Bicho",
+      "Volador"
+    ],
+    "officialStats": {
+      "hp": 65,
+      "attack": 155,
+      "defense": 120,
+      "spAttack": 65,
+      "spDefense": 90,
+      "speed": 105,
+      "total": 600
+    }
+  },
+  {
+    "name": "MEGA SABLEYE",
+    "spriteId": 10069,
+    "megastoneLocation": "Cueva Granito. (T5: Hoenn - Misión 4)",
+    "category": "mega",
+    "types": [
+      "Siniestro",
+      "Fantasma"
+    ],
+    "officialStats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 125,
+      "spAttack": 85,
+      "spDefense": 115,
+      "speed": 20,
+      "total": 480
+    }
+  },
+  {
+    "name": "MEGA SALAMENCE",
+    "spriteId": 10071,
+    "megastoneLocation": "Venta en B.Rocket Johto, P2. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Dragón",
+      "Volador"
+    ],
+    "officialStats": {
+      "hp": 95,
+      "attack": 145,
+      "defense": 130,
+      "spAttack": 120,
+      "spDefense": 90,
+      "speed": 120,
+      "total": 700
+    }
+  },
+  {
+    "name": "MEGA SCEPTILE",
+    "spriteId": 10065,
+    "megastoneLocation": "Ruta 111, tras derrotar a la familia estratega. (T5: Hoenn - Misión 1)",
+    "category": "mega",
+    "types": [
+      "Planta",
+      "Dragón"
+    ],
+    "officialStats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 75,
+      "spAttack": 145,
+      "spDefense": 85,
+      "speed": 145,
+      "total": 630
+    }
   },
   {
     "name": "MEGA SCIZOR",
@@ -21347,6 +22113,7 @@
       "Bicho",
       "Acero"
     ],
+    "megastoneLocation": "Regalo granja Mu-muu tras derrotarlos. (T3: Johto - Medalla 3)",
     "category": "mega"
   },
   {
@@ -21374,7 +22141,84 @@
       "Agua",
       "Siniestro"
     ],
+    "megastoneLocation": "Secundaria Científico Ruinas Alfa. (T3: Johto - Medalla 3)",
     "category": "mega"
+  },
+  {
+    "name": "MEGA SLOWBRO",
+    "spriteId": 10041,
+    "megastoneLocation": "Supernecio Pozo Slowpoke, tras hablar con César. (T3: Johto - Medalla 2)",
+    "category": "mega",
+    "types": [
+      "Agua",
+      "Psíquico"
+    ],
+    "officialStats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 180,
+      "spAttack": 130,
+      "spDefense": 80,
+      "speed": 30,
+      "total": 590
+    }
+  },
+  {
+    "name": "MEGA STEELIX",
+    "spriteId": 10109,
+    "megastoneLocation": "Afueras de C.Trigal, parte norte vías de tren. (T3: Johto - Medalla 3)",
+    "category": "mega",
+    "types": [
+      "Acero",
+      "Tierra"
+    ],
+    "officialStats": {
+      "hp": 75,
+      "attack": 125,
+      "defense": 230,
+      "spAttack": 55,
+      "spDefense": 95,
+      "speed": 30,
+      "total": 610
+    }
+  },
+  {
+    "name": "MEGA SWAMPERT",
+    "spriteId": 10064,
+    "megastoneLocation": "Nao abandonada, zona secreta. (T5: Hoenn - Misión 3)",
+    "category": "mega",
+    "types": [
+      "Agua",
+      "Tierra"
+    ],
+    "officialStats": {
+      "hp": 100,
+      "attack": 150,
+      "defense": 110,
+      "spAttack": 95,
+      "spDefense": 110,
+      "speed": 70,
+      "total": 635
+    }
+  },
+  {
+    "name": "MEGA TYRANITAR",
+    "spriteId": 10052,
+    "megastoneLocation": "Interior Mt.Plateado, tras una de las cascadas. (T3: Johto - Medalla 5)",
+    "category": "mega",
+    "types": [
+      "Roca",
+      "Siniestro"
+    ],
+    "officialStats": {
+      "hp": 100,
+      "attack": 164,
+      "defense": 150,
+      "spAttack": 95,
+      "spDefense": 120,
+      "speed": 71,
+      "total": 700
+    }
   },
   {
     "name": "MEGA VENUSAUR",
@@ -21401,6 +22245,7 @@
       "Planta",
       "Veneno"
     ],
+    "megastoneLocation": "Noroeste de Ciudad Trigal (T3: Johto - Medalla 2/3)",
     "category": "mega"
   }
 ]

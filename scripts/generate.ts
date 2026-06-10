@@ -186,7 +186,7 @@ function parseExperiments(): Pokemon[] {
       }
 
       const nameM = line.match(formNameRe)
-      if (nameM && line.endsWith(':')) {
+      if (nameM) {
         if (currentEntry.name && (currentEntry.officialStats || currentEntry.hackromStats)) {
           result.push({ ...currentEntry, category, prototypeLevel: level } as Pokemon)
         }
@@ -554,17 +554,48 @@ const CANONICAL_MEGA_SPRITE_IDS: Record<string, number> = {
   'MEGA CHARIZARD X': 10034,
   'MEGA CHARIZARD Y': 10035,
   'MEGA BLASTOISE':   10036,
+  'MEGA ALAKAZAM':    10037,
   'MEGA GENGAR':      10038,
+  'MEGA KANGASKHAN':  10039,
+  'MEGA PINSIR':      10040,
+  'MEGA SLOWBRO':     10041,
+  'MEGA AERODACTYL':  10042,
+  'MEGA MEWTWO X':    10043,
+  'MEGA MEWTWO Y':    10044,
+  'MEGA AMPHAROS':    10045,
   'MEGA SCIZOR':      10046,
+  'MEGA HERACROSS':   10047,
   'MEGA HOUNDOOM':    10048,
+  'MEGA MEDICHAM':    10049,
+  'MEGA MANECTRIC':   10050,
   'MEGA GARDEVOIR':   10051,
-  'MEGA SHARPEDO':    10070,
-  'MEGA CAMERUPT':    10087,
-  'MEGA ALTARIA':     10067,
+  'MEGA TYRANITAR':   10052,
+  'MEGA BLAZIKEN':    10053,
+  'MEGA LATIAS':      10054,
+  'MEGA BANETTE':     10055,
   'MEGA ABSOL':       10057,
-  'MEGA GLALIE':      10074,
+  'MEGA GARCHOMP':    10058,
+  'MEGA LUCARIO':     10059,
+  'MEGA ABOMASNOW':   10060,
   'MEGA LATIOS':      10063,
+  'MEGA SWAMPERT':    10064,
+  'MEGA SCEPTILE':    10065,
+  'MEGA ALTARIA':     10067,
+  'MEGA MAWILE':      10068,
+  'MEGA SABLEYE':     10069,
+  'MEGA SHARPEDO':    10070,
+  'MEGA SALAMENCE':   10071,
+  'MEGA METAGROSS':   10072,
+  'MEGA AGGRON':      10073,
+  'MEGA GLALIE':      10074,
+  'MEGA AUDINO':      10076,
+  'MEGA DIANCIE':     10086,
+  'MEGA CAMERUPT':    10087,
   'MEGA LOPUNNY':     10088,
+  'MEGA GALLADE':     10089,
+  'MEGA BEEDRILL':    10090,
+  'MEGA PIDGEOT':     10091,
+  'MEGA STEELIX':     10109,
 }
 
 const CANONICAL_MEGA_API_SLUGS: Record<string, string> = {
@@ -572,17 +603,143 @@ const CANONICAL_MEGA_API_SLUGS: Record<string, string> = {
   'MEGA CHARIZARD X': 'charizard-mega-x',
   'MEGA CHARIZARD Y': 'charizard-mega-y',
   'MEGA BLASTOISE':   'blastoise-mega',
+  'MEGA BEEDRILL':    'beedrill-mega',
+  'MEGA PIDGEOT':     'pidgeot-mega',
+  'MEGA ALAKAZAM':    'alakazam-mega',
+  'MEGA SLOWBRO':     'slowbro-mega',
   'MEGA GENGAR':      'gengar-mega',
+  'MEGA KANGASKHAN':  'kangaskhan-mega',
+  'MEGA PINSIR':      'pinsir-mega',
+  'MEGA AERODACTYL':  'aerodactyl-mega',
+  'MEGA MEWTWO X':    'mewtwo-mega-x',
+  'MEGA MEWTWO Y':    'mewtwo-mega-y',
+  'MEGA AMPHAROS':    'ampharos-mega',
+  'MEGA STEELIX':     'steelix-mega',
   'MEGA SCIZOR':      'scizor-mega',
+  'MEGA HERACROSS':   'heracross-mega',
   'MEGA HOUNDOOM':    'houndoom-mega',
+  'MEGA TYRANITAR':   'tyranitar-mega',
+  'MEGA SCEPTILE':    'sceptile-mega',
+  'MEGA BLAZIKEN':    'blaziken-mega',
+  'MEGA SWAMPERT':    'swampert-mega',
   'MEGA GARDEVOIR':   'gardevoir-mega',
+  'MEGA SABLEYE':     'sableye-mega',
+  'MEGA MAWILE':      'mawile-mega',
+  'MEGA AGGRON':      'aggron-mega',
+  'MEGA MEDICHAM':    'medicham-mega',
+  'MEGA MANECTRIC':   'manectric-mega',
   'MEGA SHARPEDO':    'sharpedo-mega',
   'MEGA CAMERUPT':    'camerupt-mega',
   'MEGA ALTARIA':     'altaria-mega',
+  'MEGA BANETTE':     'banette-mega',
   'MEGA ABSOL':       'absol-mega',
   'MEGA GLALIE':      'glalie-mega',
+  'MEGA SALAMENCE':   'salamence-mega',
+  'MEGA METAGROSS':   'metagross-mega',
+  'MEGA LATIAS':      'latias-mega',
   'MEGA LATIOS':      'latios-mega',
   'MEGA LOPUNNY':     'lopunny-mega',
+  'MEGA GARCHOMP':    'garchomp-mega',
+  'MEGA LUCARIO':     'lucario-mega',
+  'MEGA ABOMASNOW':   'abomasnow-mega',
+  'MEGA GALLADE':     'gallade-mega',
+  'MEGA AUDINO':      'audino-mega',
+  'MEGA DIANCIE':     'diancie-mega',
+}
+
+// Dex numbers for custom new megas (not in PokéAPI) — used for base-form sprite fallback
+const CUSTOM_MEGA_DEX_NUMBERS: Record<string, number> = {
+  'MEGA BUTTERFREE': 12,
+  'MEGA STARMIE':    121,
+  'MEGA FLYGON':     330,
+  'MEGA MILOTIC':    350,
+  'MEGA DUSKNOIR':   477,
+  'MEGA PORYGON-Z':  474,
+  'MEGA NOIVERN':    715,
+  'MEGA TOXTRICITY': 849,
+}
+
+// Maps megastone name (as in items file) → standard mega Pokémon name
+const MEGA_STONE_MAP: Record<string, string> = {
+  'Venusaurita':    'MEGA VENUSAUR',
+  'Charizardita-X': 'MEGA CHARIZARD X',
+  'Charizardita-Y': 'MEGA CHARIZARD Y',
+  'Blastoisenita':  'MEGA BLASTOISE',
+  'Beedrillita':    'MEGA BEEDRILL',
+  'Pidgeotita':     'MEGA PIDGEOT',
+  'Alakazita':      'MEGA ALAKAZAM',
+  'Slowbronita':    'MEGA SLOWBRO',
+  'Gengarita':      'MEGA GENGAR',
+  'Kangaskhanita':  'MEGA KANGASKHAN',
+  'Pinsirita':      'MEGA PINSIR',
+  'Aerodactylita':  'MEGA AERODACTYL',
+  'Mewtwonita-X':   'MEGA MEWTWO X',
+  'Mewtwonita-Y':   'MEGA MEWTWO Y',
+  'Ampharosita':    'MEGA AMPHAROS',
+  'Steelixita':     'MEGA STEELIX',
+  'Scizorita':      'MEGA SCIZOR',
+  'Heracronita':    'MEGA HERACROSS',
+  'Houndoomita':    'MEGA HOUNDOOM',
+  'Tyranitarita':   'MEGA TYRANITAR',
+  'Sceptilita':     'MEGA SCEPTILE',
+  'Blazikenita':    'MEGA BLAZIKEN',
+  'Swampertita':    'MEGA SWAMPERT',
+  'Gardevoirita':   'MEGA GARDEVOIR',
+  'Sablenita':      'MEGA SABLEYE',
+  'Mawilita':       'MEGA MAWILE',
+  'Aggronita':      'MEGA AGGRON',
+  'Medichamita':    'MEGA MEDICHAM',
+  'Manectita':      'MEGA MANECTRIC',
+  'Sharpedonita':   'MEGA SHARPEDO',
+  'Cameruptita':    'MEGA CAMERUPT',
+  'Altarianita':    'MEGA ALTARIA',
+  'Banettita':      'MEGA BANETTE',
+  'Absolita':       'MEGA ABSOL',
+  'Glalita':        'MEGA GLALIE',
+  'Salamencita':    'MEGA SALAMENCE',
+  'Metagrossita':   'MEGA METAGROSS',
+  'Latiasita':      'MEGA LATIAS',
+  'Latiosita':      'MEGA LATIOS',
+  'Lopunnita':      'MEGA LOPUNNY',
+  'Garchompita':    'MEGA GARCHOMP',
+  'Lucarionita':    'MEGA LUCARIO',
+  'Abomasita':      'MEGA ABOMASNOW',
+  'Galladita':      'MEGA GALLADE',
+  'Audinita':       'MEGA AUDINO',
+  'Diancita':       'MEGA DIANCIE',
+  // New custom megas
+  'Fligonita':      'MEGA FLYGON',
+  'Miloticita':     'MEGA MILOTIC',
+  'Starmitita':     'MEGA STARMIE',
+  'Butterfrita':    'MEGA BUTTERFREE',
+  'Dusknoirita':    'MEGA DUSKNOIR',
+  'Noivernita':     'MEGA NOIVERN',
+  'Toxtricitita':   'MEGA TOXTRICITY',
+  'Porygonita':     'MEGA PORYGON-Z',
+}
+
+// ── Megastone locations ───────────────────────────────────────────────────────
+
+function parseMegastones(): Map<string, string> {
+  const content = readDoc(f => f.includes('OBJETOS') && !f.includes('CAMBIOS'))
+  const result = new Map<string, string>()
+
+  const startIdx = content.indexOf('TODAS LAS MEGAPIEDRAS')
+  const endIdx = content.indexOf('OBTENCIÓN DE TODAS LAS MTS')
+  if (startIdx === -1) return result
+
+  const section = content.slice(startIdx, endIdx !== -1 ? endIdx : undefined)
+  for (const raw of section.split('\n')) {
+    const line = raw.trim()
+    const m = line.match(/^([^:]+): (.+)/)
+    if (!m) continue
+    const stoneName = m[1].trim()
+    const megaName = MEGA_STONE_MAP[stoneName]
+    if (!megaName) continue
+    result.set(megaName, m[2].trim())
+  }
+
+  return result
 }
 
 const EN_TO_ES_TYPE: Record<string, string> = {
@@ -598,7 +755,7 @@ interface ApiStats {
   spAttack: number; spDefense: number; speed: number; total: number
 }
 
-type ApiCache = Record<string, { types: string[]; stats: ApiStats } | null>
+type ApiCache = Record<string, { types: string[]; stats: ApiStats; id?: number } | null>
 
 interface ParsedPokemonStats {
   name: string
@@ -621,11 +778,12 @@ interface ParsedEvolution {
   bidirectional: boolean
 }
 
-async function fetchApiPokemon(identifier: string | number): Promise<{ types: string[]; stats: ApiStats } | null> {
+async function fetchApiPokemon(identifier: string | number): Promise<{ types: string[]; stats: ApiStats; id?: number } | null> {
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${identifier}`)
     if (!res.ok) return null
     const data = await res.json() as {
+      id: number
       types: { type: { name: string } }[]
       stats: { base_stat: number; stat: { name: string } }[]
     }
@@ -638,7 +796,7 @@ async function fetchApiPokemon(identifier: string | number): Promise<{ types: st
       speed: sm['speed'] ?? 0, total: 0,
     }
     stats.total = stats.hp + stats.attack + stats.defense + stats.spAttack + stats.spDefense + stats.speed
-    return { types, stats }
+    return { types, stats, id: data.id }
   } catch {
     return null
   }
@@ -672,7 +830,7 @@ async function enrichWithApiData(pokemon: Pokemon[]): Promise<void> {
       if (!needsTypes && !needsStats) return
 
       const cacheKey = String(identifier)
-      let data: { types: string[]; stats: ApiStats } | null
+      let data: { types: string[]; stats: ApiStats; id?: number } | null
       if (cacheKey in cache) {
         data = cache[cacheKey]
         cacheHits++
@@ -684,6 +842,8 @@ async function enrichWithApiData(pokemon: Pokemon[]): Promise<void> {
       if (!data) return
       if (needsTypes) p.types = data.types
       if (needsStats) p.officialStats = data.stats
+      // For mega forms without a hard-coded spriteId, use the PokéAPI numeric form ID
+      if (p.category === 'mega' && !p.spriteId && data.id) p.spriteId = data.id
       enriched++
     }))
     process.stdout.write(`\r  fetching from PokéAPI… ${Math.min(i + CONCURRENCY, pokemon.length)}/${pokemon.length}`)
@@ -859,6 +1019,11 @@ function assemblePokemon() {
   const locationsRaw = parseLocations()
   const evolutionsRaw = parseEvolutions()
   const experimentsRaw = parseExperiments()
+  const megastoneMap = parseMegastones()
+
+  // Separate custom megas from the experiments list — they'll go into the main pokemon list
+  const customMegas = experimentsRaw.filter(e => e.category === 'mega')
+  const experiments = experimentsRaw.filter(e => e.category !== 'mega')
 
   // Index locations by normalized name (underscore→dash, lowercase)
   const locationMap = new Map(locationsRaw.map(l => [normalizeName(l.name), l]))
@@ -905,6 +1070,7 @@ function assemblePokemon() {
       types: entry.hackromTypes,
       location: loc?.location,
       evolutionMethod: evolMethod,
+      megastoneLocation: megastoneMap.get(entry.name),
       category,
     })
     inPokemon.add(key)
@@ -939,6 +1105,31 @@ function assemblePokemon() {
     }
   }
 
+  // Add all official megas not already covered by the stats file
+  for (const megaName of Object.keys(CANONICAL_MEGA_API_SLUGS)) {
+    const key = normalizeName(megaName)
+    if (inPokemon.has(key)) continue
+    pokemon.push({
+      name: megaName,
+      spriteId: CANONICAL_MEGA_SPRITE_IDS[megaName],
+      megastoneLocation: megastoneMap.get(megaName),
+      category: 'mega',
+    })
+    inPokemon.add(key)
+  }
+
+  // Add custom new megas (from Nuevas Megaevoluciones.txt) not yet in the list
+  for (const mega of customMegas) {
+    const key = normalizeName(mega.name)
+    if (inPokemon.has(key)) continue
+    pokemon.push({
+      ...mega,
+      dexNumber: CUSTOM_MEGA_DEX_NUMBERS[mega.name],
+      megastoneLocation: megastoneMap.get(mega.name),
+    })
+    inPokemon.add(key)
+  }
+
   // Sort by dex number then name
   pokemon.sort((a, b) => {
     if (a.dexNumber !== undefined && b.dexNumber !== undefined)
@@ -948,7 +1139,7 @@ function assemblePokemon() {
     return a.name.localeCompare(b.name)
   })
 
-  return { pokemon, experiments: experimentsRaw }
+  return { pokemon, experiments }
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
