@@ -13,6 +13,8 @@ import { getEffectiveTotal } from '../utils/pokemon'
 import { TOTAL_MAX, STAT_MAX } from '../constants'
 import { useDebouncedValue } from '../utils/useDebounce'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import { useAbilityDescription } from '../hooks/useAbilityDescription'
+import { usePokemonApiAbilities } from '../hooks/usePokemonApiAbilities'
 
 const allPokemon = [
   ...(pokemonData as Pokemon[]),
@@ -284,6 +286,62 @@ export default function PokedexPage() {
   )
 }
 
+function AbilityBadge({ name, slug, hidden }: { name?: string; slug?: string; hidden?: boolean }) {
+  const input = name ?? slug ?? ''
+  const { displayName, description, loading } = useAbilityDescription(input, !name && !!slug)
+  return (
+    <div className="px-3 py-2 bg-dex-gray rounded-lg text-xs border border-white/10 min-w-[120px]">
+      <div className="flex items-center gap-1.5">
+        <span className="text-gray-300 font-medium">{displayName}</span>
+        {hidden && (
+          <span className="text-[9px] text-gray-600 border border-white/10 rounded px-1 uppercase tracking-wide">
+            oculta
+          </span>
+        )}
+      </div>
+      {loading && <div className="text-gray-600 mt-1 italic">cargando...</div>}
+      {description && <div className="text-gray-500 mt-1 leading-relaxed">{description}</div>}
+    </div>
+  )
+}
+
+function AbilitiesSection({ pokemon }: { pokemon: Pokemon }) {
+  const hasJsonAbilities = !!pokemon.abilities?.length
+  const { abilities: apiAbilities, loading } = usePokemonApiAbilities(
+    hasJsonAbilities ? undefined : pokemon.dexNumber,
+  )
+
+  if (hasJsonAbilities) {
+    return (
+      <section className="mb-6">
+        <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Habilidades</h3>
+        <div className="flex flex-wrap gap-2">
+          {pokemon.abilities!.map(a => (
+            <AbilityBadge key={a} name={a} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  if (!loading && apiAbilities.length === 0) return null
+
+  return (
+    <section className="mb-6">
+      <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Habilidades</h3>
+      {loading && apiAbilities.length === 0 ? (
+        <div className="text-xs text-gray-600 italic">cargando...</div>
+      ) : (
+        <div className="flex flex-wrap gap-2">
+          {apiAbilities.map(a => (
+            <AbilityBadge key={a.slug} slug={a.slug} hidden={a.hidden} />
+          ))}
+        </div>
+      )}
+    </section>
+  )
+}
+
 function PokemonRow({
   pokemon,
   isSelected,
@@ -523,21 +581,7 @@ function PokemonDetail({
       )}
 
       {/* Abilities */}
-      {pokemon.abilities && pokemon.abilities.length > 0 && (
-        <section className="mb-6">
-          <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Habilidades</h3>
-          <div className="flex flex-wrap gap-2">
-            {pokemon.abilities.map(a => (
-              <span
-                key={a}
-                className="px-3 py-1 bg-dex-gray rounded-full text-xs text-gray-300 border border-white/10"
-              >
-                {a}
-              </span>
-            ))}
-          </div>
-        </section>
-      )}
+      <AbilitiesSection pokemon={pokemon} />
 
       {/* Megastone location */}
       {pokemon.category === 'mega' && pokemon.megastoneLocation && (
