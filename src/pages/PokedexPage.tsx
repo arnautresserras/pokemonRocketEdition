@@ -19,6 +19,24 @@ const allPokemon = [
   ...(experimentsData as Pokemon[]),
 ]
 
+const pokemonByName = new Map<string, Pokemon>(
+  allPokemon.map(p => [p.name.toLowerCase(), p]),
+)
+
+function escapeRegex(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+// Sort longest-first so multi-word names match before shorter sub-names
+const pokemonNamesRegex = new RegExp(
+  `(${allPokemon
+    .map(p => p.name.toLowerCase())
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegex)
+    .join('|')})`,
+  'gi',
+)
+
 const CATEGORIES = ['todos', 'favoritos', 'base', 'mega', 'prototype', 'primal'] as const
 type Category = (typeof CATEGORIES)[number]
 
@@ -362,6 +380,27 @@ function PokemonRow({
   )
 }
 
+function renderWithPokemonLinks(text: string, onNavigate: (name: string) => void) {
+  const parts = text.split(pokemonNamesRegex)
+  return parts.map((part, i) => {
+    if (i % 2 === 1) {
+      const target = pokemonByName.get(part.toLowerCase())
+      if (target) {
+        return (
+          <button
+            key={i}
+            onClick={() => onNavigate(target.name)}
+            className="text-dex-red hover:underline font-medium"
+          >
+            {part}
+          </button>
+        )
+      }
+    }
+    return part
+  })
+}
+
 function PokemonDetail({
   pokemon,
   isFav,
@@ -371,6 +410,7 @@ function PokemonDetail({
   isFav: boolean
   onToggleFav: () => void
 }) {
+  const navigate = useNavigate()
   const [spriteError, setSpriteError] = useState(false)
   const stats: { key: keyof Stats; label: string }[] = [
     { key: 'hp', label: 'PS' },
@@ -514,7 +554,9 @@ function PokemonDetail({
         <section className="mb-6">
           <h3 className="font-mono text-[10px] text-dex-red mb-2 uppercase">Dónde obtenerlo</h3>
           <div className="bg-dex-gray rounded-lg p-4 text-sm text-gray-300 leading-relaxed whitespace-pre-wrap break-words">
-            {pokemon.location}
+            {renderWithPokemonLinks(pokemon.location, name =>
+              navigate(`/pokedex/${encodeURIComponent(name.toLowerCase())}`),
+            )}
           </div>
         </section>
       )}
