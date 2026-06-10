@@ -12,8 +12,15 @@ export function initSentry() {
   if (initialized || !DSN) return
   Sentry.init({
     dsn: DSN,
-    integrations: [Sentry.browserTracingIntegration()],
-    tracesSampleRate: 0.1,
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.replayIntegration({ maskAllText: false, blockAllMedia: false }),
+    ],
+    // Low-traffic community app — sample every page load for useful perf data.
+    tracesSampleRate: 1.0,
+    // Don't replay routine sessions, but always capture the session that errored.
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: 1.0,
     environment: import.meta.env.MODE,
   })
   initialized = true
